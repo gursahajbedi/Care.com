@@ -15,7 +15,7 @@ export default function BlogCategoryPage(){
                 {category === "General" && (<hr className="rounded-full bg-red-400 h-2 w-44"></hr>)}
                 {category === "Tips" && (<hr className="rounded-full bg-yellow-400 h-2 w-44"></hr>)}
             </div>
-            <div className="container mx-auto flex flex-wrap gap-y-8 my-10">
+            <div className="mx-auto flex flex-wrap justify-center items-center gap-y-8 my-10 gap-x-5">
                 {
                     data.map((item)=>{
                         // eslint-disable-next-line react/jsx-key

@@ -50,7 +50,6 @@ export default function Home(){
         fetch_blogs();
         fetch_community();
         fetch_testimonials();
-        
         testimonials_map();
     },[testimonial])
 

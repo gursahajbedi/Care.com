@@ -1,8 +1,20 @@
 
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useLogin from "../AuthLogic/useLogin";
 
 export default function Login(){
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const {login}=useLogin()
+
+    const navigate= useNavigate()
+
+    const LoginSubmit = async()=>{
+        await login(email,password).then(()=>{
+            navigate("/");
+        })
+    }
     return (
         <div className="mx-auto container">
             <div className="w-full border-4 border-gray-400 rounded-3xl shadow-2xl my-20 p-5 py-16">
@@ -15,14 +27,14 @@ export default function Login(){
                         <div className="2xl:text-2xl md:text-xl">
                             <div className="my-9">
                                 <div className="my-3">Email</div>
-                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Email"></input>
+                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
                                 <div className="my-3">Password</div>
-                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Password"></input>
+                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}}></input>
                             </div>
                             <div className="my-12">
-                                <button className=" h-10 rounded-full bg-red-400 text-white py-6 px-7 flex flex-row items-center gap-3 shadow-xl">
+                                <button className=" h-10 rounded-full bg-red-400 text-white py-6 px-7 flex flex-row items-center gap-3 shadow-xl" onClick={()=>LoginSubmit()}>
                                     Proceed
                                     <span>
                                         <img src="/auth/whitearrow.svg" width={"30px"}></img>

@@ -1,138 +1,726 @@
 {
-    "blogs":[
-      {
-        "category": "General",
-        "author": "Emily Chen",
-        "shortdesc": "From sleepless nights to unexpected joys, embracing the early days of motherhood",
-        "title": "Confessions of a Sleep-Deprived (But Happy) Mom",
-        "content": "Motherhood is a rollercoaster ride, filled with moments of pure exhaustion and overwhelming love. It's the tiny milestones that leave you awestruck, the first smile, the first giggle, the first time they reach for you. It's the constant learning curve, the endless questions, and the fierce determination to be the best mom you can be. It's messy, it's beautiful, and it's an experience that changes you forever."
-      },
-      {
-        "category": "General",
-        "author": "Dr. Anna Patel",
-        "shortdesc": "Expert tips for surviving and thriving in those first few months with your newborn",
-        "title": "Navigating Early Motherhood: A Pediatrician's Guide",
-        "content": "The early months with a newborn can be overwhelming, but with the right support and knowledge, you can navigate this special time with confidence. This guide offers practical tips on sleep schedules, feeding routines, and building a strong bond with your baby."
-      },
-      {
-        "category": "General",
-        "author": "Anonymous Mom",
-        "shortdesc": "Coffee, spit-up, and endless questions: a day in the life of a new mom",
-        "title": "My Brain on Baby: Confessions of a Sleep-Deprived Comedian",
-        "content": "They say motherhood is the greatest joy, and they're right. It's also the most sleep-deprived, coffee-fueled, and hilariously chaotic experience you'll ever have. From deciphering mysterious baby noises to mastering the art of one-handed multitasking, every day is an adventure (and sometimes a disaster) in the best way possible."
-      },
-      {
-        "category": "General",
-        "author": "Mental Health Specialist",
-        "shortdesc": "Recognizing and addressing the emotional challenges of early motherhood",
-        "title": "Beyond the Instagram Glow: Supporting New Moms' Mental Wellbeing",
-        "content": "Early motherhood can be an emotionally demanding time. Postpartum depression and anxiety are real and often go unseen. This article explores the common challenges new moms face and emphasizes the importance of seeking support and prioritizing mental health."
-      },
-      {
-        "category": "General",
-        "author": "Maria Rodriguez",
-        "shortdesc": "Navigating early motherhood within a cultural context",
-        "title": "Traditions and Transitions: A Latina Mom's Journey",
-        "content": "Motherhood is a universal experience, but cultural traditions and family dynamics shape it in unique ways. This piece explores the joys and challenges of raising a newborn within a specific cultural context, highlighting the importance of honoring traditions while adapting to the needs of a new family."
-      },
-      {
-        "category": "General",
-        "author": "David Lee",
-        "author_role": "Father",
-        "shortdesc": "Supporting my wife and embracing fatherhood in the early months",
-        "title": "A Dad's Guide to Early Fatherhood: From Diaper Duty to Building a Bond",
-        "content": "Fatherhood is an incredible journey that begins alongside motherhood. This guide offers tips and insights for dads on supporting their partners, navigating the early months, and building a strong bond with their newborn."
-      },
-      {
-        "category": "Advice",
-        "author": "Jason Camell",
-        "shortdesc": "Practical tips for surviving and thriving in those first few months with your newborn",
-        "title": "From Chaos to Calm: A New Mom's Survival Guide (with a Touch of Humor)",
-        "content": "Okay, new mamas, let's face it: the first few months are a wild ride. Between the sleep deprivation, the endless diaper changes, and the constant stream of questions (both from your baby and everyone else), it's easy to feel overwhelmed. But fear not! Here are some practical tips from a fellow sleep-deprived comedian mom to help you navigate this crazy-beautiful time: \n * **Embrace the mess:** It's okay if your house isn't spotless or your meals aren't gourmet. Focus on what matters most: your baby and your own well-being.\n* **Lower your expectations:** Forget the picture-perfect Instagram feeds. Motherhood is messy, unpredictable, and often hilarious in its chaos.\n* **Prioritize sleep:** Whenever and wherever you can, grab some shut-eye. Sleep deprivation is no joke, and it can affect your mood, patience, and overall well-being.\n * **Ask for help:** Don't be afraid to lean on your partner, family, friends, or even a nanny if you need a break. It takes a village to raise a child, and there's no shame in asking for support.\n* **Celebrate the small victories:** Every smile, every gurgle, every milestone is a reason to celebrate. Savor these precious moments, even amidst the chaos.\n* **Find your humor:** Laughter is the best medicine, even when you're running on fumes. Find humor in the absurdity of motherhood, and don't be afraid to laugh at yourself (because trust me, you will do some crazy things!).\nRemember, mamas, you're not alone in this. We're all in this together, navigating the joys and challenges of motherhood one messy, sleep-deprived day at a time. And hey, if you can find a way to laugh through it all, that's even better!"
-      },
-      {
-        "category": "Advice",
-        "author": "Senra Cubek",
-        "shortdesc": "Practical tips for surviving and thriving in those first few months with your newborn",
-        "title": "From Chaos to Calm: A New Mom's Survival Guide (with a Touch of Humor)",
-        "content": "Embrace the mess, lower expectations, prioritize sleep, ask for help, celebrate small victories, and find your humor!"
-      },
-      {
-        "category": "Advice",
-        "author": "Roslo Nicotin",
-        "shortdesc": "Essential vaccinations for your baby and their importance",
-        "title": "Keeping Your Baby Healthy: A Guide to Essential Vaccinations",
-        "content": "Follow your pediatrician's recommended vaccination schedule to protect your baby from preventable diseases."
-      },
-      {
-        "category": "Advice",
-        "author": "Justin Timberlake",
-        "shortdesc": "Benefits and techniques for babywearing to promote bonding and development",
-        "title": "The Power of Proximity: Why Babywearing Matters",
-        "content": "Babywearing offers closeness, comfort, and developmental benefits for both babies and parents."
-      },
-      {
-        "category": "Advice",
-        "author": "Jessica Jones",
-        "shortdesc": "Creating a safe sleep space to minimize risks and ensure restful sleep for your baby",
-        "title": "Sweet Dreams: Creating a Safe Sleep Environment for Your Baby",
-        "content": "Place baby on their back on a firm mattress in a crib with no loose bedding or soft objects."
-      }
-      
-    ],
-    "community":[
-        {
-            "id": 5,
-            "author": "Emily Jones",
-            "title": "My Toddler Has Nightmares - Help!",
-            "author_type": "Mother",
-            "desc": "My 2-year-old son has been having frequent nightmares lately, and it's breaking my heart to see him so scared. He wakes up crying and doesn't want to go back to sleep. Any advice on how to help him through this?",
-            "published_date": "2024-04-21T13:10:30Z",
-            "likes_count": 18,
-            "dislikes_count": 2,
-            "comments": [
-              {
-                "id": 6,
-                "content": "We used a nightlight and a comfort object for our daughter, and it helped a lot!",
-                "parent": null,
-                "created_at": "2024-04-28T13:12:30Z",
-                "likes_count": 5,
-                "dislikes_count": 0,
-                "replies": [
-                  {
-                    "id": 7,
-                    "content": "Great tip (comment id: 6)! We did the same and it worked wonders. (replying to comment id: 6)",
-                    "parent": 6,
-                    "created_at": "2024-04-19T13:15:30Z",
-                    "likes_count": 2,
-                    "dislikes_count": 0,
-                    "replies": []
-                  }
-                ]
-              },
-              {
-                "id": 8,
-                "content": "Talking to your child's pediatrician might be helpful too. They can rule out any underlying medical issues. (comment id: 5)",
-                "parent": null,
-                "created_at": "2024-04-28T13:13:30Z",
-                "likes_count": 3,
-                "dislikes_count": 0,
-                "replies": [
-                  {
-                    "id": 9,
-                    "content": "Absolutely agree (comment id: 8). My son had night terrors for a while, and it turned out he had earaches. (replying to comment id: 8)",
-                    "parent": 8,
-                    "created_at": "2024-04-28T13:18:30Z",
-                    "likes_count": 1,
-                    "dislikes_count": 0,
-                    "replies": []
-                  }
-                ]
-              }
-            ]
-        },
+  "accounts": [
     {
-      "id": 13,
+      "id": "2c30",
+      "email": "a",
+      "password": "c",
+      "phone": "b",
+      "password2": "c",
+      "profile_pic": null
+    },
+    {
+      "id": "454d",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "phone": "9821849372",
+      "password2": "Gursahaj",
+      "profile_pic": null
+    },
+    {
+      "id": "ab36",
+      "email": "roshan@gmail.com",
+      "password": "roshannew",
+      "phone": "9000000000",
+      "password2": "roshannew",
+      "profile_pic": null
+    },
+    {
+      "id": "418c",
+      "email": "jaspinder@gmail.com",
+      "password": "Jassi",
+      "phone": "8920343546",
+      "password2": "Jassi",
+      "profile_pic": null
+    }
+  ],
+  "ratings":[
+    {
+      "id":"ab36",
+      "nanny_id":"2c30",
+      "type":"eldercare",
+      "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie, eros at gravida convallis, neque ipsum scelerisque nibh, vitae tristique odio felis at arcu. Cras ante quam, malesuada sit amet eros quis, condimentum hendrerit risus.",
+      "rating":5,
+      "name":"Roshan Sandilya",
+      "posted_on":"2024-04-19T13:15:30Z"
+    },
+    {
+      "id":"ab36",
+      "nanny_id":"2c30",
+      "type":"eldercare",
+      "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie, eros at gravida convallis, neque ipsum scelerisque nibh, vitae tristique odio felis at arcu. Cras ante quam, malesuada sit amet eros quis, condimentum hendrerit risus.",
+      "rating":4,
+      "name":"Roshan",
+      "posted_on":"2024-04-19T13:15:30Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": "2c30",
+      "status": "approved",
+      "verification": {
+        "state": "Delhi",
+        "user_type": "indivisual",
+        "organisation_url": "",
+        "organisation_name": "",
+        "reference1_name": "1000000000",
+        "reference1_contact": "Jasjyot Singh",
+        "reference2_name": "2000000000",
+        "reference2_contact": "Japjeet Singh"
+      },
+      "domains_offered": [
+        {
+          "id": "2c30",
+          "display_name": "Gursahaj Singh",
+          "type": "childcare",
+          "age": "28",
+          "pincode": "110064",
+          "city": "Hari Nagar",
+          "state": "Delhi",
+          "gender": "Male",
+          "years_of_experience": "4",
+          "child_age_ranges": [
+            "Less Than 1",
+            "1-3 Years Old",
+            "3-5 Years Old",
+            "5-11 Years Old"
+          ],
+          "timings": {
+            "monday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "tuesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "wednesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "thurday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "friday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "saturday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "sunday": {
+              "from": "10:00",
+              "to": ""
+            }
+          },
+          "about": "Gursahaj Singh embodies the essence of care and compassion as a dedicated male nanny. With a heart as warm as his smile, Gursahaj brings a unique blend of nurturing support and playful energy to his role. His journey into childcare was guided by a genuine love for children and a desire to make a positive impact on their lives.\n\nWith a keen understanding of child development and safety protocols, Gursahaj ensures that every child under his care thrives in a secure and stimulating environment. Whether it's organizing creative activities, assisting with homework, or simply lending a listening ear, he goes above and beyond to meet the individual needs of each child.\n\nGursahaj's presence is not only reassuring for the children but also for the parents who entrust him with their little ones. His professionalism, reliability, and unwavering commitment to excellence make him a cherished member of any family he works with.\n\nIn Gursahaj Singh, parents find a partner in nurturing their children's growth and happiness, while children find a friend and mentor who makes every moment memorable.\n\n\n\n\n\n",
+          "services": [
+            "Mild Cleaning",
+            "Cooking",
+            "Meal Planning",
+            "Nutrition Assistance",
+            "Mild Housekeeping",
+            "Immidiate Assistance Help"
+          ],
+          "languages": [
+            "English",
+            "Spanish",
+            "French",
+            "Hindi",
+            "Telugu",
+            "Punjabi"
+          ],
+          "can_help_with": [
+            "Light Cleaning",
+            "Cooking",
+            "Swimming Supervision",
+            "Travel",
+            "Groceries/Errands",
+            "Transportation",
+            "Help With Pets",
+            "Carpooling"
+          ],
+          "professional_details": [
+            "Transportation",
+            "CPR Trained",
+            "First Aid Trained",
+            "Does Not Smoke",
+            "Does Not Drink",
+            "Own A Car",
+            "Retired Nurse"
+          ],
+          "education": "2019-2021\nSome School\n\n2021-2024\nSome College",
+          "work_experience": [
+            {
+              "workplace": "Jessica Care Center",
+              "from": "2020-01-11",
+              "to": "2021-01-11"
+            },
+            {
+              "workplace": "Karmani Care Center",
+              "from": "2022-01-11",
+              "to": "2023-01-11"
+            }
+          ],
+          "one_time_base_rate": "500",
+          "recurring_base_rate": "300",
+          "increment": "100"
+        },
+        {
+          "id": "2c30",
+          "display_name": "Gursahaj Singh",
+          "type": "eldercare",
+          "age": "28",
+          "pincode": "110064",
+          "city": "Hari Nagar",
+          "state": "Delhi",
+          "gender": "Male",
+          "years_of_experience": "-1",
+          "timings": {
+            "monday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "tuesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "wednesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "thurday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "friday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "saturday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "sunday": {
+              "from": "10:00",
+              "to": ""
+            }
+          },
+          "about": "Gursahaj Singh embodies the essence of care and compassion as a dedicated male nanny. With a heart as warm as his smile, Gursahaj brings a unique blend of nurturing support and playful energy to his role. His journey into childcare was guided by a genuine love for children and a desire to make a positive impact on their lives.\n\nWith a keen understanding of child development and safety protocols, Gursahaj ensures that every child under his care thrives in a secure and stimulating environment. Whether it's organizing creative activities, assisting with homework, or simply lending a listening ear, he goes above and beyond to meet the individual needs of each child.\n\nGursahaj's presence is not only reassuring for the children but also for the parents who entrust him with their little ones. His professionalism, reliability, and unwavering commitment to excellence make him a cherished member of any family he works with.\n\nIn Gursahaj Singh, parents find a partner in nurturing their children's growth and happiness, while children find a friend and mentor who makes every moment memorable.\n\n\n\n\n\n",
+          "services": [
+            "Diaper Changing",
+            "Cooking",
+            "Mild housekeeping",
+            "Mild Cleaning",
+            "Immideate Assistance",
+            "Hospice Care"
+          ],
+          "languages": [
+            "English",
+            "Tamil",
+            "Kannada",
+            "Hindi"
+          ],
+          "can_help_with": [
+            "Light Cleaning",
+            "Cooking",
+            "Swimming Supervision",
+            "Travel",
+            "Groceries/Errands",
+            "Transportation",
+            "Help With Pets",
+            "Carpooling"
+          ],
+          "professional_details": [
+            "Transportation",
+            "CPR Trained",
+            "First Aid Trained",
+            "Does Not Smoke",
+            "Does Not Drink",
+            "Have A Car"
+          ],
+          "education": "2021-2022:\nSome College\n\n2022-2024\nSome College",
+          "work_experience": [
+            {
+              "workplace": "Junior High Schools",
+              "from": "2021-11-10",
+              "to": "2023-11-10"
+            }
+          ],
+          "one_time_base_rate": "800",
+          "recurring_base_rate": "700",
+          "increment": "100"
+        },
+        {
+          "id": "2c30",
+          "display_name": "Gursahaj Singh",
+          "type": "petcare",
+          "age": "28",
+          "pincode": "110064",
+          "city": "HARI NAGAR",
+          "state": "Delhi",
+          "gender": "Male",
+          "years_of_experience": "3",
+          "pet_type": [
+            "Cat",
+            "Dog",
+            "Birds",
+            "Hamsters",
+            "Rabbits",
+            "Turtles/Tortoise"
+          ],
+          "timings": {
+            "monday": {
+              "from": "10:20",
+              "to": ""
+            },
+            "tuesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "wednesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "thurday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "friday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "saturday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "sunday": {
+              "from": "10:00",
+              "to": ""
+            }
+          },
+          "about": "Gursahaj Singh embodies the essence of care and compassion as a dedicated male nanny. With a heart as warm as his smile, Gursahaj brings a unique blend of nurturing support and playful energy to his role. His journey into childcare was guided by a genuine love for children and a desire to make a positive impact on their lives.\n\nWith a keen understanding of child development and safety protocols, Gursahaj ensures that every child under his care thrives in a secure and stimulating environment. Whether it's organizing creative activities, assisting with homework, or simply lending a listening ear, he goes above and beyond to meet the individual needs of each child.\n\nGursahaj's presence is not only reassuring for the children but also for the parents who entrust him with their little ones. His professionalism, reliability, and unwavering commitment to excellence make him a cherished member of any family he works with.\n\nIn Gursahaj Singh, parents find a partner in nurturing their children's growth and happiness, while children find a friend and mentor who makes every moment memorable.\n\n\n\n\n\n",
+          "services": [
+            "Cleaning",
+            "Going For Walk",
+            "Playing ",
+            "Park Strolls",
+            "Nutritional Feeding",
+            "Cleaning"
+          ],
+          "languages": [
+            "English",
+            "Hindi",
+            "French"
+          ],
+          "can_help_with": [
+            "Light Cleaning",
+            "Cooking",
+            "Swimming Supervision",
+            "Travel",
+            "Groceries/Errands",
+            "Transportation",
+            "Help With Pets",
+            "Carpooling"
+          ],
+          "professional_details": [
+            "Transportation",
+            "CPR Trained",
+            "First Aid Trained",
+            "Does Not Smoke",
+            "Does Not Drink",
+            "Have A Car"
+          ],
+          "education": "2022-2023\nSome College",
+          "work_experience": [
+            {
+              "workplace": "Presidium School",
+              "from": "2023-01-10",
+              "to": "2024-01-10"
+            }
+          ],
+          "one_time_base_rate": "1000",
+          "recurring_base_rate": "900",
+          "increment": "100"
+        }
+      ]
+    },
+    {
+      "id": "ab36",
+      "status": "approved",
+      "verification": {
+        "state": "",
+        "user_type": "",
+        "organisation_url": "",
+        "organisation_name": "",
+        "reference1_name": "",
+        "reference1_contact": "",
+        "reference2_name": "",
+        "reference2_contact": ""
+      },
+      "domains_offered": [
+        {
+          "id": "ab36",
+          "display_name": "Roshan Sandilya",
+          "type": "childcare",
+          "age": "38",
+          "pincode": "110058",
+          "city": "Janakpuri",
+          "state": "Delhi",
+          "gender": "Male",
+          "years_of_experience": "4",
+          "child_age_ranges": [
+            "Less Than 1",
+            "1-3 Years Old",
+            "3-5 Years Old",
+            "5-11 Years Old",
+            "12+ Years Old"
+          ],
+          "timings": {
+            "monday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "tuesday": {
+              "from": "10:02",
+              "to": ""
+            },
+            "wednesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "thurday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "friday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "saturday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "sunday": {
+              "from": "10:00",
+              "to": ""
+            }
+          },
+          "about": "Meet Roshan Sandilya, your dependable and caring male nanny extraordinaire! With a heart full of warmth and a spirit brimming with joy, Roshan is dedicated to providing a nurturing environment for your children to thrive in.\n\nHaving honed his childcare skills through years of experience and a genuine love for nurturing young minds, Roshan brings a unique blend of patience, creativity, and attentiveness to his role as a nanny. Whether it's engaging in imaginative play, helping with homework, or simply offering a listening ear, Roshan prioritizes the well-being and happiness of the children under his care.\n\nHis gentle demeanor and compassionate nature make him not just a caregiver, but a trusted friend and mentor to your little ones. Roshan understands the importance of fostering a safe and supportive environment where children feel valued, encouraged, and free to explore the world around them.\n\nWith Roshan by their side, you can rest assured knowing that your children are in the best of hands, receiving the love, attention, and guidance they deserve.",
+          "services": [
+            "Mild HouseKeeping",
+            "Cleaning",
+            "Cooking"
+          ],
+          "languages": [
+            "English",
+            "Hindi",
+            "Telugu"
+          ],
+          "can_help_with": [
+            "Light Cleaning",
+            "Cooking",
+            "Swimming Supervision",
+            "Travel",
+            "Groceries/Errands",
+            "Transportation",
+            "Help With Pets",
+            "Carpooling"
+          ],
+          "professional_details": [
+            "Transportation",
+            "CPR Trained",
+            "First Aid Trained",
+            "Does Not Smoke",
+            "Does Not Drink",
+            "Does'nt Do Weed??",
+            "Drives A Car"
+          ],
+          "education": "2021-2022:\nSome College\n\n2022-2023\nSome College",
+          "work_experience": [
+            {
+              "workplace": "Junior High Schools",
+              "from": "2019-11-10",
+              "to": "2020-11-10"
+            },
+            {
+              "workplace": "Senior High Schools",
+              "from": "2021-11-10",
+              "to": "2022-11-10"
+            }
+          ],
+          "one_time_base_rate": "1000",
+          "recurring_base_rate": "800",
+          "increment": "200"
+        },
+        {
+          "id": "ab36",
+          "display_name": "Roshan Sandilya",
+          "type": "petcare",
+          "age": "30",
+          "pincode": "110058",
+          "city": "Janakpuri",
+          "state": "Delhi",
+          "gender": "Male",
+          "years_of_experience": "4",
+          "pet_type": [
+            "Cat",
+            "Dog",
+            "Birds",
+            "Hamsters"
+          ],
+          "timings": {
+            "monday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "tuesday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "wednesday": {
+              "from": "10:02",
+              "to": ""
+            },
+            "thurday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "friday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "saturday": {
+              "from": "10:00",
+              "to": ""
+            },
+            "sunday": {
+              "from": "10:00",
+              "to": ""
+            }
+          },
+          "about": "Meet Roshan Sandilya, your dependable and caring male nanny extraordinaire! With a heart full of warmth and a spirit brimming with joy, Roshan is dedicated to providing a nurturing environment for your children to thrive in.\n\nHaving honed his childcare skills through years of experience and a genuine love for nurturing young minds, Roshan brings a unique blend of patience, creativity, and attentiveness to his role as a nanny. Whether it's engaging in imaginative play, helping with homework, or simply offering a listening ear, Roshan prioritizes the well-being and happiness of the children under his care.\n\nHis gentle demeanor and compassionate nature make him not just a caregiver, but a trusted friend and mentor to your little ones. Roshan understands the importance of fostering a safe and supportive environment where children feel valued, encouraged, and free to explore the world around them.\n\nWith Roshan by their side, you can rest assured knowing that your children are in the best of hands, receiving the love, attention, and guidance they deserve.",
+          "services": [
+            "Cleaning",
+            "Nutrition",
+            "Walking",
+            "Park Strolling",
+            "Potty Training"
+          ],
+          "languages": [
+            "English",
+            "Hindi",
+            "Bhojpuri"
+          ],
+          "can_help_with": [
+            "Light Cleaning",
+            "Cooking",
+            "Swimming Supervision",
+            "Travel",
+            "Groceries/Errands",
+            "Transportation",
+            "Help With Pets",
+            "Carpooling"
+          ],
+          "professional_details": [
+            "Transportation",
+            "CPR Trained",
+            "First Aid Trained",
+            "Does Not Smoke",
+            "Does Not Drink",
+            "Retired Vet",
+            "Drives A Car"
+          ],
+          "education": "2021-2022:\nSome College",
+          "work_experience": [
+            {
+              "workplace": "Junior High Schools",
+              "from": "2021-11-10",
+              "to": "2022-11-10"
+            }
+          ],
+          "one_time_base_rate": "1200",
+          "recurring_base_rate": "1000",
+          "increment": "300"
+        }
+      ]
+    },
+    {
+      "id": "418c",
+      "status": "approved",
+      "verification": {
+        "state": "Delhi",
+        "user_type": "indivisual",
+        "organisation_url": "",
+        "organisation_name": "",
+        "reference1_name": "",
+        "reference1_contact": "Shivinder",
+        "reference2_name": "",
+        "reference2_contact": ""
+      },
+      "domains_offered": []
+    },
+    {
+      "id": "418c",
+      "status": "approved",
+      "verification": {
+        "state": "Delhi",
+        "user_type": "indivisual",
+        "organisation_url": "",
+        "organisation_name": "",
+        "reference1_name": "1000",
+        "reference1_contact": "Shivinder",
+        "reference2_name": "2000",
+        "reference2_contact": "Gursahaj"
+      },
+      "domains_offered": []
+    }
+  ],
+  "blogs": [
+    {
+      "id": "1",
+      "category": "General",
+      "author": "Emily Chen",
+      "shortdesc": "From sleepless nights to unexpected joys, embracing the early days of motherhood",
+      "title": "Confessions of a Sleep-Deprived (But Happy) Mom",
+      "content": "Motherhood is a rollercoaster ride, filled with moments of pure exhaustion and overwhelming love. It's the tiny milestones that leave you awestruck, the first smile, the first giggle, the first time they reach for you. It's the constant learning curve, the endless questions, and the fierce determination to be the best mom you can be. It's messy, it's beautiful, and it's an experience that changes you forever."
+    },
+    {
+      "id": "2",
+      "category": "General",
+      "author": "Dr. Anna Patel",
+      "shortdesc": "Expert tips for surviving and thriving in those first few months with your newborn",
+      "title": "Navigating Early Motherhood: A Pediatrician's Guide",
+      "content": "The early months with a newborn can be overwhelming, but with the right support and knowledge, you can navigate this special time with confidence. This guide offers practical tips on sleep schedules, feeding routines, and building a strong bond with your baby."
+    },
+    {
+      "id": "3",
+      "category": "General",
+      "author": "Anonymous Mom",
+      "shortdesc": "Coffee, spit-up, and endless questions: a day in the life of a new mom",
+      "title": "My Brain on Baby: Confessions of a Sleep-Deprived Comedian",
+      "content": "They say motherhood is the greatest joy, and they're right. It's also the most sleep-deprived, coffee-fueled, and hilariously chaotic experience you'll ever have. From deciphering mysterious baby noises to mastering the art of one-handed multitasking, every day is an adventure (and sometimes a disaster) in the best way possible."
+    },
+    {
+      "id": "4",
+      "category": "General",
+      "author": "Mental Health Specialist",
+      "shortdesc": "Recognizing and addressing the emotional challenges of early motherhood",
+      "title": "Beyond the Instagram Glow: Supporting New Moms' Mental Wellbeing",
+      "content": "Early motherhood can be an emotionally demanding time. Postpartum depression and anxiety are real and often go unseen. This article explores the common challenges new moms face and emphasizes the importance of seeking support and prioritizing mental health."
+    },
+    {
+      "id": "5",
+      "category": "General",
+      "author": "Maria Rodriguez",
+      "shortdesc": "Navigating early motherhood within a cultural context",
+      "title": "Traditions and Transitions: A Latina Mom's Journey",
+      "content": "Motherhood is a universal experience, but cultural traditions and family dynamics shape it in unique ways. This piece explores the joys and challenges of raising a newborn within a specific cultural context, highlighting the importance of honoring traditions while adapting to the needs of a new family."
+    },
+    {
+      "id": "6",
+      "category": "General",
+      "author": "David Lee",
+      "author_role": "Father",
+      "shortdesc": "Supporting my wife and embracing fatherhood in the early months",
+      "title": "A Dad's Guide to Early Fatherhood: From Diaper Duty to Building a Bond",
+      "content": "Fatherhood is an incredible journey that begins alongside motherhood. This guide offers tips and insights for dads on supporting their partners, navigating the early months, and building a strong bond with their newborn."
+    },
+    {
+      "id": "7",
+      "category": "Advice",
+      "author": "Jason Camell",
+      "shortdesc": "Practical tips for surviving and thriving in those first few months with your newborn",
+      "title": "From Chaos to Calm: A New Mom's Survival Guide (with a Touch of Humor)",
+      "content": "Okay, new mamas, let's face it: the first few months are a wild ride. Between the sleep deprivation, the endless diaper changes, and the constant stream of questions (both from your baby and everyone else), it's easy to feel overwhelmed. But fear not! Here are some practical tips from a fellow sleep-deprived comedian mom to help you navigate this crazy-beautiful time: \n * **Embrace the mess:** It's okay if your house isn't spotless or your meals aren't gourmet. Focus on what matters most: your baby and your own well-being.\n* **Lower your expectations:** Forget the picture-perfect Instagram feeds. Motherhood is messy, unpredictable, and often hilarious in its chaos.\n* **Prioritize sleep:** Whenever and wherever you can, grab some shut-eye. Sleep deprivation is no joke, and it can affect your mood, patience, and overall well-being.\n * **Ask for help:** Don't be afraid to lean on your partner, family, friends, or even a nanny if you need a break. It takes a village to raise a child, and there's no shame in asking for support.\n* **Celebrate the small victories:** Every smile, every gurgle, every milestone is a reason to celebrate. Savor these precious moments, even amidst the chaos.\n* **Find your humor:** Laughter is the best medicine, even when you're running on fumes. Find humor in the absurdity of motherhood, and don't be afraid to laugh at yourself (because trust me, you will do some crazy things!).\nRemember, mamas, you're not alone in this. We're all in this together, navigating the joys and challenges of motherhood one messy, sleep-deprived day at a time. And hey, if you can find a way to laugh through it all, that's even better!"
+    },
+    {
+      "id": "8",
+      "category": "Advice",
+      "author": "Senra Cubek",
+      "shortdesc": "Practical tips for surviving and thriving in those first few months with your newborn",
+      "title": "From Chaos to Calm: A New Mom's Survival Guide (with a Touch of Humor)",
+      "content": "Embrace the mess, lower expectations, prioritize sleep, ask for help, celebrate small victories, and find your humor!"
+    },
+    {
+      "id": "9",
+      "category": "Advice",
+      "author": "Roslo Nicotin",
+      "shortdesc": "Essential vaccinations for your baby and their importance",
+      "title": "Keeping Your Baby Healthy: A Guide to Essential Vaccinations",
+      "content": "Follow your pediatrician's recommended vaccination schedule to protect your baby from preventable diseases."
+    },
+    {
+      "id": "10",
+      "category": "Advice",
+      "author": "Justin Timberlake",
+      "shortdesc": "Benefits and techniques for babywearing to promote bonding and development",
+      "title": "The Power of Proximity: Why Babywearing Matters",
+      "content": "Babywearing offers closeness, comfort, and developmental benefits for both babies and parents."
+    },
+    {
+      "id": "11",
+      "category": "Advice",
+      "author": "Jessica Jones",
+      "shortdesc": "Creating a safe sleep space to minimize risks and ensure restful sleep for your baby",
+      "title": "Sweet Dreams: Creating a Safe Sleep Environment for Your Baby",
+      "content": "Place baby on their back on a firm mattress in a crib with no loose bedding or soft objects."
+    }
+  ],
+  "community": [
+    {
+      "id": "5",
+      "author": "Emily Jones",
+      "title": "My Toddler Has Nightmares - Help!",
+      "author_type": "Mother",
+      "desc": "My 2-year-old son has been having frequent nightmares lately, and it's breaking my heart to see him so scared. He wakes up crying and doesn't want to go back to sleep. Any advice on how to help him through this?",
+      "published_date": "2024-04-21T13:10:30Z",
+      "likes_count": 18,
+      "dislikes_count": 2,
+      "comments": [
+        {
+          "id": 6,
+          "content": "We used a nightlight and a comfort object for our daughter, and it helped a lot!",
+          "parent": null,
+          "created_at": "2024-04-28T13:12:30Z",
+          "likes_count": 5,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 7,
+              "content": "Great tip (comment id: 6)! We did the same and it worked wonders. (replying to comment id: 6)",
+              "parent": 6,
+              "created_at": "2024-04-19T13:15:30Z",
+              "likes_count": 2,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "content": "Talking to your child's pediatrician might be helpful too. They can rule out any underlying medical issues. (comment id: 5)",
+          "parent": null,
+          "created_at": "2024-04-28T13:13:30Z",
+          "likes_count": 3,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 9,
+              "content": "Absolutely agree (comment id: 8). My son had night terrors for a while, and it turned out he had earaches. (replying to comment id: 8)",
+              "parent": 8,
+              "created_at": "2024-04-28T13:18:30Z",
+              "likes_count": 1,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13",
       "author": "Sarah Thompson",
       "title": "Teething Troubles - Help Soothe My Baby's Discomfort",
       "author_type": "Nanny",
@@ -158,14 +746,14 @@
               "dislikes_count": 0,
               "replies": [
                 {
-                    "id": 39,
-                    "content": "Yes! We also like to chill the teething toys in the fridge for an extra cooling effect.",
-                    "parent": 15,
-                    "created_at": "2024-04-28T13:22:30Z",
-                    "likes_count": 3,
-                    "dislikes_count": 0,
-                    "replies": []
-                  }
+                  "id": 39,
+                  "content": "Yes! We also like to chill the teething toys in the fridge for an extra cooling effect.",
+                  "parent": 15,
+                  "created_at": "2024-04-28T13:22:30Z",
+                  "likes_count": 3,
+                  "dislikes_count": 0,
+                  "replies": []
+                }
               ]
             }
           ]
@@ -201,101 +789,124 @@
       ]
     },
     {
-        "id": 18,
-        "author": "Jessica Lee",
-        "title": "Solid Food Journey - Starting My Baby on New Eats!",
-        "author_type": "Nanny",
-        "desc": "My 5-month-old baby is showing signs of interest in food, and I'm excited to start them on solids! I'm a bit nervous though. Any tips on introducing first foods and making sure they're getting the right nutrients?",
-        "published_date": "2024-04-27T13:24:30Z",
-        "likes_count": 21,
-        "dislikes_count": 0,
-        "comments": [
-          {
-            "id": 19,
-            "content": "Start with single-ingredient purees like avocado or sweet potato. It helps identify any allergies. Talk to your pediatrician for personalized guidance on introducing solids. (comment id: 18)",
-            "parent": null,
-            "created_at": "2024-04-28T13:26:30Z",
-            "likes_count": 6,
-            "dislikes_count": 0,
-            "replies": []
-          },
-          {
-            "id": 20,
-            "content": "Make sure the food consistency is smooth and easy to swallow at first. You can gradually increase the thickness as your baby gets used to it. (comment id: 18)",
-            "parent": null,
-            "created_at": "2024-04-28T13:27:30Z",
-            "likes_count": 4,
-            "dislikes_count": 0,
-            "replies": [
-              {
-                "id": 21,
-                "content": "And don't get discouraged if your baby makes a mess! It's all part of the learning process. (replying to comment id: 20)",
-                "parent": 20,
-                "created_at": "2024-04-28T13:29:30Z",
-                "likes_count": 2,
-                "dislikes_count": 0,
-                "replies": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 22,
-        "author": "Mia Rodriguez",
-        "title": "Sleepless Nights - Help! My Baby Won't Sleep Through the Night",
-        "author_type": "Mother",
-        "desc": "My 4-month-old baby wakes up every few hours at night to feed, and I'm exhausted! I'm worried I'm doing something wrong. Is this normal? Any tips on getting my baby to sleep for longer stretches?",
-        "published_date": "2024-04-26T13:30:30Z",
-        "likes_count": 32,
-        "dislikes_count": 4,
-        "comments": [
-          {
-            "id": 23,
-            "content": "It can be tough, but frequent night waking is common at this age. Make sure your baby's bedtime routine is calming and consistent. (comment id: 22)",
-            "parent": null,
-            "created_at": "2024-04-28T13:32:30Z",
-            "likes_count": 7,
-            "dislikes_count": 0,
-            "replies": [
-              {
-                "id": 24,
-                "content": "We found swaddling helped our baby feel secure and sleep longer. (replying to comment id: 23)",
-                "parent": 23,
-                "created_at": "2024-04-28T13:34:30Z",
-                "likes_count": 4,
-                "dislikes_count": 1,
-                "replies": []
-              }
-            ]
-          },
-          {
-            "id": 25,
-            "content": "If you're breastfeeding, consider offering extra comfort at night without feeding. Pacifiers or rocking can help soothe them back to sleep. (comment id: 22)",
-            "parent": null,
-            "created_at": "2024-04-28T13:33:30Z",
-            "likes_count": 5,
-            "dislikes_count": 0,
-            "replies": [
-              {
-                "id": 26,
-                "content": "Absolutely! We also found a white noise machine helpful in creating a calming sleep environment. (replying to comment id: 25)",
-                "parent": 25,
-                "created_at": "2024-04-28T13:35:30Z",
-                "likes_count": 3,
-                "dislikes_count": 0,
-                "replies": []
-              }
-            ]
-          }
-        ]
-      }
-          
-],
-    "testimonials":[
-        {"name":"Kim J.", "stars":5, "review":"Kim was wonderful with my chiold. She was patient, kind and careing.", "author":"Kory Noggins"},
-        {"name":"Chroy Jhonson", "stars":5, "review":"Chroy was wonderful with my chiold. She was patient, kind and careing.", "author":"Jester Kimmings"},
-        {"name":"Chloe Ralph", "stars":5, "review":"Chroy was wonderful with my chiold. She was patient, kind and careing.", "author":"Dave Neter"},
-        {"name":"Jessica Fernandis", "stars":5, "review":"Chroy was wonderful with my chiold. She was patient, kind and careing.", "author":"Dick Jhonson"}
-    ]
+      "id": "18",
+      "author": "Jessica Lee",
+      "title": "Solid Food Journey - Starting My Baby on New Eats!",
+      "author_type": "Nanny",
+      "desc": "My 5-month-old baby is showing signs of interest in food, and I'm excited to start them on solids! I'm a bit nervous though. Any tips on introducing first foods and making sure they're getting the right nutrients?",
+      "published_date": "2024-04-27T13:24:30Z",
+      "likes_count": 21,
+      "dislikes_count": 0,
+      "comments": [
+        {
+          "id": 19,
+          "content": "Start with single-ingredient purees like avocado or sweet potato. It helps identify any allergies. Talk to your pediatrician for personalized guidance on introducing solids. (comment id: 18)",
+          "parent": null,
+          "created_at": "2024-04-28T13:26:30Z",
+          "likes_count": 6,
+          "dislikes_count": 0,
+          "replies": []
+        },
+        {
+          "id": 20,
+          "content": "Make sure the food consistency is smooth and easy to swallow at first. You can gradually increase the thickness as your baby gets used to it. (comment id: 18)",
+          "parent": null,
+          "created_at": "2024-04-28T13:27:30Z",
+          "likes_count": 4,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 21,
+              "content": "And don't get discouraged if your baby makes a mess! It's all part of the learning process. (replying to comment id: 20)",
+              "parent": 20,
+              "created_at": "2024-04-28T13:29:30Z",
+              "likes_count": 2,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "author": "Mia Rodriguez",
+      "title": "Sleepless Nights - Help! My Baby Won't Sleep Through the Night",
+      "author_type": "Mother",
+      "desc": "My 4-month-old baby wakes up every few hours at night to feed, and I'm exhausted! I'm worried I'm doing something wrong. Is this normal? Any tips on getting my baby to sleep for longer stretches?",
+      "published_date": "2024-04-26T13:30:30Z",
+      "likes_count": 32,
+      "dislikes_count": 4,
+      "comments": [
+        {
+          "id": 23,
+          "content": "It can be tough, but frequent night waking is common at this age. Make sure your baby's bedtime routine is calming and consistent. (comment id: 22)",
+          "parent": null,
+          "created_at": "2024-04-28T13:32:30Z",
+          "likes_count": 7,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 24,
+              "content": "We found swaddling helped our baby feel secure and sleep longer. (replying to comment id: 23)",
+              "parent": 23,
+              "created_at": "2024-04-28T13:34:30Z",
+              "likes_count": 4,
+              "dislikes_count": 1,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": 25,
+          "content": "If you're breastfeeding, consider offering extra comfort at night without feeding. Pacifiers or rocking can help soothe them back to sleep. (comment id: 22)",
+          "parent": null,
+          "created_at": "2024-04-28T13:33:30Z",
+          "likes_count": 5,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 26,
+              "content": "Absolutely! We also found a white noise machine helpful in creating a calming sleep environment. (replying to comment id: 25)",
+              "parent": 25,
+              "created_at": "2024-04-28T13:35:30Z",
+              "likes_count": 3,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Kim J.",
+      "stars": 5,
+      "review": "Kim was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Kory Noggins",
+      "id": "4a98"
+    },
+    {
+      "name": "Chroy Jhonson",
+      "stars": 5,
+      "review": "Chroy was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Jester Kimmings",
+      "id": "8e61"
+    },
+    {
+      "name": "Chloe Ralph",
+      "stars": 5,
+      "review": "Chroy was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Dave Neter",
+      "id": "f694"
+    },
+    {
+      "name": "Jessica Fernandis",
+      "stars": 5,
+      "review": "Chroy was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Dick Jhonson",
+      "id": "1b20"
+    }
+  ]
 }

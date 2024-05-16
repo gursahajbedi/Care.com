@@ -42,8 +42,9 @@ export default function Post(){
 
     const fetchpost = async()=>{
         await axios.get("http://localhost:8000/community").then((res)=>{
+            console.log(res.data,id)
             res.data.filter((item)=>{
-                if(item.id===Number(id)){
+                if(item.id===id){
                     setdata(item)
                 }
             })
@@ -51,6 +52,7 @@ export default function Post(){
     }
 
     const fetchcomments=async()=>{
+        console.log(data)
         let result=data.comments.map((item)=>{
             return(<Comment key={item.id} data={item} id={item.id}/>)
         })

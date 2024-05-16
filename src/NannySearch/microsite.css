@@ -1,0 +1,24 @@
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* semi-transparent black */
+    z-index: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  
+.content {
+    background-color: white;
+    width: 50%;
+    max-width: 600px;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
