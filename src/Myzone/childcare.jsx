@@ -1,13 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import useAuthContext from "../AuthLogic/useAuthContext"
+<<<<<<< HEAD
 import { redirect, useNavigate, useParams } from "react-router";
 import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+=======
+import { useNavigate, useParams } from "react-router";
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+>>>>>>> master
 
 export function Timings(prop){
     const initialvalue={from:"",to:""}
     const [data,setdata]=useState(initialvalue)
+<<<<<<< HEAD
     return(
         <>
         <div className="text-xl flex flex-row items-center gap-x-5">
@@ -23,6 +32,42 @@ export function Timings(prop){
             <div className="flex flex-col">
                 <div>To:</div>
                 <input className="border-4 border-gray-400 px-9 py-2 rounded-full" placeholder="To" type="time" onChange={(e)=>{setdata({...data,to:e.target.value});prop.func(data)}}></input>
+=======
+
+    return(
+        <>
+        <div className="text-xl flex flex-row items-center gap-x-5">
+            <img src="/apply/arrow.svg" className="mt-4" style={{ height: "15px" }} alt="arrow" />
+            <div className="pe-4 pt-4" style={{ width: "100px" }}>{prop.title}</div>
+            <div className="flex flex-col">
+                <div>From:</div>
+                <input
+                    className="border-4 border-gray-400 px-9 py-2 rounded-full"
+                    placeholder="From"
+                    type="time"
+                    name="from"
+                    onChange={(e) => {
+                        const newData = { ...data, from: e.target.value };
+                        setdata(newData);
+                        prop.func(newData);
+                    }}
+                />
+            </div>
+            <div className="pt-4">:</div>
+            <div className="flex flex-col">
+                <div>To:</div>
+                <input
+                    className="border-4 border-gray-400 px-9 py-2 rounded-full"
+                    placeholder="To"
+                    type="time"
+                    name="to"
+                    onChange={(e) => {
+                        const newData = { ...data, to: e.target.value };
+                        setdata(newData);
+                        prop.func(newData);
+                    }}
+                />
+>>>>>>> master
             </div>
         </div>
         </>
@@ -210,6 +255,10 @@ export function WorkEx(prop){
 export default function Childcare(prop){
     const {step}=useParams()
     const {auth}=useAuthContext()
+<<<<<<< HEAD
+=======
+    axios.defaults.headers.common['Authorization'] = `Bearer ${auth.user.access}`;
+>>>>>>> master
     let user_application=null
     const [domainslist,setdomainslist]=useState([])
 
@@ -229,16 +278,34 @@ export default function Childcare(prop){
     }
 
     const getdata=async()=>{
+<<<<<<< HEAD
         await axios.get(`http://localhost:8000/applications/${auth.user.id}`).then((res)=>{
             user_application=res.data
             setdomainslist(res.data.domains_offered)
         },[])
+=======
+
+        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+            const newdata=res.data.filter((item)=>{
+                return item.user==Number(auth.user.id)
+            })
+            const data=newdata[0]
+            console.log(newdata)
+            if(data.domains === "{}"){
+                setdomainslist([])
+            }
+            else{
+                setdomainslist(JSON.parse(data.domains))
+            }
+        })
+>>>>>>> master
     }
 
     useEffect(()=>{
         getdata();
     },[])
 
+<<<<<<< HEAD
     const [name,setname]=useState("") //Name - Display
     const [age, setage]=useState("") //Age
     const [pincode,setpincode]=useState("")
@@ -246,6 +313,15 @@ export default function Childcare(prop){
     const [state,setstate]=useState("")
     const [gender,setgender]=useState("")
     const [yoe,setyoe]=useState("")
+=======
+    // const [name,setname]=useState("") //Name - Display
+    // const [age, setage]=useState("") //Age
+    // const [pincode,setpincode]=useState("")
+    // const [city,setcity]=useState("")
+    // const [state,setstate]=useState("")
+    // const [gender,setgender]=useState("")
+    // const [yoe,setyoe]=useState("")
+>>>>>>> master
     const [childranges,setchildranges]=useState([]) //Child Age Ranges
 
     const [mon,setmon]=useState({}) //Timings
@@ -277,6 +353,7 @@ export default function Childcare(prop){
 
     const navigate = useNavigate()
 
+<<<<<<< HEAD
     const patchapplication=async()=>{
         await axios.patch(`http://localhost:8000/applications/${auth.user.id}`,
                 {
@@ -293,6 +370,32 @@ export default function Childcare(prop){
                             "state":state,
                             "gender":gender,
                             "years_of_experience":yoe,
+=======
+    const handleContentChange = (value) => {
+        setAbout(value);
+      };
+    
+  const handleEducationChange = (value) => {
+        seteducation(value);
+      };
+
+    const patchapplication=async()=>{
+        await axios.patch(`http://127.0.0.1:8000/api/app/application/patch/`,
+                {
+                    ...user_application,
+                    "domains":JSON.stringify([
+                        ...domainslist,
+                        {
+                            "id":user_application.id,
+                            "display_name":prop.details.name,
+                            "type":"childcare",
+                            "age":prop.details.age,
+                            "pincode":prop.details.pincode,
+                            "city":prop.details.city,
+                            "state":prop.details.state,
+                            "gender":prop.details.gender,
+                            "years_of_experience":prop.details.yoe,
+>>>>>>> master
                             "child_age_ranges":childranges,
                             "timings":{
                                 "monday":mon,
@@ -314,7 +417,11 @@ export default function Childcare(prop){
                             "recurring_base_rate":reccuring,
                             "increment":increment
                         }
+<<<<<<< HEAD
                     ]
+=======
+                    ])
+>>>>>>> master
                 }).then((res)=>{
                     console.log(res.data)
                     NextRoute(step)
@@ -322,8 +429,20 @@ export default function Childcare(prop){
     }
 
     const navigation=async()=>{
+<<<<<<< HEAD
         await axios.get(`http://localhost:8000/applications/${auth.user.id}`).then((res)=>{
             const domainslist=res.data.domains_offered
+=======
+        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+            const newdata=res.data.filter((item)=>{
+                return item.user==Number(auth.user.id)
+            })
+            const data1=newdata[0]
+            console.log(data1)
+            
+            const domainslist=data1.domains === "{}"?[]:JSON.parse(data1.domains)
+
+>>>>>>> master
             if(domainslist.length !== 0){
                 console.log("trigger on")
                 const data=domainslist.filter((item)=>{
@@ -411,6 +530,7 @@ export default function Childcare(prop){
                 theme="dark"
                 transition={Flip}
             />
+<<<<<<< HEAD
             <div className="flex flex-col items-center container w-full gap-y-6 py-6">
                 <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Display Name" type="text" defaultValue={name} onChange={(e)=>{setname(e.target.value)}} style={{width:"600px"}}></input>
                 <div className="flex flex-row gap-x-8">
@@ -428,6 +548,8 @@ export default function Childcare(prop){
                 </select>
                 <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Years Of Experience" type="number" defaultValue={yoe} onChange={(e)=>{setyoe(e.target.value)}} style={{width:"600px"}}></input>
             </div>
+=======
+>>>>>>> master
             <div className="text-3xl py-5">
                 Timings
                 <hr className="rounded-full bg-red-400 w-64 h-2"></hr>
@@ -447,7 +569,16 @@ export default function Childcare(prop){
             </div>
             <div className="flex flex-col text-xl gap-y-4">
                 <div className="ps-3 pt-6">About:</div>
+<<<<<<< HEAD
                 <textarea className="rounded-xl border-2 text-xl border-gray-300" rows={10}  onChange={(e)=>setAbout(e.target.value)} style={{width:"700px"}}></textarea>
+=======
+                <ReactQuill
+                  value={about}
+                  onChange={handleContentChange}
+                  className="h-72 mb-4"
+                  style={{width:"1100px"}}
+                />
+>>>>>>> master
                 <div className="ps-3 pt-6">
                     Child Age Ranges:
                 </div>
@@ -511,9 +642,19 @@ export default function Childcare(prop){
                 <hr className="rounded-full bg-red-400 w-7/12 h-2"></hr>
             </div>
             <div className="flex flex-col justify-center items-center pt-6 text-lg gap-y-6">
+<<<<<<< HEAD
                 <div className="flex flex-col gap-y-4">
                     <div className="ps-3">Education:</div>
                     <textarea className="rounded-xl border-2 text-xl border-gray-300" rows={6}  onChange={(e)=>seteducation(e.target.value)} style={{width:"700px"}}></textarea>
+=======
+                <div className="flex flex-col gap-y-4 w-full">
+                    <div className="ps-3">Education:</div>
+                    <ReactQuill
+                      value={education}
+                      onChange={handleEducationChange}
+                      className="h-40 w-full mb-4"
+                    />
+>>>>>>> master
                 </div>
                 <div className="flex flex-col justify-center pt-6 text-lg gapy-y-6">
                     <div>
@@ -530,15 +671,24 @@ export default function Childcare(prop){
                 <div className="text-center text-xl px-10 border-s-4 border-e-4 border-gray-400 rounded-full mb-4">
                     Calculation:
                     <div className="text-lg text-gray-400">
+<<<<<<< HEAD
                         For 1 Child - One Time base Rate || Recurring Base Rate
+=======
+                        For 1 Child - Base Rate X Increment
+>>>>>>> master
                     </div>
                     <div className="text-lg text-gray-400">
                         For +1 Children - Base Rate + Rate Increment X Children
                     </div>
                 </div>
+<<<<<<< HEAD
                 <input className="text-center w-1/2 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="One Time Base Rate" type="number" defaultValue={city} onChange={(e)=>{setonetime(e.target.value)}}></input>
                 <input className="text-center w-1/2 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="Recurring Base Rate" type="number" defaultValue={city} onChange={(e)=>{setrecurring(e.target.value)}}></input>
                 <input className="text-center w-3/4 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="Rate Increment on Consecutive Children" type="number" defaultValue={city} onChange={(e)=>{setincrement(e.target.value)}}></input>
+=======
+                <input className="text-center w-1/2 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="One Time Base Rate" type="number" onChange={(e)=>{setonetime(e.target.value)}}></input>
+                <input className="text-center w-3/4 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="Rate Increment on Consecutive Children" type="number" onChange={(e)=>{setincrement(e.target.value)}}></input>
+>>>>>>> master
             </div>
             <div className="flex flex-row items-end justify-end py-6">
                 <button onClick={()=>{navigation()}} className="bg-red-400 border-gray-200 border-2 px-7 py-3 text-xl rounded-2xl text-white">Submit</button>

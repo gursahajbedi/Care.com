@@ -6,14 +6,25 @@ export default function BlogCategoryPage(){
     const loc=useLocation()
     const data=JSON.parse(loc.state)
     let {category}=useParams()
+<<<<<<< HEAD
     category=category[0].toUpperCase()+category.slice(1);
+=======
+    category=category.charAt(0).toUpperCase() + category.slice(1)
+
+>>>>>>> master
     return(
         <>
             <div className="text-4xl my-10 container mx-auto">
                 {category}
+<<<<<<< HEAD
                 {category === "Advice" && (<hr className="rounded-full bg-blue-400 h-2 w-44"></hr>)}
                 {category === "General" && (<hr className="rounded-full bg-red-400 h-2 w-44"></hr>)}
                 {category === "Tips" && (<hr className="rounded-full bg-yellow-400 h-2 w-44"></hr>)}
+=======
+                {category === "Advice" || category ==="advice" && (<hr className="rounded-full bg-blue-400 h-2 w-44"></hr>)}
+                {category === "General" || category ==="general" && (<hr className="rounded-full bg-red-400 h-2 w-44"></hr>)}
+                {category === "Tips" || category ==="tips" && (<hr className="rounded-full bg-yellow-400 h-2 w-44"></hr>)}
+>>>>>>> master
             </div>
             <div className="mx-auto flex flex-wrap justify-center items-center gap-y-8 my-10 gap-x-5">
                 {

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination} from 'swiper/modules';
 import { useScrollTrigger } from "@mui/material";
+<<<<<<< HEAD
 
 function Popular(prop){
     return(
@@ -15,6 +16,43 @@ function Popular(prop){
                     
                     <div className="flex flex-col justify-center items-center">
                         <img src="/community/communityprofile.svg"></img>
+=======
+import useAuthContext from "../AuthLogic/useAuthContext";
+import "./community.css"
+
+function Popular(prop){
+    const [profile,setprofile]=useState({})
+
+    const fetchprofile = async (id) => {
+        console.log(id)
+        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+          const data=res.data.filter((item)=>{
+            if(item.id==Number(id)){
+              return item
+            }
+          })
+          console.log(data)
+          setprofile(data[0])
+        });
+      }
+
+    useEffect(()=>{
+        fetchprofile(prop.data.author)
+    },[])
+
+    return(
+        <>
+            <Link to={`/community/post/${prop.data.id}`}>
+            <div className="h-full border-2 shadow-xl border-gray-400 rounded-2xl p-5">
+                <div className="flex flex-row justify-between items-center my-2">
+                    <div className="" style={{width:"60px",height:"60px"}}>
+                                <img src={profile.profile_pic != undefined?`http://127.0.0.1:8000${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                    </div>
+                    <div className="flex flex-col justify-center items-start">
+                        <div className="text-xl">
+                            <b>~</b>{profile.name}
+                        </div>
+>>>>>>> master
                         <div>
                             {prop.data.author_type === "Mother" && (<div className="w-28 bg-red-400 rounded-2xl 2xl:text-xl md:text-lg text-center text-white mt-2">
                                 {prop.data.author_type}
@@ -26,12 +64,22 @@ function Popular(prop){
                         
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div className="flex flex-col gap-5">
                     <div className="text-2xl font-bold">
                         {prop.data.title}
                     </div>
                     <div className="">
                         {prop.data.desc}
+=======
+                <div className="text-2xl font-bold text-center mb-5 mt-3">
+                        {prop.data.title}
+                        <hr className="h-1 rounded-full bg-blue-400"></hr>
+                </div>
+                <div className="flex flex-col gap-5 mb-5">
+                    <div className="text-lg text-center">
+                        {prop.data.desc.slice(0,200)}...
+>>>>>>> master
                     </div>
                 </div>
             </div>
@@ -41,6 +89,10 @@ function Popular(prop){
 }
 
 export default function CommPage(){
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     const [community,Setcommunity]=useState([]);
     const [searchcomm,Setsearchcomm]=useState([])
     const [found,Setfound]=useState(true)
@@ -48,9 +100,21 @@ export default function CommPage(){
     const [ddactive,setddactive]=useState(false)
     const [selection,setselection]=useState('Random')
     const [MoodData,setMoodData]=useState([...community])
+<<<<<<< HEAD
 
     const fetch_Community=async()=>{
         axios.get("http://localhost:8000/community")
+=======
+    const [active,setactive]=useState(false)
+
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
+    const {auth}=useAuthContext()
+
+    const fetch_Community=async()=>{
+        axios.get("http://127.0.0.1:8000/api/community/posts/")
+>>>>>>> master
             .then((res)=>{
                 Setcommunity(res.data)
             })
@@ -75,6 +139,10 @@ export default function CommPage(){
         else if (selection === "Recent"){
             if(community.length != 0){
                 const data=[...community]
+<<<<<<< HEAD
+=======
+                console.log(data)
+>>>>>>> master
                 const sortByDate = (objA,objB) =>{
                     const DateA = new Date(objA.published_date)
                     const DateB = new Date(objB.published_date)
@@ -112,6 +180,7 @@ export default function CommPage(){
         Setsearchcomm(data)
     }
 
+<<<<<<< HEAD
     useEffect(()=>{
         fetch_Community()
         setMoodData([...community])
@@ -124,6 +193,35 @@ export default function CommPage(){
     useEffect(()=>{
         MoodSwitcher()
     },[selection,MoodData])
+=======
+    const handleSubmit=async(e)=>{
+        e.preventDefault()
+        if(title && description){
+            axios.post("http://127.0.0.1:8000/api/community/posts/",{
+                title:title,
+                desc:description
+            },{
+                headers:{
+                    Authorization:`Bearer ${auth.user.access}`
+                }
+            }).then((res)=>{
+                console.log(res.data)
+                fetch_Community()
+                setactive(false)
+            })
+        }
+    }
+
+    useEffect(()=>{
+        fetch_Community()
+        fetch_popular()
+    },[])
+
+    useEffect(()=>{
+        MoodSwitcher()
+        fetch_popular()
+    },[selection,community])
+>>>>>>> master
     return(
         <>
             <div className="flex flex-col mx-auto my-10">
@@ -132,13 +230,21 @@ export default function CommPage(){
                     <hr className="w-96 bg-red-400 h-2 rounded-full "></hr>
                 </div>
                 {(MoodData.length != 0 && sortedData.length != 0)&&(
+<<<<<<< HEAD
                 <div className="flex flex-row px-32 mx-auto mb-10 gap-5 container">
+=======
+                <div className="flex flex-row px-10 mx-auto mb-10 gap-5 container">
+>>>>>>> master
                     <div className="container mx-auto p-5">
                         <Swiper
                         className="p-10 h-full"
                         modules={[Pagination]}
                         spaceBetween={50}
+<<<<<<< HEAD
                         slidesPerView={2}
+=======
+                        slidesPerView={3}
+>>>>>>> master
                         pagination={{ clickable: true }}
                         >
                             {
@@ -156,7 +262,21 @@ export default function CommPage(){
                     <hr className="w-64 bg-red-400 h-2 rounded-full "></hr>
                 </div>
                 <div className="text-xl mx-auto container px-48 mb-5 flex flex-col">
+<<<<<<< HEAD
                     <div className="flex flex-row gap-3">
+=======
+                    <div className="flex flex-row gap-3 items-center">
+                        {auth.user && (<div>
+                            <button
+                                onClick={() => setactive(true)}
+                                className="px-5 py-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 flex flex-col items-center justify-center"
+                            >
+                                <span className="material-symbols-outlined text-4xl">
+                                    add
+                                </span>
+                            </button>
+                        </div>)}
+>>>>>>> master
                         <input type="text" className="text-center rounded-3xl w-10/12 p-3 py-5 border-gray-400 border-4" onChange={(e)=>search(e.target.value)} placeholder="Search"></input>
                         <button className="p-4 ps-7 border-2 border-black rounded-3xl flex flex-row items-center hover:bg-red-400 hover:text-white" onClick={()=>setddactive((prev)=>!prev)}>
                             <div className="text-2xl">
@@ -168,6 +288,10 @@ export default function CommPage(){
                                 </span> 
                             </div>
                         </button>
+<<<<<<< HEAD
+=======
+        
+>>>>>>> master
                     </div>
                     { ddactive &&
                     (<div className=" flex flex-col justify-end items-end 2xl:px-7 md:px-0">
@@ -192,7 +316,11 @@ export default function CommPage(){
                             {
                                 MoodData.map((item)=>{
                                     // eslint-disable-next-line react/jsx-key
+<<<<<<< HEAD
                                     return <Community data={item}/>
+=======
+                                    return <Community key={item.id} data={item} selection={selection}/>
+>>>>>>> master
                                 })
                             }
                         </div>
@@ -211,6 +339,51 @@ export default function CommPage(){
                         })
                     }
                 </div>)}
+<<<<<<< HEAD
+=======
+                {active && (
+                <div className="overlay">
+                    <div className="content flex flex-col justify-center">
+                        <div className="flex flex-row justify-end">
+                            <span className="material-symbols-outlined text-3xl" onClick={()=>setactive(false)}>
+                                close
+                            </span>
+                        </div>
+                        <div className="flex flex-col items-center justify-center gap-y-4">
+                            <form onSubmit={(e)=>handleSubmit(e)} className="mx-auto p-6 bg-white shadow-md rounded-md w-full">
+                              <div className="mb-4">
+                                <label htmlFor="title" className="block text-gray-700 font-bold mb-2">Title:</label>
+                                <input
+                                  type="text"
+                                  id="title"
+                                  value={title}
+                                  onChange={(e) => setTitle(e.target.value)}
+                                  required
+                                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                              </div>
+                              <div className="mb-4">
+                                <label htmlFor="description" className="block text-gray-700 font-bold mb-2">Description:</label>
+                                <textarea
+                                  id="description"
+                                  value={description}
+                                  onChange={(e) => setDescription(e.target.value)}
+                                  required
+                                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                ></textarea>
+                              </div>
+                              <button
+                                type="submit"
+                                className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                              >
+                                Submit
+                              </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            )}
+>>>>>>> master
             </div>
         </>
     )

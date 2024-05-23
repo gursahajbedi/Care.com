@@ -1,6 +1,7 @@
 {
   "accounts": [
     {
+<<<<<<< HEAD
       "id": "2c30",
       "email": "a",
       "password": "c",
@@ -577,6 +578,37 @@
       "domains_offered": []
     }
   ],
+=======
+      "id": "454d",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "name": "Gursahaj Singh",
+      "password2": "Gursahaj",
+      "profile_pic": null,
+      "is_staff": true
+    },
+    {
+      "id": "fbbe",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "name": "Gursahaj",
+      "password2": "Gursahaj",
+      "is_admin": false,
+      "phone": "9821849372"
+    },
+    {
+      "id": "3e9c",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "name": "Gursahaj",
+      "password2": "Gursahaj",
+      "is_admin": false,
+      "phone": "9821849372"
+    }
+  ],
+  "ratings": [],
+  "applications": [],
+>>>>>>> master
   "blogs": [
     {
       "id": "1",
@@ -587,6 +619,7 @@
       "content": "Motherhood is a rollercoaster ride, filled with moments of pure exhaustion and overwhelming love. It's the tiny milestones that leave you awestruck, the first smile, the first giggle, the first time they reach for you. It's the constant learning curve, the endless questions, and the fierce determination to be the best mom you can be. It's messy, it's beautiful, and it's an experience that changes you forever."
     },
     {
+<<<<<<< HEAD
       "id": "2",
       "category": "General",
       "author": "Dr. Anna Patel",
@@ -595,6 +628,8 @@
       "content": "The early months with a newborn can be overwhelming, but with the right support and knowledge, you can navigate this special time with confidence. This guide offers practical tips on sleep schedules, feeding routines, and building a strong bond with your baby."
     },
     {
+=======
+>>>>>>> master
       "id": "3",
       "category": "General",
       "author": "Anonymous Mom",
@@ -628,6 +663,7 @@
       "content": "Fatherhood is an incredible journey that begins alongside motherhood. This guide offers tips and insights for dads on supporting their partners, navigating the early months, and building a strong bond with their newborn."
     },
     {
+<<<<<<< HEAD
       "id": "7",
       "category": "Advice",
       "author": "Jason Camell",
@@ -636,6 +672,8 @@
       "content": "Okay, new mamas, let's face it: the first few months are a wild ride. Between the sleep deprivation, the endless diaper changes, and the constant stream of questions (both from your baby and everyone else), it's easy to feel overwhelmed. But fear not! Here are some practical tips from a fellow sleep-deprived comedian mom to help you navigate this crazy-beautiful time: \n * **Embrace the mess:** It's okay if your house isn't spotless or your meals aren't gourmet. Focus on what matters most: your baby and your own well-being.\n* **Lower your expectations:** Forget the picture-perfect Instagram feeds. Motherhood is messy, unpredictable, and often hilarious in its chaos.\n* **Prioritize sleep:** Whenever and wherever you can, grab some shut-eye. Sleep deprivation is no joke, and it can affect your mood, patience, and overall well-being.\n * **Ask for help:** Don't be afraid to lean on your partner, family, friends, or even a nanny if you need a break. It takes a village to raise a child, and there's no shame in asking for support.\n* **Celebrate the small victories:** Every smile, every gurgle, every milestone is a reason to celebrate. Savor these precious moments, even amidst the chaos.\n* **Find your humor:** Laughter is the best medicine, even when you're running on fumes. Find humor in the absurdity of motherhood, and don't be afraid to laugh at yourself (because trust me, you will do some crazy things!).\nRemember, mamas, you're not alone in this. We're all in this together, navigating the joys and challenges of motherhood one messy, sleep-deprived day at a time. And hey, if you can find a way to laugh through it all, that's even better!"
     },
     {
+=======
+>>>>>>> master
       "id": "8",
       "category": "Advice",
       "author": "Senra Cubek",
@@ -666,6 +704,17 @@
       "shortdesc": "Creating a safe sleep space to minimize risks and ensure restful sleep for your baby",
       "title": "Sweet Dreams: Creating a Safe Sleep Environment for Your Baby",
       "content": "Place baby on their back on a firm mattress in a crib with no loose bedding or soft objects."
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "31dd",
+      "title": "Top Tips for Finding the Perfect Nanny for Your Family",
+      "author": "Care.Com",
+      "shortdesc": "Finding the right nanny can feel like searching for a needle in a haystack. Your nanny will play a crucial role in your child's life, so it's essential to find someone who is not only qualified but also a perfect fit for your family. Here are some top tips to help you in your search for the perfect nanny",
+      "content": "<h2><strong>1. </strong><strong style=\"color: inherit;\">Define Your Needs and Expectations</strong></h2><p>Before you start your search, sit down with your partner and discuss what you're looking for in a nanny. Consider the following:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Experience and Qualifications</span>: Do you need someone with specific training or experience with certain age groups?</li><li><span style=\"color: var(--tw-prose-bold);\">Duties and Responsibilities</span>: Outline what you expect from your nanny, including childcare, light housekeeping, meal preparation, etc.</li><li><span style=\"color: var(--tw-prose-bold);\">Schedule</span>: Determine the hours and days you need a nanny. Are you looking for full-time, part-time, or live-in assistance?</li></ul><h2><strong>2. </strong><strong style=\"color: inherit;\">Use Multiple Resources</strong></h2><p>Expand your search by using various resources:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Nanny Agencies</span>: Professional agencies can help match you with qualified candidates.</li><li><span style=\"color: var(--tw-prose-bold);\">Online Platforms</span>: Websites like Care.com or Sittercity.com allow you to post job listings and browse profiles.</li><li><span style=\"color: var(--tw-prose-bold);\">Local Networks</span>: Don’t underestimate the power of word-of-mouth. Ask friends, family, and local parenting groups for recommendations.</li></ul><h2><strong>3. </strong><strong style=\"color: inherit;\">Conduct Thorough Interviews</strong></h2><p>When you have a list of potential candidates, conduct comprehensive interviews:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Phone Interview</span>: Start with a phone call to gauge initial compatibility and discuss basic qualifications and availability.</li><li><span style=\"color: var(--tw-prose-bold);\">In-Person Interview</span>: Meet face-to-face to get a better sense of their personality and how they interact with your child. Prepare a list of questions covering their experience, childcare philosophy, and hypothetical situations.</li></ul><h4>4. <span style=\"color: inherit;\">Check References and Background</span></h4><p>Always check references and perform background checks:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">References</span>: Speak to previous employers to understand the nanny's strengths and weaknesses.</li><li><span style=\"color: var(--tw-prose-bold);\">Background Check</span>: Use a reliable service to check for any criminal history or driving records.</li></ul><h4>5. <span style=\"color: inherit;\">Trial Period</span></h4><p>Consider a trial period before making a long-term commitment:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Observation</span>: Have the nanny spend time with your child while you’re present to observe their interactions.</li><li><span style=\"color: var(--tw-prose-bold);\">Trial Run</span>: Arrange a short-term trial to see how they handle day-to-day tasks and fit into your family routine.</li></ul><h4>6. <span style=\"color: inherit;\">Discuss and Formalize Agreements</span></h4><p>Once you’ve found the right nanny, make sure to discuss and formalize agreements:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Contract</span>: Draft a contract outlining duties, schedule, salary, benefits, and any other expectations.</li><li><span style=\"color: var(--tw-prose-bold);\">Communication</span>: Establish clear lines of communication and regular check-ins to discuss your child's progress and any concerns.</li></ul><h4>7. <span style=\"color: inherit;\">Offer Competitive Compensation</span></h4><p>To attract and retain the best nannies, offer competitive compensation:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Fair Wages</span>: Research local rates to ensure your offer is competitive.</li><li><span style=\"color: var(--tw-prose-bold);\">Benefits</span>: Consider offering benefits such as paid time off, health insurance, and bonuses.</li></ul><h4>8. <span style=\"color: inherit;\">Maintain a Positive Working Relationship</span></h4><p>A positive working relationship is key to a successful nanny-family dynamic:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Respect and Appreciation</span>: Show your nanny respect and appreciation for their hard work and dedication.</li><li><span style=\"color: var(--tw-prose-bold);\">Feedback</span>: Provide constructive feedback and be open to their suggestions as well.</li></ul><h4>9. <span style=\"color: inherit;\">Emergency Preparedness</span></h4><p>Ensure your nanny is prepared for emergencies:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">First Aid Training</span>: Verify that your nanny is certified in CPR and first aid.</li><li><span style=\"color: var(--tw-prose-bold);\">Emergency Plan</span>: Discuss and create a plan for emergencies, including contact numbers and procedures.</li></ul><h4>10. <span style=\"color: inherit;\">Flexibility and Patience</span></h4><p>Finally, be flexible and patient:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Adaptability</span>: Understand that it might take time for your nanny to adjust to your family's routines and preferences.</li><li><span style=\"color: var(--tw-prose-bold);\">Patience</span>: Building a strong relationship with your nanny takes time and effort from both sides.</li></ul><p>Finding the perfect nanny may take time, but it's worth the effort to ensure your child is in good hands. By following these tips, you'll be well on your way to finding a nanny who can provide the care, support, and love that your family deserves.</p>",
+      "category": "Tips"
+>>>>>>> master
     }
   ],
   "community": [

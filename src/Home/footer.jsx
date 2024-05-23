@@ -1,5 +1,9 @@
 import "./footer.css"
+<<<<<<< HEAD
 export default function Footer(){
+=======
+export default function Footer(prop){
+>>>>>>> master
     return(
         <>
             <div className="py-20 flex justify-center"  style={{"backgroundColor":"#CBE4F2"}} >
@@ -23,15 +27,23 @@ export default function Footer(){
                         <div className="2xl:text-2xl md:text-xl">Navigation</div>
                         <hr className="bg-red-400 w-36 h-2 rounded-full"></hr>
                         <div className="my-2">
+<<<<<<< HEAD
                             <div className="2xl:text-2xl md:text-xl my-4">About Us</div>
                             <div className="2xl:text-2xl md:text-xl my-4">Community</div>
                             <div className="2xl:text-2xl md:text-xl my-4">Search For A Nanny</div>
                             <div className="2xl:text-2xl md:text-xl my-4">Quick Nanny</div>
                             <div className="2xl:text-2xl md:text-xl my-4">Blogs</div>
+=======
+                            <a href="/aboutus"><div className="2xl:text-2xl md:text-xl my-4">About Us</div></a>
+                            <a href="/community"><div className="2xl:text-2xl md:text-xl my-4">Community</div></a>
+                            <a href="/searchnanny"><div className="2xl:text-2xl md:text-xl my-4">Search For A Nanny</div></a>
+                            <a href="blogs"><div className="2xl:text-2xl md:text-xl my-4">Blogs</div></a>
+>>>>>>> master
 
                         </div>
                     </div>
                     <div id="Others" className="flex flex-col">
+<<<<<<< HEAD
                     <div className="2xl:text-2xl md:text-xl">Others</div>
                         <hr className="bg-red-400 w-36 h-2 rounded-full"></hr>
                         <div className="my-2">
@@ -52,6 +64,15 @@ export default function Footer(){
                             <div className="2xl:text-2xl md:text-xl my-4">Bangalore</div>
                             <div className="2xl:text-2xl md:text-xl my-4">Jaipur</div>
 
+=======
+                    <div className="2xl:text-2xl md:text-xl">Authenticated Links</div>
+                        <hr className="bg-red-400 w-44 h-2 rounded-full"></hr>
+                        <div className="my-2">
+                            <a href={prop.auth ?"/myzone/applications":"/login"}><div className="2xl:text-2xl md:text-xl my-4">Applications</div></a>
+                            <a href={prop.auth ?"/myzone/verifications":"/login"}><div className="2xl:text-2xl md:text-xl my-4">Verifications</div></a>
+                            <a href={prop.auth ?"/myzone/mybookings":"/login"}><div className="2xl:text-2xl md:text-xl my-4">Bookings</div></a>
+                            <a href={prop.auth ?"/myzone/profile":"/login"}><div className="2xl:text-2xl md:text-xl my-4">Profile</div></a>
+>>>>>>> master
                         </div>
                     </div>
                 </div>

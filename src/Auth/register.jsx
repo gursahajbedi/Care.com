@@ -6,15 +6,26 @@ import useRegister from "../AuthLogic/useRegister";
 
 export default function Register(){
     const [email, setEmail] = useState("");
+<<<<<<< HEAD
     const [phone,setPhone]=useState("")
     const [password,setPassword]=useState("")
     const [password2,setPassword2]=useState("")
+=======
+    const [name,setName]=useState("")
+    const [password,setPassword]=useState("")
+    const [password2,setPassword2]=useState("")
+    const [phone,setphone]=useState()
+>>>>>>> master
     const {signup} = useRegister()
 
     const navigate=useNavigate()
 
     const RegisterSubmit = async() =>{
+<<<<<<< HEAD
         await signup(email,phone,password,password2).then(()=>{
+=======
+        await signup(email,name,password,password2,phone).then(()=>{
+>>>>>>> master
             navigate('/login')
         })
     }
@@ -34,8 +45,17 @@ export default function Register(){
                                 <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
+<<<<<<< HEAD
                                 <div className="my-3">Phone</div>
                                 <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Phone" onChange={(e)=>{setPhone(e.target.value)}}></input>
+=======
+                                <div className="my-3">Name</div>
+                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Name" onChange={(e)=>{setName(e.target.value)}}></input>
+                            </div>
+                            <div className="my-5">
+                                <div className="my-3">Phone</div>
+                                <input type="number" className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Phone" onChange={(e)=>{setphone(e.target.value)}}></input>
+>>>>>>> master
                             </div>
                             <div className="my-5">
                                 <div className="my-3">Password</div>

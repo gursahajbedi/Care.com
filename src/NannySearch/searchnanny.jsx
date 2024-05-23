@@ -3,7 +3,13 @@ import { useEffect, useState } from "react"
 import Eldercare from "../Myzone/eldercare"
 import Slider from '@mui/material/Slider';
 import Childcare from "../Myzone/childcare";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { Link, useLocation } from "react-router-dom";
+import { htmlToText } from "html-to-text";
+
+>>>>>>> master
 
 function Head(prop){
     return(
@@ -116,12 +122,116 @@ export function AddsList({setdata}){
 }
 
 function NannyComponent(prop){
+<<<<<<< HEAD
     return(
         <Link to={`/nanny/${prop.data.id}/${prop.data.type}`}>
         <div className="flex-col w-full justify-between items-center">
             <div className="flex flex-row justify-between items-center">
                 <div className="w-3/12">
                     <img src="/nanny/profile_img.svg" style={{height:"150px",width:"100%"}}></img>
+=======
+
+    const[profile,setprofile]=useState({})
+    const [rating,setrating]=useState([])
+    const [total,settotal]=useState()
+    
+    const textContent = htmlToText(prop.data.about, {
+        wordwrap: false,
+        preserveNewlines: true,
+      });
+
+    const fetchprofile = async (id) => {
+          await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+            const data=res.data.filter((item)=>{
+              if(item.id==id){
+                return item
+              }
+            })
+            setprofile(data[0])
+          });
+    }
+
+    const fetchrating = async () => {
+        try {
+            const res = await axios.get("http://127.0.0.1:8000/api/bookings/getRatings/");
+            if (res.data.length !== 0) {
+                console.log(res.data)
+                const data = res.data.filter((item) => item.profile === Number(prop.data.id) && item.domain_name === prop.data.type);
+                setrating(data);
+            }
+        } catch (error) {
+            console.error('Error fetching ratings:', error);
+        }
+    };
+
+    const fetchtotal=()=>{
+        const list=[]
+        if(rating.length != 0 ){
+            rating.map((item)=>{
+                list.push(item.rating)
+            })
+            const sum=parseFloat(list.reduce((acc,curr)=>acc+curr,0))
+            const avg=parseFloat(sum/rating.length)
+            settotal(avg.toFixed(1))
+        }
+        if(rating.length === 0){
+            settotal((0).toFixed(1))
+        }
+    }
+
+    const renderStars = (rating) => {
+        const fullStars = Math.floor(rating);
+        const halfStar = rating - fullStars >= 0.5 ? 1 : 0;
+    
+        const stars = [];
+    
+        // Full stars
+        for (let i = 0; i < fullStars; i++) {
+          stars.push(
+            <span key={i}>
+              <img src="/microsite/star_fill.svg"></img>
+            </span>
+          );
+        }
+    
+        // Half star
+        if (halfStar === 1) {
+          stars.push(
+            <span key="half">
+              <img src="/microsite/star_half.svg"></img>
+            </span>
+          );
+        }
+    
+        // Empty stars
+        for (let i = 0; i < 5 - fullStars - halfStar; i++) {
+          stars.push(
+            <span key={fullStars + halfStar + i}>
+              <img src="/microsite/star_none.svg"></img>
+            </span>
+          );
+        }
+    
+        return stars;
+      };
+
+    useEffect(()=>{
+        fetchprofile(prop.data.id)
+    },[])
+
+    useEffect(()=>{
+        fetchrating()
+        fetchtotal()
+        console.log(profile)
+    },[profile,prop.data.id,prop.data.type])
+
+    return(
+        <Link to={`/nanny/${prop.data.id}/${prop.data.type}`} state={{pincode:prop.data.pincode}}>
+        <div className="flex-col w-full justify-between items-center">
+            <div className="flex flex-row justify-between items-center">
+                <div className="w-3/12">
+                    <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="rounded-xl" style={{height:"150px",width:"100%",objectFit:"cover"}}></img>
+>>>>>>> master
                 </div>
                 <div className=" w-7/12 flex flex-col ms-7">
                     <div className="flex flex-row items-end">
@@ -132,23 +242,36 @@ function NannyComponent(prop){
                             {prop.data.age} y/o
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div>
                         Stars (2)
+=======
+                    <div className="flex flex-row items-center py-2 text-xl">
+                        <div className="flex flex-row items-center">{renderStars(total)}</div>
+                        <div className="mt-1">({rating.length})</div>
+>>>>>>> master
                     </div>
                     <div className="text-xl">
                         {prop.data.city} , {prop.data.state} - {prop.data.pincode}
                     </div>
+<<<<<<< HEAD
                     <div className="flex flex-row items-center">
                         <img src="/nanny/hired.svg" className="relative -left-2"></img>
                         Hired By 1 Family in your Neighborhood
                     </div>
+=======
+>>>>>>> master
                 </div>
                 <div className="w-2/12 flex flex-col items-center text-center">
                     <div className="text-lg text-gray-400">
                         Starting From
                     </div>
                     <div className="text-2xl">
+<<<<<<< HEAD
                         {prop.data.recurring_base_rate}/-
+=======
+                        {prop.data.one_time_base_rate}/-
+>>>>>>> master
                     </div>
                     <div className="text-lg text-gray-400">
                         Per Hour
@@ -158,7 +281,11 @@ function NannyComponent(prop){
             </div>
             <div className="flex flex-row justify-between items-center mt-3">
                 <div className="pe-5">
+<<<<<<< HEAD
                     {prop.data.about.slice(0,150)}
+=======
+                    {textContent.slice(0,150)}
+>>>>>>> master
                 </div>
                 <div>
                     <button className="hover:brighness-75 bg-blue-400 text-white rounded-full px-7 shadow-xl py-3 text-xl">
@@ -385,10 +512,19 @@ function Filters(prop){
 export default function Searchnanny(){
     const [list,setlist]=useState([])
     const [typechoose,settypechoose]=useState("")
+<<<<<<< HEAD
 
     const preferences=JSON.parse(localStorage.getItem("preferences"))
 
     const [pincode,setpincode]=useState(preferences?preferences.pincode:null)
+=======
+    const state=useLocation()
+    const pin=state?state.state:null
+
+    const preferences=JSON.parse(localStorage.getItem("preferences"))
+
+    const [pincode,setpincode]=useState(pin?Number(pin):(preferences?preferences.pincode:null))
+>>>>>>> master
     const [type,settype]=useState(preferences?preferences.type:null)
     const [filtered,setfiltered]=useState([])
 
@@ -406,25 +542,47 @@ export default function Searchnanny(){
     })
 
     const fetchdata=async()=>{
+<<<<<<< HEAD
         await axios.get("http://localhost:8000/applications").then((res)=>{
             if(res.data.length != 0){
                 const listy=[]
                 res.data.map((item)=>{
                     item.domains_offered.map((item)=>{
+=======
+        await axios.get("http://127.0.0.1:8000/api/app/list/").then((res)=>{
+            console.log(res.data)
+            if(res.data.length != 0){
+                const listy=[]
+                res.data.map((item)=>{
+                    const domain=item.domains === "{}"?[]:JSON.parse(item.domains)
+                    domain.map((item)=>{
+>>>>>>> master
                         listy.push(item)
                     })
                 })
                 setlist(listy)
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             }
         })
     }
 
     const typefetching=()=>{
         const data=list.filter((item)=>{
+<<<<<<< HEAD
             if (item.type === type && item.pincode === pincode){
                 return item
             }
         })
+=======
+            if (item.type == type && item.pincode == pincode){
+                return item
+            }
+        })
+        console.log(data)
+>>>>>>> master
         setfiltered(data)
     }
 
@@ -440,7 +598,11 @@ export default function Searchnanny(){
 
     const filter = () => {
         const filteredData = filtered.filter((item) => {
+<<<<<<< HEAD
             const itemPrice = Number(item.recurring_base_rate);
+=======
+            const itemPrice = Number(item.one_time_base_rate);
+>>>>>>> master
             
             // Filter by price
             if (itemPrice < price[0] || itemPrice > price[1]) {
@@ -466,6 +628,10 @@ export default function Searchnanny(){
             return true;
         });
         setxfilter(filteredData);
+<<<<<<< HEAD
+=======
+        console.log(filteredData)
+>>>>>>> master
     };
     
     window.onload = function (){
@@ -499,7 +665,11 @@ export default function Searchnanny(){
                 <div className="w-4/12">
                     <Filters type={type} key={type} pincode={pincode} settype={settype} setpincode={setpincode} setprice={setprice} setlang={setlang} setage={setage} setpet={setpet}/>
                 </div>
+<<<<<<< HEAD
                 {!(xfilter.length === 0 || filtered.length ===0) ?(<div>
+=======
+                {!(xfilter.length === 0 && filtered.length ===0) ?(<div>
+>>>>>>> master
                 {(price[0]===100 && price[1]===10000 && pet.length === 0 && age.length === 0 && lang.length === 0 )?(<div className="w-8/12">
                 {
                     filtered.map((item)=>{
@@ -508,11 +678,28 @@ export default function Searchnanny(){
                 }
                 </div>)
                 :(<div className="w-8/12">
+<<<<<<< HEAD
                 {
                     xfilter.map((item)=>{
                         return(<NannyComponent key={item} data={item}/>)
                     })
                 }
+=======
+                    { xfilter.length !=0 &&(<div>
+                    {
+                        xfilter.map((item)=>{
+                            return(<NannyComponent key={item} data={item}/>)
+                        })
+                    }
+                    </div>)}
+                    {xfilter.length ===0 &&(
+                        <div className="w-8/12 flex flex-col justify-center items-center" style={{width:"950px"}}>
+                            <div>
+                                <img src="/community/NoResults.png"></img>
+                            </div>
+                        </div>
+                    )}
+>>>>>>> master
                 </div>)}
                 </div>):(
                 <div className="w-8/12 flex flex-col justify-center items-center" style={{width:"950px"}}>
