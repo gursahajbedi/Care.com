@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import { useLocation } from "react-router-dom"
-
-export default function Blog(){
-    const loc=useLocation()
-    const data=JSON.parse(loc.state)
-
-
-
-    return(
-        <>
-        <div>
-        </div>    
-        </>
-    )
-=======
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
@@ -80,7 +64,7 @@ export default function Blog() {
                     src={`http://127.0.0.1:8000${blog.image}`}
                     alt="Blog Post"
                     className="rounded-3xl shadow-lg"
-                    style={{ height: "500px", width: "80%", objectFit: "cover" }}
+                    style={{ height: "500px", width: "1000px", objectFit: "cover" }}
                 />
                 <div className="flex flex-row justify-between items-center w-full mt-6">
                     {blog.category === "General" && (
@@ -100,8 +84,8 @@ export default function Blog() {
                     )}
         
                 </div>
-                <div className="w-full mt-8 leading-8 text-lg">
-                    <div dangerouslySetInnerHTML={{ __html: decodeHtml(blog.content) }} />
+                <div className="w-full mt-8 leading-8 text-lg text-wrap">
+                    <div dangerouslySetInnerHTML={{ __html: decodeHtml(blog.content) }}/>
                 </div>
             </div>
 
@@ -138,5 +122,4 @@ export default function Blog() {
             </div>
         </div>
     );
->>>>>>> master
 }

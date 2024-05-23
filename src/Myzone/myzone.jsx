@@ -1,13 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import  useLogout  from "../AuthLogic/useLogout.jsx"
 import useAuthContext from "../AuthLogic/useAuthContext.jsx"
-<<<<<<< HEAD
-import useChangePassword from "../AuthLogic/useChangePass.jsx"
-import "./profile.css"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { Button } from "bootstrap"
-=======
 import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./profile.css"
@@ -15,28 +8,19 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 import ReactPaginate from 'react-paginate';
->>>>>>> master
 
 export function Menu(){
     const {logout}= useLogout()
     const navigate= useNavigate()
 
     const handlelogout=async()=>{
-<<<<<<< HEAD
-        await logout().then(()=>{
-=======
         await logout().then(()=>{   
->>>>>>> master
             navigate("/")
         })
     }
     return(
         <>
-<<<<<<< HEAD
-        <div className="w-2/12 h-72 border-4 rounded-3xl shadow-xl border-gray-200 flex flex-col justify-center items-center gap-y-5"> 
-=======
         <div className="w-2/12 h-96 border-4 rounded-3xl shadow-xl border-gray-200 flex flex-col justify-center items-center gap-y-5"> 
->>>>>>> master
             <Link to={"/myzone/profile"} className="text-xl flex flex-row items-center gap-x-4">
                 <div><img src="/myzone/profile.svg" style={{height:"35px"}}></img></div>
                 <div>My Profile</div>
@@ -49,13 +33,10 @@ export function Menu(){
                 <div><img src="/myzone/verification.svg" style={{height:"40px"}}></img></div>
                 <div>Verification</div>
             </Link>
-<<<<<<< HEAD
-=======
             <Link to={"/myzone/mybookings"} className="text-xl flex flex-row items-center gap-x-4">
                 <div><img src="/myzone/bookings.svg" style={{height:"45px"}}></img></div>
                 <div>My Bookings</div>
             </Link>
->>>>>>> master
             <button className="text-xl flex flex-row items-center gap-x-4" onClick={()=>{handlelogout()}}>
                 <span className="text-3xl material-symbols-outlined text-red-600">Logout</span>
                 <div className="text-red-600 text-2xl">Logout</div>
@@ -65,62 +46,6 @@ export function Menu(){
     )
 }
 
-<<<<<<< HEAD
-export function Profile(){
-    const {auth}=useAuthContext()
-    const [hover,sethover]=useState(false)
-
-    const [original,setoriginal]=useState()
-    const [pass,setpass]=useState()
-    const [confirm,setconfirm]=useState()
-    const {changepassword,error}=useChangePassword()
-
-    const id = auth.user["id"]
-
-
-    const handleProfile=(e)=>{
-        console.log(e.target.files[0])
-    }
-    const handlesubmit=async(e)=>{
-        e.preventDefault()
-        if(original && pass && confirm){
-            await changepassword(id,original,pass,confirm)
-        }
-    }
-    return(
-        <>
-            <div className="mx-auto flex flex-row justify-center px-36 gap-x-8 py-10">
-                <Menu/>
-                <div className="w-10/12">
-                    <div className="text-4xl">
-                        Profile
-                        <hr className="w-64 h-2 rounded-full bg-red-400 "></hr>
-                    </div>
-                    <div className="flex flex-col items-center mt-10">
-                        {!auth.user.profile_pic && (<div className="flex flex-row justify-center items-center" onClick={()=>{handleProfile()}} onMouseEnter={()=>sethover(true)} onMouseLeave={()=>sethover(false)}>
-                            {hover ? (<img src="/auth/default-profile.jpg" className="profile z-0 border-4 border-gray-500" style={{height:"150px",width:"150px",borderRadius:"100%"}} ></img>):(<img src="/auth/default-profile.jpg" className="z-0 border-4 border-gray-500 " style={{height:"150px",width:"150px",borderRadius:"100%"}} ></img>)}
-                            {hover && (<img className="absolute camera z-10" src="/auth/camera.png" style={{height:"50px"}}></img>)}
-                            <input type="file" onChange={(e)=>handleProfile(e)} className="z-20 h-36 w-36 me-2 bg-black rounded-full" accept="image/gif, image/jpeg, image/png"></input>
-                        </div>)}
-                        {auth.user.profile_pic && (<div className="flex flex-row justify-center items-center" onClick={()=>{handleProfile()}}>
-                            <img src={`${auth.profile_pic}`} className="profile border-4 border-gray-500 " style={{height:"150px",width:"150px",borderRadius:"100%"}} onMouseEnter={()=>sethover(true)} onMouseLeave={()=>sethover(false)}></img>
-                            {hover && (<img className="absolute camera" src="/auth/camera.png" style={{height:"50px"}}></img>)}
-                        </div>)}
-                    </div>
-                    <div className="flex flex-col items-center py-10">
-                        <form className="flex flex-col gap-y-4 items-center justify-center" onSubmit={(e)=>{handlesubmit(e)}}>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Original Password" type="text" onChange={(e)=>{setoriginal(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter New Password" type="text" onChange={(e)=>{setpass(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Confirm Password" type="text" onChange={(e)=>{setconfirm(e.target.value)}}/>
-                            {error && (<div className="text-red-400">{error}</div>)}
-                            <button type="submit" className="bg-red-400 text-white px-4 py-1 rounded-xl">Change Password</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-=======
 export function Profile() {
     const [profile, setProfile] = useState({});
     const [profilePic, setProfilePic] = useState(null); // Changed state name to profilePic
@@ -282,21 +207,12 @@ export function Profile() {
             </div>
         </div>
     );
->>>>>>> master
 }
 export function Verification(){
     const {auth}=useAuthContext()
     const [appdata,setappdata]=useState({})
     const [status,setstatus]=useState(null)
 
-<<<<<<< HEAD
-    const fetchverify=async()=>{
-        await axios.get(`http://localhost:8000/applications/${auth.user.id}`).then((res)=>{
-            if(res.status === 200){
-                setappdata(res.data)
-                setstatus(res.data.status)
-            }
-=======
     axios.defaults.headers.common['Authorization'] = `Bearer ${auth.user.access}`;
 
     const [state,setState]=useState()
@@ -336,66 +252,10 @@ export function Verification(){
                     setRef2Name(item.reference2_name || "");
                 }
             })
->>>>>>> master
         })
     }
     useEffect(()=>{
         fetchverify()
-<<<<<<< HEAD
-    },[])
-
-    const [state,setState]=useState(appdata.verification ?(appdata.verification.state):(""))
-    const [type,setType]=useState(appdata.verification ?(appdata.verification.user_type):(""))
-    const [URL,setURL]=useState(appdata.verification ?(appdata.verification.organisation_url):(""))
-    const [OrganName,setOrganName]=useState(appdata.verification ?(appdata.verification.organisation_name):(""))
-    const [ref1Contact,setRef1Contact]=useState(appdata.verification ?(appdata.verification.reference1_contact):(""))
-    const [ref1Name,setRef1Name]=useState(appdata.verification ?(appdata.verification.reference1_name):(""))
-    const [ref2Contact,setRef2Contact]=useState(appdata.verification ?(appdata.verification.reference2_contact):(""))
-    const [ref2Name,setRef2Name]=useState(appdata.verification ?(appdata.verification.reference2_name):(""))
-
-    const postverify=async(e)=>{
-        e.preventDefault()
-        if(appdata === {}){
-        await axios.patch(`http://localhost:8000/applications/${auth.user.id}`,{
-            ...appdata,
-            status:"approved",
-            verification:{
-                "state": state,
-                "user_type": type,
-                "organisation_url": URL,
-                "organisation_name": OrganName,
-                "reference1_name": ref1Name,
-                "reference1_contact": ref1Contact,
-                "reference2_name": ref2Name,
-                "reference2_contact": ref2Contact
-            }
-        }).then((res)=>{
-            console.log(res.data)
-            setappdata(res.data)
-            console.log('patched')
-        })
-        }else{
-            await axios.post("http://localhost:8000/applications/",{
-                id:auth.user.id,
-                status:"approved",
-                verification:{
-                "state": state,
-                "user_type": type,
-                "organisation_url": URL,
-                "organisation_name": OrganName,
-                "reference1_name": ref1Name,
-                "reference1_contact": ref1Contact,
-                "reference2_name": ref2Name,
-                "reference2_contact": ref2Contact
-                },
-                domains_offered:[]
-            }).then((res)=>{
-                console.log(res.data)
-                setappdata(res.data)
-                console.log('posted')
-            })
-        }
-=======
     },[auth.user.id])
 
     useEffect(()=>{
@@ -434,33 +294,10 @@ export function Verification(){
             setappdata(res.data)
             navigate('/myzone/applications')
         })
->>>>>>> master
     }
 
     const postverifyapproved=async(e)=>{
         e.preventDefault()
-<<<<<<< HEAD
-        console.log("ausdoa")
-        await axios.patch(`http://localhost:8000/applications/${auth.user.id}`,{
-            ...appdata,
-            verification:{
-                "state": state,
-                "user_type": type,
-                "organisation_url": URL,
-                "organisation_name": OrganName,
-                "reference1_name": ref1Name,
-                "reference1_contact": ref1Contact,
-                "reference2_name": ref2Name,
-                "reference2_contact": ref2Contact
-            }
-        }).then((res)=>{
-            console.log(res.data)
-            setappdata(res.data)
-        })
-    }
-
-
-=======
         await axios.patch(`http://127.0.0.1:8000/api/app/application/patch/`,{
             ...appdata,
             "state": state,
@@ -478,7 +315,6 @@ export function Verification(){
         })
     }
 
->>>>>>> master
     return(
         <>
             <div className="mx-auto flex flex-row justify-center px-36 gap-x-8 py-10">
@@ -488,18 +324,6 @@ export function Verification(){
                         Verification
                         <hr className="w-64 h-2 rounded-full bg-red-400 "></hr>
                     </div>
-<<<<<<< HEAD
-                    {status === null &&(
-                        <form className="flex flex-col items-center justify-center gap-y-2" onSubmit={(e)=>{postverify(e)}}>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter State" type="text" onChange={(e)=>{setState(e.target.value)}} defaultValue={state}/>
-                            <select className="border-gray-400 border-2 w-96 px-4 text-xl" type="text" onChange={(e)=>setType(e.target.value)}>
-                                <option className="" selected defaultValue="">Select Type</option>
-                                <option className="" value="indivisual">Indivisual</option>
-                                <option className="" value="organisation">Organisation</option>
-                            </select>
-                            {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Oranisation URL" type="text"  onChange={(e)=>{setURL(e.target.value)}}/>)}
-                            {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Oranisation Name" type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
-=======
                     {status === false || !status &&(
                         <form className="flex flex-col items-center justify-center gap-y-2" onSubmit={(e)=>{postverify(e)}}>
                             <div className="text-center font-bold text-gray-500 border-s-4 my-6 border-e-4 rounded-full py-5 px-10">Please Note: <br/> Processing of the Verification may take upto 24 hours</div>
@@ -511,20 +335,10 @@ export function Verification(){
                             </select>
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" type="text"  onChange={(e)=>{setURL(e.target.value)}}/>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation Name" type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
->>>>>>> master
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" onChange={(e)=>{setRef1Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Name" type="text" onChange={(e)=>{setRef1Name(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" onChange={(e)=>{setRef2Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" onChange={(e)=>{setRef2Name(e.target.value)}}/>
-<<<<<<< HEAD
-                            <button type="submit" className="bg-red-400 rounded-full px-4 py-2 text-xl text-white">Submit Verification</button>
-                        </form>
-                    )}
-                    {status === "approved" &&(
-                        <form className="flex flex-col items-center justify-center gap-y-2" onSubmit={(e)=>{postverifyapproved(e)}}>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter State" type="text" onChange={(e)=>{setState(e.target.value)}}/>
-                            {appdata.verification.user_type === "indivisual" &&(<select className="border-gray-400 border-2 w-96 px-4 text-xl" type="text" onChange={(e)=>setType(e.target.value)}>
-=======
                             <div className="w-1/2 my-3 relative h-10 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg focus:outline-none focus:border-blue-500">
                                 <div className="flex flex-row justify-between items-center">
                                     <p className="absolute left-4 top-2 w-1/2">{iproof.length === 0 ? "Upload Identity Proof" : JSON.stringify(iproof)}</p>    
@@ -570,28 +384,15 @@ export function Verification(){
                             <div className="text-center font-bold text-gray-500 border-s-4 my-6 border-e-4 rounded-full py-5 px-10">Please Note: <br/> Verification Once Approved does'nt require Processing to Edit</div>
                             <input  className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter State" type="text" defaultValue={state} onChange={(e)=>{setState(e.target.value)}}/>
                             {appdata.user_type === "indivisual" &&(<select className="border-gray-400 border-2 w-96 px-4 text-xl" type="text" onChange={(e)=>setType(e.target.value)} defaultValue={type}>
->>>>>>> master
                                 <option className="" value="">Select Type</option>
                                 <option className="" selected value="indivisual">Indivisual</option>
                                 <option className="" value="organisation">Organisation</option>
                             </select>)}
-<<<<<<< HEAD
-                            {appdata.verification.user_type === "organisation" &&(<select className="border-gray-400 border-2 w-96 px-4 text-xl" type="text" onChange={(e)=>setType(e.target.value)}>
-=======
                             {appdata.user_type === "organisation" &&(<select className="border-gray-400 border-2 w-96 px-4 text-xl" type="text" onChange={(e)=>setType(e.target.value)} defaultValue={type}>
->>>>>>> master
                                 <option className="" value="">Select Type</option>
                                 <option className="" value="indivisual">Indivisual</option>
                                 <option className="" selected value="organisation">Organisation</option>
                             </select>)}
-<<<<<<< HEAD
-                            {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Oranisation URL" type="text" onChange={(e)=>{setURL(e.target.value)}}/>)}
-                            {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Oranisation Name" type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" defaultValue={appdata.verification.reference1_contact} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Name" type="text" defaultValue={appdata.verification.reference1_name} onChange={(e)=>{setRef1Name(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" defaultValue={appdata.verification.reference2_contact} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" defaultValue={appdata.verification.reference2_name} onChange={(e)=>{setRef2Name(e.target.value)}}/>
-=======
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" defaultValue={URL} type="text" onChange={(e)=>{setURL(e.target.value)}}/>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation Name" defaultValue={OrganName} type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" defaultValue={ref1Contact} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
@@ -599,7 +400,6 @@ export function Verification(){
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" defaultValue={ref2Contact} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" defaultValue={ref2Name} onChange={(e)=>{setRef2Name(e.target.value)}}/>
                             
->>>>>>> master
                             <button type="submit" className="bg-red-400 rounded-full px-4 py-2 text-xl text-white">Edit Verification</button>
                         </form> 
                     )}
@@ -610,23 +410,10 @@ export function Verification(){
 }
 export function Applications(){
     const {auth}=useAuthContext()
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     const [appdata,setappdata]=useState([])
     const [isapplication,setapplication]=useState(false)
 
     const fetchapplications=async()=>{
-<<<<<<< HEAD
-        await axios.get(`http://localhost:8000/applications/${auth.user.id}`).then((res)=>{
-            if(res.status === 404){
-                setapplication(false)
-            }      
-            else{
-                setappdata(res.data.domains_offered)
-                setapplication(true)
-=======
         await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 if(item.user === Number(auth.user.id)){
@@ -649,7 +436,6 @@ export function Applications(){
                     setappdata(JSON.parse(data.domains))
                     setapplication(true)
                 }
->>>>>>> master
             }
         })
     }
@@ -687,11 +473,7 @@ export function Applications(){
                     </div>
                     )}
                     {isapplication &&(<div>
-<<<<<<< HEAD
-                    {appdata.length != 0 &&(<div className="flex flex-col justify-center w-full items-center gap-y-4 mt-10">
-=======
                         {appdata.length != 0 &&(<div className="flex flex-col justify-center w-full items-center gap-y-4 mt-10">
->>>>>>> master
                         {
                             appdata.map((item)=>{
                                 return(
@@ -739,8 +521,6 @@ export function Applications(){
             </div>
         </>
     )
-<<<<<<< HEAD
-=======
 }
 
 function Items({ currentItems }) {
@@ -940,5 +720,4 @@ export function MyBookings(){
             </div>
         </div>
     )
->>>>>>> master
 }

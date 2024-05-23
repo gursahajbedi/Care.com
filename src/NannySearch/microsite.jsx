@@ -1,61 +1,10 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable react/prop-types */
->>>>>>> master
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import dateFormat, { masks } from "dateformat";
 import './microsite.css'
-<<<<<<< HEAD
-
-function ReviewPanel({data,setstate,renderStars}){
-    return(
-        <>
-        <div className="overlay" onClick={()=>setstate(false)}>
-            <div className="content">
-                {
-                    data.map((item)=>{
-                        return(
-                            <div key={data} className="flex flex-col justify-center items-center w-full my-8">
-                                <div className="flex flex-row items-center justify-center w-full">
-                                    <div className="w-2/12">
-                                        <img src="/microsite/ratingpic.svg" style={{height:"100px",width:"100px"}}></img>
-                                    </div>
-                                    <div className="flex flex-row items-end border-b-2 pb-3 border-gray-300 w-10/12 gap-x-4">
-                                        <div className="flex flex-col ">
-                                            <div className="w-3/12 text-2xl text-nowrap">
-                                                {item.name}
-                                            </div>
-                                            <div className="text-base w-6/12 text-nowrap text-gray-400">
-                                                Posted On {dateFormat(item.posted_on,"dd/mm/yyyy")}
-                                            </div>
-                                        </div>
-                                        <div className="w-3/12 text-2xl flex flex-row items-center justify-center">
-                                            <div className="pt-1">
-                                                {item.rating?item.rating.toFixed(1):0}
-                                            </div>
-                                            <div className="flex flex-row ps-3">
-                                                {renderStars(item.rating?item.rating.toFixed(1):0)}
-                                            </div>  
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex flex-col justify-center items-center ps-4">
-                                    {item.content}
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </div>
-        </>
-    )
-}
-
-=======
 import { Rating } from 'react-simple-star-rating'
 import useAuthContext from "../AuthLogic/useAuthContext";
 
@@ -139,21 +88,17 @@ function ReviewPanel({ data, setstate, renderStars, setaddreview }) {
         </>
     );
 }
->>>>>>> master
 function Ratings({data,id,type}){
     const [rating,setrating]=useState([])
     const [total,settotal]=useState()
     const [top,settop]=useState({})
     const [reviewactive,setreviewactive]=useState(false)
-<<<<<<< HEAD
-=======
     const [addreview,setaddreview]=useState(false)
     const [stars,setStars]=useState(0)
     const [reviewcontent,setreviewcontent]=useState()
     const [profile, setprofile] = useState({});
 
     const {auth}=useAuthContext()
->>>>>>> master
 
     const renderStars = (rating) => {
         const fullStars = Math.floor(rating);
@@ -191,20 +136,6 @@ function Ratings({data,id,type}){
         return stars;
       };
 
-<<<<<<< HEAD
-    const fetchrating=async()=>{
-        await axios.get("http://localhost:8000/ratings").then((res)=>{
-            if(res.data.length !== 0){
-                const data=res.data.filter((item)=>{
-                    if(item.nanny_id === id && item.type === type ){
-                        return item
-                    }
-                })
-                setrating(data)
-            }
-        })
-    }
-=======
       const fetchrating = async () => {
         try {
             const res = await axios.get("http://127.0.0.1:8000/api/bookings/getRatings/");
@@ -217,7 +148,6 @@ function Ratings({data,id,type}){
             console.error('Error fetching ratings:', error);
         }
     };
->>>>>>> master
 
     const fetchtotal=()=>{
         const list=[]
@@ -234,22 +164,6 @@ function Ratings({data,id,type}){
         }
     }
 
-<<<<<<< HEAD
-    const fetchtop=()=>{
-        if(rating.length != 0){
-        const data=rating.filter((item)=>{
-            if(item.rating === 5){
-                return item
-            }
-        })
-        settop(data[0])
-        }
-    }
-
-    useEffect(()=>{
-        fetchrating()
-        setreviewactive(false)
-=======
     const fetchprofile = async (id) => {
         await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
           const data=res.data.filter((item)=>{
@@ -296,19 +210,11 @@ function Ratings({data,id,type}){
         fetchrating()
         console.log("Review Depend")
     // eslint-disable-next-line react-hooks/exhaustive-deps
->>>>>>> master
     },[type])
 
     useEffect(()=>{
         fetchtotal()
         fetchtop()
-<<<<<<< HEAD
-        setreviewactive(false)
-    },[type,rating,reviewactive])
-
-    return(
-        <div className="w-8/12 flex flex-col mt-10">
-=======
         console.log("Multidepend")
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[type,reviewactive,rating])
@@ -322,7 +228,6 @@ function Ratings({data,id,type}){
 
     return(
         <div className="w-12/12 flex flex-col mt-10">
->>>>>>> master
             <div className="text-3xl ps-4 flex flex-row justify-between">
                 <div className="w-8/12">
                     Reviews
@@ -336,17 +241,6 @@ function Ratings({data,id,type}){
                 </div>
             </div>
             <hr className="w-full h-1 rounded-full bg-red-400 "></hr>
-<<<<<<< HEAD
-            {top.length !=0 &&(
-            <div className="flex flex-col justify-center items-center w-full my-8">
-                <div className="flex flex-row items-center justify-center w-full">
-                    <div className="w-2/12">
-                        <img src="/microsite/ratingpic.svg" style={{height:"100px",width:"100px"}}></img>
-                    </div>
-                    <div className="flex flex-row items-end border-b-2 pb-3 border-gray-300 w-10/12 gap-x-4">
-                        <div className="w-3/12 text-2xl text-nowrap">
-                            {top.name}
-=======
             {top != {} && rating.length !=0 &&(
             <div className="flex flex-col justify-center items-center w-full my-8">
                 <div className="flex flex-row items-center justify-center w-full">
@@ -360,7 +254,6 @@ function Ratings({data,id,type}){
                     <div className="flex flex-row items-end border-b-2 pb-3 border-gray-300 w-10/12 gap-x-4">
                         <div className="w-3/12 text-2xl text-nowrap">
                             {profile.name}
->>>>>>> master
                         </div>
                         <div className="text-base w-6/12 text-nowrap text-gray-400">
                             Posted On {dateFormat(top.posted_on,"dd/mm/yyyy")}
@@ -379,9 +272,6 @@ function Ratings({data,id,type}){
                     {top.content}
                 </div>
             </div>)}
-<<<<<<< HEAD
-            <div className="flex flex-col items-start ps-4">
-=======
             {rating.length === 0 && (
                 <div className="flex flex-col items-center justify-center text-3xl mt-10 gap-y-5">
                     No Reviews Yet!
@@ -394,7 +284,6 @@ function Ratings({data,id,type}){
                 </div>
             )}
             {rating.length !=0 && (<div className="flex flex-col items-start ps-4">
->>>>>>> master
                 <button className="border-b-4 border-gray-400 rounded-full hover:bg-gray-300" onClick={()=>setreviewactive(true)}>
                     <div className="flex flex-row items-center gap-x-4 border-2 border-gray-300 rounded-full p-3 px-6">
                         <div className="text-2xl">
@@ -403,21 +292,6 @@ function Ratings({data,id,type}){
                         <img src="/apply/arrow.svg" style={{height:"20px"}}></img>
                     </div>
                 </button>
-<<<<<<< HEAD
-            </div>
-            {reviewactive && (
-                <ReviewPanel data={rating} setstate={setreviewactive} renderStars={renderStars} key={rating}/>
-            )}
-        </div>
-    )
-
-}
-
-function About({data}){
-    return(
-        <>
-            <div className="w-8/12 flex flex-col">
-=======
             </div>)}
             {reviewactive && (
                 <ReviewPanel data={rating} setstate={setreviewactive} renderStars={renderStars} key={rating} setaddreview={setaddreview}/>
@@ -459,20 +333,13 @@ function About({data}){
     return(
         <>
             <div className="w-12/12 flex flex-col">
->>>>>>> master
                 <div className="text-3xl ps-4">
                     About {data.display_name} 
                 </div>
                 <hr className="w-full h-1 rounded-full bg-red-400 "></hr>
                 <div className="text-xl px-4 py-8">
-<<<<<<< HEAD
-                    <p>{data.about}</p>
-                </div>
-                <button className="shadow-xl w-full h-12 border-2 border-gray-200 rounded-full"><span className="text-5xl material-symbols-outlined">expand_less</span></button>
-=======
                     <div dangerouslySetInnerHTML={{ __html: data.about }} />
                 </div>
->>>>>>> master
             </div>
         </>
     )
@@ -481,19 +348,11 @@ function About({data}){
 export default function Microsite(){
     const {id,type}=useParams()
     const [isactive,setactive]=useState(type)
-<<<<<<< HEAD
-=======
     const {auth}=useAuthContext()
->>>>>>> master
     
     const [data,setdata]=useState({})
     const [domainslist,setdomainslist]=useState([])
     const [domains,setdomains]=useState([])
-<<<<<<< HEAD
-
-    useEffect(()=>{
-        fetchdata(); 
-=======
     const[profile,setprofile]=useState({})
 
     const fetchprofile = async (id) => {
@@ -541,7 +400,6 @@ export default function Microsite(){
     useEffect(()=>{
         fetchdata(); 
         fetchprofile(id);
->>>>>>> master
     },[id,type,isactive])
 
     useEffect(()=>{
@@ -550,10 +408,6 @@ export default function Microsite(){
 
     const fetchdata=async()=>{
         try {
-<<<<<<< HEAD
-            const res = await axios.get(`http://localhost:8000/applications/${id}`);
-            setdomainslist(res.data.domains_offered);
-=======
             await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 if(item.user === Number(id)){
@@ -565,7 +419,6 @@ export default function Microsite(){
             setdomainslist(domain)
             console.log(domain)
         })
->>>>>>> master
         } catch (error) {
             console.error("Error fetching data", error);
         }
@@ -591,22 +444,6 @@ export default function Microsite(){
 
     return(
         <>
-<<<<<<< HEAD
-        <div className="flex flex-col items-center justify-center my-20">
-            <div className="flex flex-row justify-center items-center gap-x-32">
-                <object className="absolute w-full mt-20 -z-40" data="/microsite/creative.svg" type="image/svg+xml"></object>
-                <div className="w-8/12 flex flex-row items-center gap-x-10">
-                    <div className="w-6/12">
-                        <img src="/nanny/profile_img.svg" style={{height:"400px",width:"400px"}}></img>
-                    </div>
-                    <div className="flex flex-col text-4xl w-7/12">
-                        <div className="flex flex-row text-nowrap gap-x-4 items-end">
-                            {data.display_name}
-                            <div className="text-3xl">{data.age} y/o</div>
-                        </div>
-                        <div className="text-3xl">
-                            Starting from {data.recurring_base_rate}₹ / hr
-=======
         <div className="flex flex-col items-center justify-center my-36">
             <div className="flex flex-row justify-center items-center gap-x-32 mb-20">
                 <object className="absolute w-full mt-20 -z-40" data="/microsite/creative.svg" type="image/svg+xml"></object>
@@ -623,18 +460,10 @@ export default function Microsite(){
                         </div>
                         <div className="text-3xl">
                             Starting from {data.one_time_base_rate}₹ / hr
->>>>>>> master
                         </div>
                         <div className="text-2xl">
                             {data.city} , {data.state} - {data.pincode}
                         </div>
-<<<<<<< HEAD
-                        <div className="flex flex-row items-center text-2xl text-nowrap relative -left-4">
-                            <img src="/nanny/hiredblack.svg" style={{height:"40px"}}></img>
-                            Hired By 1 Family in your Neighborhood
-                        </div>
-=======
->>>>>>> master
                     </div>
                 </div>
                 <div className="w-4/12 flex flex-col justify-center items-center gap-y-5 text-3xl">
@@ -644,12 +473,7 @@ export default function Microsite(){
                     {
                         domains.map((item)=>{
                             return(
-<<<<<<< HEAD
-                                // eslint-disable-next-line react/jsx-key
-                                <Link to={`/nanny/${id}/${item}`} onClick={()=>handleclick(item)}>
-=======
                                 <Link to={`/nanny/${id}/${item}`} onClick={()=>handleclick(item)} key={item}>
->>>>>>> master
                                     {isactive === item ?(
                                     <div className="rounded-full border-t-4 border-gray-500" >
                                         <div className="rounded-full border-2 border-gray-400 bg-blue-400 text-white px-10 py-2 text-center">
@@ -669,15 +493,6 @@ export default function Microsite(){
                     }
                 </div>
             </div>
-<<<<<<< HEAD
-            <div className="flex flex-row w-full justify-center items-center px-64 mt-24">
-                <div>
-                <About key={isactive} data={data}/>
-                <Ratings data={data} id={id} type={type} />
-                </div>
-                <div className="w-4/12">
-
-=======
             <div className="flex flex-row w-full justify-center px-44 mt-24 " key={type}>
                 <div className="w-7/12">
                     <About data={data}/>
@@ -700,14 +515,11 @@ export default function Microsite(){
                     </div>
                     {auth.user &&(<Link to={`/booking/${id}/${type}/`} state={{timing:timings,data:data}} className="bg-red-400 rounded-full mt-4 shadow-xl hover:brightness-75 text-white text-2xl p-4 flex flex-row items-center"> Request A Booking<span className=" text-4xl material-symbols-outlined">arrow_forward</span></Link>)}
                     {!auth.user &&(<Link to={`/login`} state={{timing:timings,data:data}} className="bg-red-400 rounded-full mt-4 shadow-xl hover:brightness-75 text-white text-2xl p-4 flex flex-row items-center"> Request A Booking<span className=" text-4xl material-symbols-outlined">arrow_forward</span></Link>)}
->>>>>>> master
                 </div>
             </div>
         </div>
         </>
     )
-<<<<<<< HEAD
-=======
 }
 
 export function Services({data,id,type}){
@@ -963,5 +775,4 @@ export function Services({data,id,type}){
         </div>
         </>
     )
->>>>>>> master
 }

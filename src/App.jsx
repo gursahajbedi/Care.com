@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
-=======
 import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom"
->>>>>>> master
 import Navbar from "./Home/navbar"
 import Home from "./Home/home"
 import Footer from "./Home/footer"
@@ -14,18 +10,12 @@ import BlogsPage from "./Blogs/blogspage"
 import BlogCategoryPage from "./Blogs/blogcategory"
 import Blog from "./Blogs/blog"
 import useAuthContext from "./AuthLogic/useAuthContext"
-<<<<<<< HEAD
-import { Applications, Profile, Verification } from "./Myzone/myzone"
-=======
 import { Applications, MyBookings, Profile, Verification } from "./Myzone/myzone"
->>>>>>> master
 import Apply from "./Myzone/apply"
 import Domains from "./Myzone/apply"
 import { useEffect } from "react"
 import Searchnanny from "./NannySearch/searchnanny"
 import Microsite from "./NannySearch/microsite"
-<<<<<<< HEAD
-=======
 import Booking from "./Booking/booking"
 import MyPaymentForm from "./Payments/payment"
 import AdminLogin from "./Admin/Admin"
@@ -33,7 +23,6 @@ import AdminDashboard, { AddStaff, Blogs } from "./Admin/AdminDashboard"
 
 import { Navigate } from 'react-router'
 import AboutUs from "./aboutus"
->>>>>>> master
 
 function App() {
   const {auth}=useAuthContext()
@@ -49,39 +38,16 @@ function App() {
   
   return (
     <> 
-<<<<<<< HEAD
-        <Navbar/>
-        <Router>
-          <ScrollToTop/>
-          <Routes>
-            <Route path="/" element={<Home/>}></Route>
-=======
         <Navbar auth={auth.user}/>
         <Router>
           <ScrollToTop/>
           <Routes>
             <Route path="/" element={<Home auth={auth.user}/>}></Route>
             <Route path="/aboutus" element={<AboutUs/>}></Route>
->>>>>>> master
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/register" element={<Register/>}></Route>
             <Route path="/community" element={<CommPage/>}></Route>
             <Route path="/community/post/:id" element={<Post/>}></Route>
-<<<<<<< HEAD
-            <Route path="/blogs/" exact element={<BlogsPage/>}></Route>
-            <Route path="/blogs/category/:category" exact element={<BlogCategoryPage/>}></Route>
-            <Route path="/blogs/post/:id" exact element={<Blog/>}></Route>
-            {auth.user && (<Route path="/myzone/profile" exact element={<Profile/>}></Route>)}
-            {auth.user && (<Route path="/myzone/applications" exact element={<Applications/>}></Route>)}
-            {auth.user && (<Route path="/myzone/verification" exact element={<Verification/>}></Route>)}
-            {auth.user && (<Route path="/myzone/applications/:step" element={<Apply/>}></Route>)}
-            <Route path="/searchnanny" exact element={<Searchnanny/>}></Route>
-            <Route path="/nanny/:id/:type" exact element={<Microsite/>}></Route>
-            
-          </Routes>
-        </Router>
-        <Footer/>
-=======
             <Route path="/blogs/" element={<BlogsPage auth={auth}/>}></Route>
             <Route path="/blogs/category/:category" element={<BlogCategoryPage/>}></Route>
             <Route path="/blogs/post/:id" element={<Blog/>}></Route>
@@ -137,7 +103,6 @@ function App() {
           </Routes>
         </Router>
         <Footer auth={auth.user}/>
->>>>>>> master
     </>
   )
 }

@@ -5,18 +5,6 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination} from 'swiper/modules';
 import { useScrollTrigger } from "@mui/material";
-<<<<<<< HEAD
-
-function Popular(prop){
-    return(
-        <>
-            <Link to={`/community/post/${prop.data.id}`}>
-            <div className="h-full border-4 border-gray-400 rounded-2xl p-5 container">
-                <div className="flex flex-row justify-around my-7">
-                    
-                    <div className="flex flex-col justify-center items-center">
-                        <img src="/community/communityprofile.svg"></img>
-=======
 import useAuthContext from "../AuthLogic/useAuthContext";
 import "./community.css"
 
@@ -52,7 +40,6 @@ function Popular(prop){
                         <div className="text-xl">
                             <b>~</b>{profile.name}
                         </div>
->>>>>>> master
                         <div>
                             {prop.data.author_type === "Mother" && (<div className="w-28 bg-red-400 rounded-2xl 2xl:text-xl md:text-lg text-center text-white mt-2">
                                 {prop.data.author_type}
@@ -64,14 +51,6 @@ function Popular(prop){
                         
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div className="flex flex-col gap-5">
-                    <div className="text-2xl font-bold">
-                        {prop.data.title}
-                    </div>
-                    <div className="">
-                        {prop.data.desc}
-=======
                 <div className="text-2xl font-bold text-center mb-5 mt-3">
                         {prop.data.title}
                         <hr className="h-1 rounded-full bg-blue-400"></hr>
@@ -79,7 +58,6 @@ function Popular(prop){
                 <div className="flex flex-col gap-5 mb-5">
                     <div className="text-lg text-center">
                         {prop.data.desc.slice(0,200)}...
->>>>>>> master
                     </div>
                 </div>
             </div>
@@ -89,10 +67,6 @@ function Popular(prop){
 }
 
 export default function CommPage(){
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     const [community,Setcommunity]=useState([]);
     const [searchcomm,Setsearchcomm]=useState([])
     const [found,Setfound]=useState(true)
@@ -100,11 +74,6 @@ export default function CommPage(){
     const [ddactive,setddactive]=useState(false)
     const [selection,setselection]=useState('Random')
     const [MoodData,setMoodData]=useState([...community])
-<<<<<<< HEAD
-
-    const fetch_Community=async()=>{
-        axios.get("http://localhost:8000/community")
-=======
     const [active,setactive]=useState(false)
 
     const [title, setTitle] = useState('');
@@ -114,7 +83,6 @@ export default function CommPage(){
 
     const fetch_Community=async()=>{
         axios.get("http://127.0.0.1:8000/api/community/posts/")
->>>>>>> master
             .then((res)=>{
                 Setcommunity(res.data)
             })
@@ -139,10 +107,7 @@ export default function CommPage(){
         else if (selection === "Recent"){
             if(community.length != 0){
                 const data=[...community]
-<<<<<<< HEAD
-=======
                 console.log(data)
->>>>>>> master
                 const sortByDate = (objA,objB) =>{
                     const DateA = new Date(objA.published_date)
                     const DateB = new Date(objB.published_date)
@@ -180,20 +145,6 @@ export default function CommPage(){
         Setsearchcomm(data)
     }
 
-<<<<<<< HEAD
-    useEffect(()=>{
-        fetch_Community()
-        setMoodData([...community])
-    },[community])
-
-    useEffect(()=>{
-        fetch_popular()
-    })
-
-    useEffect(()=>{
-        MoodSwitcher()
-    },[selection,MoodData])
-=======
     const handleSubmit=async(e)=>{
         e.preventDefault()
         if(title && description){
@@ -221,7 +172,6 @@ export default function CommPage(){
         MoodSwitcher()
         fetch_popular()
     },[selection,community])
->>>>>>> master
     return(
         <>
             <div className="flex flex-col mx-auto my-10">
@@ -230,21 +180,13 @@ export default function CommPage(){
                     <hr className="w-96 bg-red-400 h-2 rounded-full "></hr>
                 </div>
                 {(MoodData.length != 0 && sortedData.length != 0)&&(
-<<<<<<< HEAD
-                <div className="flex flex-row px-32 mx-auto mb-10 gap-5 container">
-=======
                 <div className="flex flex-row px-10 mx-auto mb-10 gap-5 container">
->>>>>>> master
                     <div className="container mx-auto p-5">
                         <Swiper
                         className="p-10 h-full"
                         modules={[Pagination]}
                         spaceBetween={50}
-<<<<<<< HEAD
-                        slidesPerView={2}
-=======
                         slidesPerView={3}
->>>>>>> master
                         pagination={{ clickable: true }}
                         >
                             {
@@ -262,9 +204,6 @@ export default function CommPage(){
                     <hr className="w-64 bg-red-400 h-2 rounded-full "></hr>
                 </div>
                 <div className="text-xl mx-auto container px-48 mb-5 flex flex-col">
-<<<<<<< HEAD
-                    <div className="flex flex-row gap-3">
-=======
                     <div className="flex flex-row gap-3 items-center">
                         {auth.user && (<div>
                             <button
@@ -276,7 +215,6 @@ export default function CommPage(){
                                 </span>
                             </button>
                         </div>)}
->>>>>>> master
                         <input type="text" className="text-center rounded-3xl w-10/12 p-3 py-5 border-gray-400 border-4" onChange={(e)=>search(e.target.value)} placeholder="Search"></input>
                         <button className="p-4 ps-7 border-2 border-black rounded-3xl flex flex-row items-center hover:bg-red-400 hover:text-white" onClick={()=>setddactive((prev)=>!prev)}>
                             <div className="text-2xl">
@@ -288,10 +226,7 @@ export default function CommPage(){
                                 </span> 
                             </div>
                         </button>
-<<<<<<< HEAD
-=======
         
->>>>>>> master
                     </div>
                     { ddactive &&
                     (<div className=" flex flex-col justify-end items-end 2xl:px-7 md:px-0">
@@ -316,11 +251,7 @@ export default function CommPage(){
                             {
                                 MoodData.map((item)=>{
                                     // eslint-disable-next-line react/jsx-key
-<<<<<<< HEAD
-                                    return <Community data={item}/>
-=======
                                     return <Community key={item.id} data={item} selection={selection}/>
->>>>>>> master
                                 })
                             }
                         </div>
@@ -339,8 +270,6 @@ export default function CommPage(){
                         })
                     }
                 </div>)}
-<<<<<<< HEAD
-=======
                 {active && (
                 <div className="overlay">
                     <div className="content flex flex-col justify-center">
@@ -383,7 +312,6 @@ export default function CommPage(){
                     </div>
                 </div>
             )}
->>>>>>> master
             </div>
         </>
     )

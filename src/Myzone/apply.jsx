@@ -3,11 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router"
 import Childcare from "./childcare"
 import Eldercare from "./eldercare"
 import Petcare from "./petcare"
-<<<<<<< HEAD
-
-=======
 import { Flip, ToastContainer, toast } from 'react-toastify';
->>>>>>> master
 
 export function Step(prop){
     return(
@@ -52,11 +48,7 @@ export function Domain(prop){
     const navigate= useNavigate()
 
     const navigation=()=>{
-<<<<<<< HEAD
-        navigate(`/myzone/applications/${list[0]}`)
-=======
         navigate(`/myzone/applications/details`)
->>>>>>> master
     }
     return(
         <>
@@ -72,12 +64,6 @@ export function Domain(prop){
     )
 }
 
-<<<<<<< HEAD
-export default function Apply(){
-    const {step}=useParams()
-    const [list,setlist]=useState([])
-    let i=1;
-=======
 export function Details({data,setdata,list}){
 
     const [name,setname]=useState() //Name - Display
@@ -163,7 +149,6 @@ export default function Apply(){
     const [list,setlist]=useState([])
     const [data,setdata]=useState()
     let i=2;
->>>>>>> master
 
     useEffect(()=>{
         console.log(list)
@@ -179,14 +164,9 @@ export default function Apply(){
                         </div>
                         <div className="rounded-full bg-blue-300 py-3 px-5 ">1</div>                    
                     </div>
-<<<<<<< HEAD
-                    {list.length === 0 &&(
-                        <Step title={"Apply"} index="2"/>
-=======
                     <Step title={'Details'} index="2"/>
                     {list.length === 0 &&(
                         <Step title={"Apply"} index="3"/>
->>>>>>> master
                     )}
                     {list.length != 0 &&(
                         <>
@@ -203,18 +183,11 @@ export default function Apply(){
                     
                 </div>
                 <hr className="w-1/2 h-1 bg-gray-300"></hr>
-<<<<<<< HEAD
-                {step === "domains" && (<Domain list={list} setlist={setlist}/>)}
-                {step === "childcare" && (<Childcare list={list}/>)}
-                {step === "eldercare" && (<Eldercare list={list}/>)}
-                {step === "petcare" && (<Petcare list={list}/>)}
-=======
                 {step === "details" && (<Details data={data} setdata={setdata} list={list}/>)}
                 {step === "domains" && (<Domain list={list} setlist={setlist}/>)}
                 {step === "childcare" && (<Childcare list={list} details={data}/>)}
                 {step === "eldercare" && (<Eldercare list={list} details={data}/>)}
                 {step === "petcare" && (<Petcare list={list} details={data}/>)}
->>>>>>> master
                 
             </div>
         </>

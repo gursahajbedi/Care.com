@@ -1,11 +1,4 @@
 import axios from "axios";
-<<<<<<< HEAD
-import { useEffect, useLayoutEffect, useState } from "react"
-import useAuthContext from "../AuthLogic/useAuthContext"
-import { Navigate, redirect, useNavigate, useParams } from "react-router";
-import { Flip, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-=======
 import { useEffect, useState } from "react"
 import useAuthContext from "../AuthLogic/useAuthContext"
 import { useNavigate, useParams } from "react-router";
@@ -13,28 +6,10 @@ import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
->>>>>>> master
 
 export function Timings(prop){
     const initialvalue={from:"",to:""}
     const [data,setdata]=useState(initialvalue)
-<<<<<<< HEAD
-    return(
-        <>
-        <div className="text-xl flex flex-row items-center gap-x-5">
-            <img src="/apply/arrow.svg" className="mt-4" style={{height:"15px"}}></img>
-            <div className="pe-4 pt-4" style={{width:"100px"}}>{prop.title}</div>
-            <div className="flex flex-col">
-                <div>From:</div>
-                <input className="border-4 border-gray-400 px-9 py-2 rounded-full" placeholder="From" type="time" onChange={(e)=>{setdata({...data,from:e.target.value});prop.func(data)}}></input>
-            </div>
-            <div className="pt-4">
-                :
-            </div>
-            <div className="flex flex-col">
-                <div>To:</div>
-                <input className="border-4 border-gray-400 px-9 py-2 rounded-full" placeholder="To" type="time" onChange={(e)=>{setdata({...data,to:e.target.value});prop.func(data)}}></input>
-=======
 
     return(
         <>
@@ -69,7 +44,6 @@ export function Timings(prop){
                         prop.func(newData);
                     }}
                 />
->>>>>>> master
             </div>
         </div>
         </>
@@ -257,11 +231,6 @@ export function WorkEx(prop){
 export default function Petcare(prop){
     const {step}=useParams()
     const {auth}=useAuthContext()
-<<<<<<< HEAD
-    let user_application=null
-    const [domainslist,setdomainslist]=useState([])
-
-=======
     axios.defaults.headers.common['Authorization'] = `Bearer ${auth.user.access}`;
     const [user_application,setuserapplication]=useState({})
     const [domainslist,setdomainslist]=useState([])
@@ -274,7 +243,6 @@ export default function Petcare(prop){
         seteducation(value);
       };
 
->>>>>>> master
     window.onload = function(){
         navigate("/myzone/applications/domains")
     }
@@ -291,12 +259,6 @@ export default function Petcare(prop){
     }
 
     const getdata=async()=>{
-<<<<<<< HEAD
-        await axios.get(`http://localhost:8000/applications/${auth.user.id}`).then((res)=>{
-            user_application=res.data
-            setdomainslist(res.data.domains_offered)
-        },[])
-=======
         await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 return item.user==Number(auth.user.id)
@@ -311,7 +273,6 @@ export default function Petcare(prop){
                 setdomainslist(JSON.parse(data.domains))
             }
         })
->>>>>>> master
     }
 
     useEffect(()=>{
@@ -323,17 +284,6 @@ export default function Petcare(prop){
     useEffect(()=>{
         window.scrollTo(0,0)
     },[])
-<<<<<<< HEAD
-
-    const [name,setname]=useState("") //Name - Display
-    const [age, setage]=useState("") //Age
-    const [pincode,setpincode]=useState()
-    const [city,setcity]=useState("")
-    const [state,setstate]=useState("")
-    const [gender,setgender]=useState("")
-    const [yoe,setyoe]=useState()
-=======
->>>>>>> master
     
 
     const [mon,setmon]=useState({}) //Timings
@@ -365,28 +315,6 @@ export default function Petcare(prop){
     const [increment,setincrement]=useState("")
     const navigate = useNavigate()
 
-<<<<<<< HEAD
-    useEffect(()=>{
-        console.log(pet_type)
-    })
-
-    const patchapplication=async()=>{
-        await axios.patch(`http://localhost:8000/applications/${auth.user.id}`,
-                {
-                    ...user_application,
-                    "domains_offered":[
-                        ...domainslist,
-                        {
-                            "id":auth.user.id,
-                            "display_name":name,
-                            "type":"petcare",
-                            "age":age,
-                            "pincode":pincode,
-                            "city":city,
-                            "state":state,
-                            "gender":gender,
-                            "years_of_experience":yoe,
-=======
 
     const patchapplication=async()=>{
         console.log(user_application)
@@ -405,7 +333,6 @@ export default function Petcare(prop){
                             "state":prop.details.state,
                             "gender":prop.details.gender,
                             "years_of_experience":prop.details.yoe,
->>>>>>> master
                             "pet_type":pet_type,
                             "timings":{
                                 "monday":mon,
@@ -424,16 +351,9 @@ export default function Petcare(prop){
                             "education":education,
                             "work_experience":workex,
                             "one_time_base_rate":onetime,
-<<<<<<< HEAD
-                            "recurring_base_rate":reccuring,
-                            "increment":increment
-                        }
-                    ]
-=======
                             "increment":increment
                         }
                     ])
->>>>>>> master
                 }).then((res)=>{
                     console.log(res.data)
                     NextRoute(step)
@@ -461,17 +381,12 @@ export default function Petcare(prop){
     }
 
     const navigation=async()=>{
-<<<<<<< HEAD
-        await axios.get(`http://localhost:8000/applications/${auth.user.id}`).then((res)=>{
-            const domainslist=res.data.domains_offered
-=======
         await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 return item.user==Number(auth.user.id)
             })
             const data1=newdata[0]
             const domainslist=data1.domains === "{}"?[]:JSON.parse(data1.domains)
->>>>>>> master
             if(domainslist.length !== 0){
                 console.log("trigger on")
                 const data=domainslist.filter((item)=>{
@@ -541,27 +456,7 @@ export default function Petcare(prop){
                 theme="dark"
                 transition={Flip}
             />
-<<<<<<< HEAD
-            <div className="flex flex-col items-center container w-full gap-y-6 py-6">
-                <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Display Name" type="text" defaultValue={name} onChange={(e)=>{setname(e.target.value)}} style={{width:"600px"}}></input>
-                <div className="flex flex-row gap-x-8">
-                    <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Age" type="number" defaultValue={age} onChange={(e)=>{setage(e.target.value)}} style={{width:"290px"}}></input>
-                    <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Pincode" type="number" defaultValue={pincode} onChange={(e)=>{setpincode(e.target.value)}} style={{width:"290px"}}></input>
-                </div>
-                <div className="flex flex-row gap-x-8">
-                    <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="City" type="text" defaultValue={city} onChange={(e)=>{setcity(e.target.value)}} style={{width:"290px"}}></input>
-                    <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="State" type="text" defaultValue={state} onChange={(e)=>{setstate(e.target.value)}} style={{width:"290px"}}></input>
-                </div>
-                <select className=" border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Gender" type="text" defaultValue={name} onChange={(e)=>{setgender(e.target.value)}} style={{width:"600px"}}>
-                    <option selected value="">Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select>
-                <input className="border-4 border-gray-400 rounded-xl px-5 text-xl py-5" placeholder="Years Of Experience" type="number" defaultValue={yoe} onChange={(e)=>{setyoe(e.target.value)}} style={{width:"600px"}}></input>
-            </div>
-=======
             
->>>>>>> master
             <div className="text-3xl py-5">
                 Timings
                 <hr className="rounded-full bg-red-400 w-64 h-2"></hr>
@@ -581,16 +476,12 @@ export default function Petcare(prop){
             </div>
             <div className="flex flex-col text-xl gap-y-4">
                 <div className="ps-3 pt-6">About:</div>
-<<<<<<< HEAD
-                <textarea className="rounded-xl border-2 text-xl border-gray-300" rows={10}  onChange={(e)=>setAbout(e.target.value)} style={{width:"700px"}}></textarea>
-=======
                 <ReactQuill
                       value={about}
                       onChange={handleContentChange}
                       className="h-72 w-full mb-8"
                       style={{width:"1100px"}}
                     />
->>>>>>> master
                 <div className="ps-3 pt-6">
                     Pet Types:
                 </div>
@@ -682,15 +573,11 @@ export default function Petcare(prop){
             <div className="flex flex-col justify-center items-center pt-6 text-lg gap-y-6">
                 <div className="flex flex-col gap-y-4">
                     <div className="ps-3">Education:</div>
-<<<<<<< HEAD
-                    <textarea className="rounded-xl border-2 text-xl border-gray-300" rows={6}  onChange={(e)=>seteducation(e.target.value)} style={{width:"700px"}}></textarea>
-=======
                     <ReactQuill
                       value={education}
                       onChange={handleEducationChange}
                       className="h-40 mb-4"
                     />
->>>>>>> master
                 </div>
                 <div className="flex flex-col justify-center pt-6 text-lg gapy-y-6">
                     <div>
@@ -707,24 +594,14 @@ export default function Petcare(prop){
                 <div className="text-center text-xl px-10 border-s-4 border-e-4 border-gray-400 rounded-full mb-4">
                     Calculation:
                     <div className="text-lg text-gray-400">
-<<<<<<< HEAD
-                        For 1 Pet - One Time base Rate || Recurring Base Rate
-=======
                         For 1 Pet - Base Rate X Increment
->>>>>>> master
                     </div>
                     <div className="text-lg text-gray-400">
                         For +1 Pets - Base Rate + Rate Increment X Pets
                     </div>
                 </div>
-<<<<<<< HEAD
-                <input className="text-center w-1/2 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="One Time Base Rate" type="number" defaultValue={city} onChange={(e)=>{setonetime(e.target.value)}}></input>
-                <input className="text-center w-1/2 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="Recurring Base Rate" type="number" defaultValue={city} onChange={(e)=>{setrecurring(e.target.value)}}></input>
-                <input className="text-center w-3/4 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="Rate Increment on Consecutive Children" type="number" defaultValue={city} onChange={(e)=>{setincrement(e.target.value)}}></input>
-=======
                 <input className="text-center w-1/2 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="One Time Base Rate" type="number"  onChange={(e)=>{setonetime(e.target.value)}}></input>
                 <input className="text-center w-3/4 border-2 border-gray-400 rounded-3xl px-5 text-xl py-5" placeholder="Rate Increment on Consecutive Children" type="number"  onChange={(e)=>{setincrement(e.target.value)}}></input>
->>>>>>> master
             </div>
             <div className="flex flex-row items-end justify-end py-6">
                 <button onClick={()=>{navigation()}} className="bg-red-400 border-gray-200 border-2 px-7 py-3 text-xl rounded-2xl text-white">Submit</button>
