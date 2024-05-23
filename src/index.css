@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Anek Tamil';
+}
+
+pre{
+    font-family: 'Anek Tamil';
+}

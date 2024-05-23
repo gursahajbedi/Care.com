@@ -1,0 +1,357 @@
+{
+  "accounts": [
+    {
+      "id": "454d",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "name": "Gursahaj Singh",
+      "password2": "Gursahaj",
+      "profile_pic": null,
+      "is_staff": true
+    },
+    {
+      "id": "fbbe",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "name": "Gursahaj",
+      "password2": "Gursahaj",
+      "is_admin": false,
+      "phone": "9821849372"
+    },
+    {
+      "id": "3e9c",
+      "email": "gursahaj@gmail.com",
+      "password": "Gursahaj",
+      "name": "Gursahaj",
+      "password2": "Gursahaj",
+      "is_admin": false,
+      "phone": "9821849372"
+    }
+  ],
+  "ratings": [],
+  "applications": [],
+  "blogs": [
+    {
+      "id": "1",
+      "category": "General",
+      "author": "Emily Chen",
+      "shortdesc": "From sleepless nights to unexpected joys, embracing the early days of motherhood",
+      "title": "Confessions of a Sleep-Deprived (But Happy) Mom",
+      "content": "Motherhood is a rollercoaster ride, filled with moments of pure exhaustion and overwhelming love. It's the tiny milestones that leave you awestruck, the first smile, the first giggle, the first time they reach for you. It's the constant learning curve, the endless questions, and the fierce determination to be the best mom you can be. It's messy, it's beautiful, and it's an experience that changes you forever."
+    },
+    {
+      "id": "3",
+      "category": "General",
+      "author": "Anonymous Mom",
+      "shortdesc": "Coffee, spit-up, and endless questions: a day in the life of a new mom",
+      "title": "My Brain on Baby: Confessions of a Sleep-Deprived Comedian",
+      "content": "They say motherhood is the greatest joy, and they're right. It's also the most sleep-deprived, coffee-fueled, and hilariously chaotic experience you'll ever have. From deciphering mysterious baby noises to mastering the art of one-handed multitasking, every day is an adventure (and sometimes a disaster) in the best way possible."
+    },
+    {
+      "id": "4",
+      "category": "General",
+      "author": "Mental Health Specialist",
+      "shortdesc": "Recognizing and addressing the emotional challenges of early motherhood",
+      "title": "Beyond the Instagram Glow: Supporting New Moms' Mental Wellbeing",
+      "content": "Early motherhood can be an emotionally demanding time. Postpartum depression and anxiety are real and often go unseen. This article explores the common challenges new moms face and emphasizes the importance of seeking support and prioritizing mental health."
+    },
+    {
+      "id": "5",
+      "category": "General",
+      "author": "Maria Rodriguez",
+      "shortdesc": "Navigating early motherhood within a cultural context",
+      "title": "Traditions and Transitions: A Latina Mom's Journey",
+      "content": "Motherhood is a universal experience, but cultural traditions and family dynamics shape it in unique ways. This piece explores the joys and challenges of raising a newborn within a specific cultural context, highlighting the importance of honoring traditions while adapting to the needs of a new family."
+    },
+    {
+      "id": "6",
+      "category": "General",
+      "author": "David Lee",
+      "author_role": "Father",
+      "shortdesc": "Supporting my wife and embracing fatherhood in the early months",
+      "title": "A Dad's Guide to Early Fatherhood: From Diaper Duty to Building a Bond",
+      "content": "Fatherhood is an incredible journey that begins alongside motherhood. This guide offers tips and insights for dads on supporting their partners, navigating the early months, and building a strong bond with their newborn."
+    },
+    {
+      "id": "8",
+      "category": "Advice",
+      "author": "Senra Cubek",
+      "shortdesc": "Practical tips for surviving and thriving in those first few months with your newborn",
+      "title": "From Chaos to Calm: A New Mom's Survival Guide (with a Touch of Humor)",
+      "content": "Embrace the mess, lower expectations, prioritize sleep, ask for help, celebrate small victories, and find your humor!"
+    },
+    {
+      "id": "9",
+      "category": "Advice",
+      "author": "Roslo Nicotin",
+      "shortdesc": "Essential vaccinations for your baby and their importance",
+      "title": "Keeping Your Baby Healthy: A Guide to Essential Vaccinations",
+      "content": "Follow your pediatrician's recommended vaccination schedule to protect your baby from preventable diseases."
+    },
+    {
+      "id": "10",
+      "category": "Advice",
+      "author": "Justin Timberlake",
+      "shortdesc": "Benefits and techniques for babywearing to promote bonding and development",
+      "title": "The Power of Proximity: Why Babywearing Matters",
+      "content": "Babywearing offers closeness, comfort, and developmental benefits for both babies and parents."
+    },
+    {
+      "id": "11",
+      "category": "Advice",
+      "author": "Jessica Jones",
+      "shortdesc": "Creating a safe sleep space to minimize risks and ensure restful sleep for your baby",
+      "title": "Sweet Dreams: Creating a Safe Sleep Environment for Your Baby",
+      "content": "Place baby on their back on a firm mattress in a crib with no loose bedding or soft objects."
+    },
+    {
+      "id": "31dd",
+      "title": "Top Tips for Finding the Perfect Nanny for Your Family",
+      "author": "Care.Com",
+      "shortdesc": "Finding the right nanny can feel like searching for a needle in a haystack. Your nanny will play a crucial role in your child's life, so it's essential to find someone who is not only qualified but also a perfect fit for your family. Here are some top tips to help you in your search for the perfect nanny",
+      "content": "<h2><strong>1. </strong><strong style=\"color: inherit;\">Define Your Needs and Expectations</strong></h2><p>Before you start your search, sit down with your partner and discuss what you're looking for in a nanny. Consider the following:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Experience and Qualifications</span>: Do you need someone with specific training or experience with certain age groups?</li><li><span style=\"color: var(--tw-prose-bold);\">Duties and Responsibilities</span>: Outline what you expect from your nanny, including childcare, light housekeeping, meal preparation, etc.</li><li><span style=\"color: var(--tw-prose-bold);\">Schedule</span>: Determine the hours and days you need a nanny. Are you looking for full-time, part-time, or live-in assistance?</li></ul><h2><strong>2. </strong><strong style=\"color: inherit;\">Use Multiple Resources</strong></h2><p>Expand your search by using various resources:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Nanny Agencies</span>: Professional agencies can help match you with qualified candidates.</li><li><span style=\"color: var(--tw-prose-bold);\">Online Platforms</span>: Websites like Care.com or Sittercity.com allow you to post job listings and browse profiles.</li><li><span style=\"color: var(--tw-prose-bold);\">Local Networks</span>: Don’t underestimate the power of word-of-mouth. Ask friends, family, and local parenting groups for recommendations.</li></ul><h2><strong>3. </strong><strong style=\"color: inherit;\">Conduct Thorough Interviews</strong></h2><p>When you have a list of potential candidates, conduct comprehensive interviews:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Phone Interview</span>: Start with a phone call to gauge initial compatibility and discuss basic qualifications and availability.</li><li><span style=\"color: var(--tw-prose-bold);\">In-Person Interview</span>: Meet face-to-face to get a better sense of their personality and how they interact with your child. Prepare a list of questions covering their experience, childcare philosophy, and hypothetical situations.</li></ul><h4>4. <span style=\"color: inherit;\">Check References and Background</span></h4><p>Always check references and perform background checks:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">References</span>: Speak to previous employers to understand the nanny's strengths and weaknesses.</li><li><span style=\"color: var(--tw-prose-bold);\">Background Check</span>: Use a reliable service to check for any criminal history or driving records.</li></ul><h4>5. <span style=\"color: inherit;\">Trial Period</span></h4><p>Consider a trial period before making a long-term commitment:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Observation</span>: Have the nanny spend time with your child while you’re present to observe their interactions.</li><li><span style=\"color: var(--tw-prose-bold);\">Trial Run</span>: Arrange a short-term trial to see how they handle day-to-day tasks and fit into your family routine.</li></ul><h4>6. <span style=\"color: inherit;\">Discuss and Formalize Agreements</span></h4><p>Once you’ve found the right nanny, make sure to discuss and formalize agreements:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Contract</span>: Draft a contract outlining duties, schedule, salary, benefits, and any other expectations.</li><li><span style=\"color: var(--tw-prose-bold);\">Communication</span>: Establish clear lines of communication and regular check-ins to discuss your child's progress and any concerns.</li></ul><h4>7. <span style=\"color: inherit;\">Offer Competitive Compensation</span></h4><p>To attract and retain the best nannies, offer competitive compensation:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Fair Wages</span>: Research local rates to ensure your offer is competitive.</li><li><span style=\"color: var(--tw-prose-bold);\">Benefits</span>: Consider offering benefits such as paid time off, health insurance, and bonuses.</li></ul><h4>8. <span style=\"color: inherit;\">Maintain a Positive Working Relationship</span></h4><p>A positive working relationship is key to a successful nanny-family dynamic:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Respect and Appreciation</span>: Show your nanny respect and appreciation for their hard work and dedication.</li><li><span style=\"color: var(--tw-prose-bold);\">Feedback</span>: Provide constructive feedback and be open to their suggestions as well.</li></ul><h4>9. <span style=\"color: inherit;\">Emergency Preparedness</span></h4><p>Ensure your nanny is prepared for emergencies:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">First Aid Training</span>: Verify that your nanny is certified in CPR and first aid.</li><li><span style=\"color: var(--tw-prose-bold);\">Emergency Plan</span>: Discuss and create a plan for emergencies, including contact numbers and procedures.</li></ul><h4>10. <span style=\"color: inherit;\">Flexibility and Patience</span></h4><p>Finally, be flexible and patient:</p><ul><li><span style=\"color: var(--tw-prose-bold);\">Adaptability</span>: Understand that it might take time for your nanny to adjust to your family's routines and preferences.</li><li><span style=\"color: var(--tw-prose-bold);\">Patience</span>: Building a strong relationship with your nanny takes time and effort from both sides.</li></ul><p>Finding the perfect nanny may take time, but it's worth the effort to ensure your child is in good hands. By following these tips, you'll be well on your way to finding a nanny who can provide the care, support, and love that your family deserves.</p>",
+      "category": "Tips"
+    }
+  ],
+  "community": [
+    {
+      "id": "5",
+      "author": "Emily Jones",
+      "title": "My Toddler Has Nightmares - Help!",
+      "author_type": "Mother",
+      "desc": "My 2-year-old son has been having frequent nightmares lately, and it's breaking my heart to see him so scared. He wakes up crying and doesn't want to go back to sleep. Any advice on how to help him through this?",
+      "published_date": "2024-04-21T13:10:30Z",
+      "likes_count": 18,
+      "dislikes_count": 2,
+      "comments": [
+        {
+          "id": 6,
+          "content": "We used a nightlight and a comfort object for our daughter, and it helped a lot!",
+          "parent": null,
+          "created_at": "2024-04-28T13:12:30Z",
+          "likes_count": 5,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 7,
+              "content": "Great tip (comment id: 6)! We did the same and it worked wonders. (replying to comment id: 6)",
+              "parent": 6,
+              "created_at": "2024-04-19T13:15:30Z",
+              "likes_count": 2,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "content": "Talking to your child's pediatrician might be helpful too. They can rule out any underlying medical issues. (comment id: 5)",
+          "parent": null,
+          "created_at": "2024-04-28T13:13:30Z",
+          "likes_count": 3,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 9,
+              "content": "Absolutely agree (comment id: 8). My son had night terrors for a while, and it turned out he had earaches. (replying to comment id: 8)",
+              "parent": 8,
+              "created_at": "2024-04-28T13:18:30Z",
+              "likes_count": 1,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "author": "Sarah Thompson",
+      "title": "Teething Troubles - Help Soothe My Baby's Discomfort",
+      "author_type": "Nanny",
+      "desc": "My 6-month-old baby is cranky and seems to be putting everything in their mouth. They're drooling a lot too. Are these signs of teething? What are some safe ways to soothe their discomfort?",
+      "published_date": "2024-04-29T13:19:30Z",
+      "likes_count": 15,
+      "dislikes_count": 1,
+      "comments": [
+        {
+          "id": 14,
+          "content": "Teething toys are a lifesaver! They help massage the gums and provide relief. Look for ones made of safe, non-toxic materials.",
+          "parent": null,
+          "created_at": "2024-04-28T13:20:30Z",
+          "likes_count": 8,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 15,
+              "content": "Yes! We also like to chill the teething toys in the fridge for an extra cooling effect.",
+              "parent": 14,
+              "created_at": "2024-04-28T13:22:30Z",
+              "likes_count": 3,
+              "dislikes_count": 0,
+              "replies": [
+                {
+                  "id": 39,
+                  "content": "Yes! We also like to chill the teething toys in the fridge for an extra cooling effect.",
+                  "parent": 15,
+                  "created_at": "2024-04-28T13:22:30Z",
+                  "likes_count": 3,
+                  "dislikes_count": 0,
+                  "replies": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "content": "A chilled washcloth or mesh feeder with frozen fruits/vegetables can also be helpful for gum pain.",
+          "parent": null,
+          "created_at": "2024-04-28T13:21:30Z",
+          "likes_count": 5,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 17,
+              "content": "Great tip! We used frozen teething rings with success too.",
+              "parent": 16,
+              "created_at": "2024-04-28T13:23:30Z",
+              "likes_count": 2,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "content": "A chilled washcloth or mesh feeder with frozen fruits/vegetables can also be helpful for gum pain.",
+          "parent": null,
+          "created_at": "2024-04-28T13:21:30Z",
+          "likes_count": 5,
+          "dislikes_count": 0,
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "author": "Jessica Lee",
+      "title": "Solid Food Journey - Starting My Baby on New Eats!",
+      "author_type": "Nanny",
+      "desc": "My 5-month-old baby is showing signs of interest in food, and I'm excited to start them on solids! I'm a bit nervous though. Any tips on introducing first foods and making sure they're getting the right nutrients?",
+      "published_date": "2024-04-27T13:24:30Z",
+      "likes_count": 21,
+      "dislikes_count": 0,
+      "comments": [
+        {
+          "id": 19,
+          "content": "Start with single-ingredient purees like avocado or sweet potato. It helps identify any allergies. Talk to your pediatrician for personalized guidance on introducing solids. (comment id: 18)",
+          "parent": null,
+          "created_at": "2024-04-28T13:26:30Z",
+          "likes_count": 6,
+          "dislikes_count": 0,
+          "replies": []
+        },
+        {
+          "id": 20,
+          "content": "Make sure the food consistency is smooth and easy to swallow at first. You can gradually increase the thickness as your baby gets used to it. (comment id: 18)",
+          "parent": null,
+          "created_at": "2024-04-28T13:27:30Z",
+          "likes_count": 4,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 21,
+              "content": "And don't get discouraged if your baby makes a mess! It's all part of the learning process. (replying to comment id: 20)",
+              "parent": 20,
+              "created_at": "2024-04-28T13:29:30Z",
+              "likes_count": 2,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "author": "Mia Rodriguez",
+      "title": "Sleepless Nights - Help! My Baby Won't Sleep Through the Night",
+      "author_type": "Mother",
+      "desc": "My 4-month-old baby wakes up every few hours at night to feed, and I'm exhausted! I'm worried I'm doing something wrong. Is this normal? Any tips on getting my baby to sleep for longer stretches?",
+      "published_date": "2024-04-26T13:30:30Z",
+      "likes_count": 32,
+      "dislikes_count": 4,
+      "comments": [
+        {
+          "id": 23,
+          "content": "It can be tough, but frequent night waking is common at this age. Make sure your baby's bedtime routine is calming and consistent. (comment id: 22)",
+          "parent": null,
+          "created_at": "2024-04-28T13:32:30Z",
+          "likes_count": 7,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 24,
+              "content": "We found swaddling helped our baby feel secure and sleep longer. (replying to comment id: 23)",
+              "parent": 23,
+              "created_at": "2024-04-28T13:34:30Z",
+              "likes_count": 4,
+              "dislikes_count": 1,
+              "replies": []
+            }
+          ]
+        },
+        {
+          "id": 25,
+          "content": "If you're breastfeeding, consider offering extra comfort at night without feeding. Pacifiers or rocking can help soothe them back to sleep. (comment id: 22)",
+          "parent": null,
+          "created_at": "2024-04-28T13:33:30Z",
+          "likes_count": 5,
+          "dislikes_count": 0,
+          "replies": [
+            {
+              "id": 26,
+              "content": "Absolutely! We also found a white noise machine helpful in creating a calming sleep environment. (replying to comment id: 25)",
+              "parent": 25,
+              "created_at": "2024-04-28T13:35:30Z",
+              "likes_count": 3,
+              "dislikes_count": 0,
+              "replies": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Kim J.",
+      "stars": 5,
+      "review": "Kim was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Kory Noggins",
+      "id": "4a98"
+    },
+    {
+      "name": "Chroy Jhonson",
+      "stars": 5,
+      "review": "Chroy was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Jester Kimmings",
+      "id": "8e61"
+    },
+    {
+      "name": "Chloe Ralph",
+      "stars": 5,
+      "review": "Chroy was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Dave Neter",
+      "id": "f694"
+    },
+    {
+      "name": "Jessica Fernandis",
+      "stars": 5,
+      "review": "Chroy was wonderful with my chiold. She was patient, kind and careing.",
+      "author": "Dick Jhonson",
+      "id": "1b20"
+    }
+  ]
+}
