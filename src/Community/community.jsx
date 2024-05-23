@@ -37,7 +37,7 @@ export default function Community(prop){
                                     {prop.data.title}
                                 </div>
                                 <div className="2xl:text-lg md:text-base text-gray-500 mt-2">
-                                    {prop.data.desc.slice(0,300)}
+                                <div dangerouslySetInnerHTML={{ __html: prop.data.desc.slice(0,300)}} />
                                 </div>
                             </div>
                         </div>

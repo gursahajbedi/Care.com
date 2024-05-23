@@ -171,7 +171,7 @@ export default function Post(){
                                 {data.title}
                             </div>
                             <div className="text-lg mt-2">
-                                {data.desc}
+                            <div dangerouslySetInnerHTML={{ __html: data.desc}}/>
                             </div>
                         </div>
                         <div className="flex flex-col justify-right ps-5 w-1/12 items-center">

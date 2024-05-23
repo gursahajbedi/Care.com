@@ -317,8 +317,8 @@ export default function Eldercare(prop){
     const patchapplication=async()=>{
         await axios.patch(`http://127.0.0.1:8000/api/app/application/patch/`,
                 {
-                    ...user_application,
-                    "domains":JSON.stringify([
+                    
+                    domains:JSON.stringify([
                         ...domainslist,
                         {
                             "id":user_application.id,

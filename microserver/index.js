@@ -72,7 +72,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
       user: 'care25163@gmail.com',
-      pass: 'xshm dbrn sybi nakr' // You might need to use an App Password if 2FA is enabled
+      pass: 'fntf nbti gsou upsm' // You might need to use an App Password if 2FA is enabled
   }
 });
 

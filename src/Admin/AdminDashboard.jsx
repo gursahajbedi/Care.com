@@ -308,18 +308,19 @@ function Items({ currentItems }) {
       fetchBlogs();
     }, []);
   
-    const [newBlog, setNewBlog] = useState({
+    const initialvalue={
       title: '',
       author: Number(auth.user.id),
       short_desc: '',
       content: '',
       post_type: '',
       image:''
-    });
+    }
+    const [newBlog, setNewBlog] = useState(initialvalue);
 
     useEffect(()=>{
-      console.log(newBlog)
-    },[newBlog])
+      setNewBlog(initialvalue)
+    },[active])
   
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -415,7 +416,7 @@ function Items({ currentItems }) {
                   name="title"
                   className="w-full border-gray-400 py-2 px-4 border-2 text-xl rounded-lg"
                   placeholder="Blog Title"
-                  value={newBlog.title}
+                  
                   onChange={handleInputChange}
                   required
                 />
@@ -439,14 +440,14 @@ function Items({ currentItems }) {
                   required
                 />
                 <ReactQuill
-                  value={newBlog.content}
+                  
                   onChange={handleContentChange}
                   className="h-40 mb-4"
                 />
                 <select
                   name="post_type"
                   className="w-full mt-8 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg"
-                  value={newBlog.category}
+                  
                   onChange={handleInputChange}
                   required
                 >

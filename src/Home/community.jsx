@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
 
+
 export default function Community(prop){
     const [userprofile, setuserProfile] = useState({});
 
@@ -31,7 +32,7 @@ export default function Community(prop){
                                     {prop.data.title}
                                 </div>
                                 <div className="2xl:text-lg md:text-base text-gray-500 mt-2">
-                                    {prop.data.desc.slice(0,200)}
+                                <div dangerouslySetInnerHTML={{ __html: prop.data.desc.slice(0,200) }} />
                                 </div>
                             </div>
                         </div>

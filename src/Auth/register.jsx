@@ -11,10 +11,18 @@ export default function Register(){
     const [password2,setPassword2]=useState("")
     const [phone,setphone]=useState()
     const {signup} = useRegister()
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPasswordCon, setShowPasswordCon] = useState(false);
+
+    const togglePasswordVisibility = (e,show,setshow) => {
+        e.preventDefault()
+        setshow(!show);
+    };
 
     const navigate=useNavigate()
 
-    const RegisterSubmit = async() =>{
+    const RegisterSubmit = async(e) =>{
+        e.preventDefault()
         await signup(email,name,password,password2,phone).then(()=>{
             navigate('/login')
         })
@@ -29,36 +37,42 @@ export default function Register(){
                             Register
                             <hr className="h-2 w-36 rounded-full bg-red-400"></hr>
                         </div>
-                        <div className="2xl:text-2xl md:text-xl">
+                        <form className="2xl:text-2xl md:text-xl" onSubmit={(e)=>RegisterSubmit(e)}>
                             <div className="mt-9">
                                 <div className="my-3">Email</div>
-                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}></input>
+                                <input required type="email" className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Email" onChange={(e)=>{setEmail(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
                                 <div className="my-3">Name</div>
-                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Name" onChange={(e)=>{setName(e.target.value)}}></input>
+                                <input required className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Name" onChange={(e)=>{setName(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
                                 <div className="my-3">Phone</div>
-                                <input type="number" className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Phone" onChange={(e)=>{setphone(e.target.value)}}></input>
+                                <input required type="text" pattern="[\d]{9}" maxLength={10} className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Phone" onChange={(e)=>{setphone(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
-                                <div className="my-3">Password</div>
-                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}}></input>
+                                <div className="flex flex-row items-center justify-between w-9/12">
+                                    <div className="my-3">Password</div>
+                                    <button onClick={(e)=>togglePasswordVisibility(e,showPassword,setShowPassword)} className="text-lg underline">Show Password</button>
+                                </div>
+                                <input required className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Password" type={showPassword ? 'text' : 'password'} onChange={(e)=>{setPassword(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
-                                <div className="my-3">Confirm Password</div>
-                                <input className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Confirm Password" onChange={(e)=>{setPassword2(e.target.value)}}></input>
+                                <div className="flex flex-row items-center justify-between w-9/12">
+                                    <div className="my-3">Confirm Password</div>
+                                    <button onClick={(e)=>togglePasswordVisibility(e,showPasswordCon,setShowPasswordCon)} className="text-lg underline">Show Password</button>
+                                </div>
+                                <input required className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Confirm Password" type={showPasswordCon ? 'text' : 'password'} onChange={(e)=>{setPassword2(e.target.value)}}></input>
                             </div>
                             <div className="my-12">
-                                <button className=" h-10 rounded-full bg-red-400 text-white py-6 px-7 flex flex-row items-center gap-3 shadow-xl" onClick={()=>RegisterSubmit()}>
+                                <button type="submit" className=" h-10 rounded-full bg-red-400 text-white py-6 px-7 flex flex-row items-center gap-3 shadow-xl">
                                     Proceed
                                     <span>
                                         <img src="/auth/whitearrow.svg" width={"30px"}></img>
                                     </span>
                                 </button>
                             </div>
-                        </div>
+                        </form>
                         <div className="2xl:text-2xl md:text-xl">
                             Already have An Account? <Link to={"/login"} className="border-b-4 border-red-400">Login Here</Link>
                         </div>

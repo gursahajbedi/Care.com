@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination} from 'swiper/modules';
 import { useScrollTrigger } from "@mui/material";
 import useAuthContext from "../AuthLogic/useAuthContext";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import "./community.css"
 
 function Popular(prop){
@@ -57,7 +59,7 @@ function Popular(prop){
                 </div>
                 <div className="flex flex-col gap-5 mb-5">
                     <div className="text-lg text-center">
-                        {prop.data.desc.slice(0,200)}...
+                    <div dangerouslySetInnerHTML={{ __html: prop.data.desc.slice(0,200)}} />
                     </div>
                 </div>
             </div>
@@ -76,8 +78,8 @@ export default function CommPage(){
     const [MoodData,setMoodData]=useState([...community])
     const [active,setactive]=useState(false)
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
 
     const {auth}=useAuthContext()
 
@@ -285,7 +287,7 @@ export default function CommPage(){
                                 <input
                                   type="text"
                                   id="title"
-                                  value={title}
+                                  
                                   onChange={(e) => setTitle(e.target.value)}
                                   required
                                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -293,17 +295,17 @@ export default function CommPage(){
                               </div>
                               <div className="mb-4">
                                 <label htmlFor="description" className="block text-gray-700 font-bold mb-2">Description:</label>
-                                <textarea
-                                  id="description"
-                                  value={description}
-                                  onChange={(e) => setDescription(e.target.value)}
-                                  required
-                                  className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                ></textarea>
+                                <ReactQuill
+                                id="description"
+                                
+                                onChange={(value) => setDescription(value)}
+                                className="h-40 mb-4"
+                                />
                               </div>
+                        
                               <button
                                 type="submit"
-                                className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                                className="w-full mt-10 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                               >
                                 Submit
                               </button>

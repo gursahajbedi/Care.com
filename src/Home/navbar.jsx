@@ -4,7 +4,7 @@ import "./navbar.css"
 import { useEffect, useState } from "react"
 import axios from 'axios'
 
-export default function Navbar(prop){
+export default function Navbar(){
     const {auth}=useAuthContext()
 
     const[profile,setprofile]=useState({})

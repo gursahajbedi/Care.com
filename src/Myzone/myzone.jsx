@@ -199,7 +199,7 @@ export function Profile() {
                         </div>
                         <div className="mb-4">
                             <label htmlFor="phone" className="block text-gray-700 text-lg font-bold mb-2">Phone</label>
-                            <input type="text" id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={phone} onChange={(e) => setphone(e.target.value)} />
+                            <input type="text" pattern="[\d]{9}" maxLength={10} id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={phone} onChange={(e) => setphone(e.target.value)} />
                         </div>
                         <button type="submit" className="bg-red-400 rounded-full px-6 py-3 mt-5 text-white hover:brightness-75 shadow-lg">Edit Credentails</button>
                     </form>
@@ -335,9 +335,9 @@ export function Verification(){
                             </select>
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" type="text"  onChange={(e)=>{setURL(e.target.value)}}/>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation Name" type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" onChange={(e)=>{setRef1Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Name" type="text" onChange={(e)=>{setRef1Name(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" onChange={(e)=>{setRef2Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" onChange={(e)=>{setRef2Name(e.target.value)}}/>
                             <div className="w-1/2 my-3 relative h-10 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg focus:outline-none focus:border-blue-500">
                                 <div className="flex flex-row justify-between items-center">
@@ -395,9 +395,9 @@ export function Verification(){
                             </select>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" defaultValue={URL} type="text" onChange={(e)=>{setURL(e.target.value)}}/>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation Name" defaultValue={OrganName} type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" defaultValue={ref1Contact} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" defaultValue={ref1Contact} pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Name" type="text" defaultValue={ref1Name} onChange={(e)=>{setRef1Name(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" defaultValue={ref2Contact} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" defaultValue={ref2Contact} pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" defaultValue={ref2Name} onChange={(e)=>{setRef2Name(e.target.value)}}/>
                             
                             <button type="submit" className="bg-red-400 rounded-full px-4 py-2 text-xl text-white">Edit Verification</button>
