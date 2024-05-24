@@ -48,7 +48,7 @@ export default function Register(){
                             </div>
                             <div className="my-5">
                                 <div className="my-3">Phone</div>
-                                <input required type="text" pattern="[\d]{9}" maxLength={10} className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Phone" onChange={(e)=>{setphone(e.target.value)}}></input>
+                                <input required type="text" maxLength={10} className="border-2 rounded-3xl border-gray-400 w-3/4 px-7 py-4" placeholder="Phone" onChange={(e)=>{setphone(e.target.value)}}></input>
                             </div>
                             <div className="my-5">
                                 <div className="flex flex-row items-center justify-between w-9/12">

@@ -5,6 +5,7 @@ export default function Testimonials(prop) {
     const [userprofile, setuserProfile] = useState({});
     const [nannyprofile, setnannyProfile] = useState({});
     const [application,setapplication]=useState([])
+    const [app,setapp]=useState({})
 
     const fetchProfile = async (id,setdata) => {
         try {
@@ -21,8 +22,9 @@ export default function Testimonials(prop) {
 
     const fetchapp =async()=>{
         await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
-                const data = res.data.find(item => item.user === prop.data.profile);
+                const data = res.data.find(item => item.id === prop.data.profile);
                 console.log(data)
+                setapp(data)
                 const newapp=JSON.parse(data.domains)
                 const data2 = newapp.filter((item)=>{
                     if(item.type === prop.data.domain_name){
@@ -33,11 +35,17 @@ export default function Testimonials(prop) {
           })
       }
 
-    useEffect(() => {
-        fetchProfile(prop.data.user,setuserProfile);
-        fetchProfile(prop.data.profile,setnannyProfile);
+    useEffect(() => { 
         fetchapp()
     }, []); // Fetch profile whenever prop.data.id changes
+
+    useEffect(()=>{
+        if(app != {}){
+            console.log(prop.data.user,app.user)
+            fetchProfile(prop.data.user,setuserProfile);
+            fetchProfile(app.user,setnannyProfile);
+        }
+    },[app])
 
 
     return(

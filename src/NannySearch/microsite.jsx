@@ -352,19 +352,22 @@ export default function Microsite(){
     
     const [data,setdata]=useState({})
     const [domainslist,setdomainslist]=useState([])
+    const [app,setapp]=useState({})
     const [domains,setdomains]=useState([])
     const[profile,setprofile]=useState({})
 
-    const fetchprofile = async (id) => {
-          await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
-            const data=res.data.filter((item)=>{
-              if(item.id==id){
-                return item
-              }
-            })
-            setprofile(data[0])
-          });
-    }
+    const fetchprofile = async (id,setdata) => {
+        try {
+            const response = await axios.get(`http://127.0.0.1:8000/api/accounts/list/`);
+            const data = response.data.find(item => item.id === Number(id));
+            if (data) {
+                console.log(data);
+                setdata(data);
+            }
+        } catch (error) {
+            console.error("Error fetching profile:", error);
+        }
+    };
 
     const timings=data.timings?data.timings:{
         "monday": {
@@ -406,15 +409,22 @@ export default function Microsite(){
         filterdata()
     },[type,domainslist])
 
+    useEffect(()=>{
+        if(app != {}){
+            fetchprofile(app.user, setprofile)
+        }
+    },[app])
+
     const fetchdata=async()=>{
         try {
             await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
-                if(item.user === Number(id)){
+                if(item.id === Number(id)){
                     return item
                 }
             })
             const data1 = newdata[0]
+            setapp(data1)
             const domain=data1.domains==="{}"?[]:JSON.parse(data1.domains)
             setdomainslist(domain)
             console.log(domain)
@@ -448,8 +458,8 @@ export default function Microsite(){
             <div className="flex flex-row justify-center items-center gap-x-32 mb-20">
                 <object className="absolute w-full mt-20 -z-40" data="/microsite/creative.svg" type="image/svg+xml"></object>
                 <div className="w-8/12 flex flex-row items-center gap-x-10">
-                    <div className="w-6/12" style={{objectFit:"cover"}}>
-                        <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="rounded-3xl" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                    <div style={{height:"260px",width:"350px"}}>
+                        <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                     </div>
                     <div className="flex flex-col text-4xl w-8/12">
                         <div className="flex flex-row text-nowrap gap-x-4 items-end">

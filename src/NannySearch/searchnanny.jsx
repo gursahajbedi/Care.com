@@ -122,7 +122,7 @@ function NannyComponent(prop){
     const[profile,setprofile]=useState({})
     const [rating,setrating]=useState([])
     const [total,settotal]=useState()
-    
+    const [app,setapp]=useState({})
     const textContent = htmlToText(prop.data.about, {
         wordwrap: false,
         preserveNewlines: true,
@@ -130,20 +130,32 @@ function NannyComponent(prop){
 
     const fetchprofile = async (id) => {
           await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
-            const data=res.data.filter((item)=>{
-              if(item.id==id){
-                return item
-              }
-            })
-            setprofile(data[0])
+            console.log(id)
+            const data = res.data.find(item => item.id === id);
+            if (data) {
+                setprofile(data);
+            }
           });
+    }
+
+    const fetchapp =async()=>{
+        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+            const ndata=res.data.filter((item)=>{
+                
+                if(item.id == prop.data.id){
+                    return item
+                }
+            })
+            console.log("appdata",ndata)
+            setapp(ndata[0])
+        })
     }
 
     const fetchrating = async () => {
         try {
             const res = await axios.get("http://127.0.0.1:8000/api/bookings/getRatings/");
             if (res.data.length !== 0) {
-                console.log(res.data)
+                
                 const data = res.data.filter((item) => item.profile === Number(prop.data.id) && item.domain_name === prop.data.type);
                 setrating(data);
             }
@@ -203,14 +215,21 @@ function NannyComponent(prop){
         return stars;
       };
 
+    useEffect(()=>{        
+        console.log("app")
+        if(app != {}){
+            fetchprofile(app.user)
+        }
+    },[app])
+
     useEffect(()=>{
-        fetchprofile(prop.data.id)
+        fetchapp()
     },[])
 
     useEffect(()=>{
         fetchrating()
         fetchtotal()
-        console.log(profile)
+        
     },[profile,prop.data.id,prop.data.type])
 
     return(
@@ -336,14 +355,6 @@ function Filters(prop){
             setpet([...pet,e])
         }
     }
-
-    useEffect(()=>{
-        console.log(age)
-    },[age])
-
-    useEffect(()=>{
-        console.log(languages)
-    },[languages])
 
     const handleChange1 = (
         event,
@@ -503,7 +514,6 @@ export default function Searchnanny(){
 
     const fetchdata=async()=>{
         await axios.get("http://127.0.0.1:8000/api/app/list/").then((res)=>{
-            console.log(res.data)
             if(res.data.length != 0){
                 const listy=[]
                 res.data.map((item)=>{
@@ -523,7 +533,7 @@ export default function Searchnanny(){
                 return item
             }
         })
-        console.log(data)
+        
         setfiltered(data)
     }
 
@@ -534,7 +544,7 @@ export default function Searchnanny(){
             "pincode":pincode
         }))
         settype(typechoose)
-        console.log("ehy")
+        
     }
 
     const filter = () => {
@@ -565,7 +575,7 @@ export default function Searchnanny(){
             return true;
         });
         setxfilter(filteredData);
-        console.log(filteredData)
+        
     };
     
     window.onload = function (){

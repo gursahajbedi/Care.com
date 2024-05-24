@@ -25,12 +25,15 @@ const MyPaymentForm = () => {
     const [complete,setcomplete]=useState(false)
     const [nannyprofile,setnannyprofile]=useState({})
 
+    const [app,setapp]=useState({})
+
     const {auth}=useAuthContext()
     axios.defaults.headers.common['Authorization'] = `Bearer ${auth.user.access}`;
 
   const fetchprofile = async (id) => {
     await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
       const data=res.data.filter((item)=>{
+        console.log(item.id,id)
         if(item.id==id){
           return item
         }
@@ -38,6 +41,7 @@ const MyPaymentForm = () => {
       setprofile(data[0])
       setEmail(data[0].email)
       setname(data[0].name)
+      console.log("user",data[0])
 
     });
   }
@@ -45,19 +49,45 @@ const MyPaymentForm = () => {
   const fetchprofileNanny = async (id) => {
     await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
       const data=res.data.filter((item)=>{
+        console.log(item.id,id)
         if(item.id==id){
           return item
         }
       })
       setnannyprofile(data[0])
+      console.log("nanny",data[0])
 
     });
   }
 
+  const fetchdataNanny=async()=>{
+    try {
+        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        const newdata=res.data.filter((item)=>{
+            if(item.id == Number(data.profile)){
+                return item
+            }
+        })
+        const data1 = newdata[0]
+        setapp(data1)
+        console.log(data1)
+        
+    })
+    } catch (error) {
+        console.error("Error fetching data", error);
+    }
+}
+
   useEffect(()=>{
-    fetchprofile(auth.user.id)
-    fetchprofileNanny(data.profile)
+    fetchprofile(data.user)
+    fetchdataNanny()
   },[])
+
+  useEffect(()=>{
+    if(app != {}){
+      fetchprofileNanny(app.user)
+    }
+  },[app])
 
   const subject = `Booking Generated For You by ${profile.email}`
 

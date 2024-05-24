@@ -335,9 +335,9 @@ export function Verification(){
                             </select>
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" type="text"  onChange={(e)=>{setURL(e.target.value)}}/>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation Name" type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text"  maxLength={10} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Name" type="text" onChange={(e)=>{setRef1Name(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text"  maxLength={10} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" onChange={(e)=>{setRef2Name(e.target.value)}}/>
                             <div className="w-1/2 my-3 relative h-10 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg focus:outline-none focus:border-blue-500">
                                 <div className="flex flex-row justify-between items-center">
@@ -395,9 +395,9 @@ export function Verification(){
                             </select>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" defaultValue={URL} type="text" onChange={(e)=>{setURL(e.target.value)}}/>)}
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation Name" defaultValue={OrganName} type="text" onChange={(e)=>{setOrganName(e.target.value)}}/>)}
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" defaultValue={ref1Contact} pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Contact" type="text" defaultValue={ref1Contact}  maxLength={10} onChange={(e)=>{setRef1Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 1 Name" type="text" defaultValue={ref1Name} onChange={(e)=>{setRef1Name(e.target.value)}}/>
-                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" defaultValue={ref2Contact} pattern="[\d]{9}" maxLength={10} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
+                            <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Contact" type="text" defaultValue={ref2Contact}  maxLength={10} onChange={(e)=>{setRef2Contact(e.target.value)}}/>
                             <input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Reference 2 Name" type="text" defaultValue={ref2Name} onChange={(e)=>{setRef2Name(e.target.value)}}/>
                             
                             <button type="submit" className="bg-red-400 rounded-full px-4 py-2 text-xl text-white">Edit Verification</button>
@@ -539,16 +539,18 @@ function Items({ currentItems }) {
 export function BookingComponent({data}){
     const {auth}=useAuthContext()
     const [domain,setdomain]=useState([])
+    const [app,setapp]=useState({})
     const [phone,setphone]=useState("")
 
     const fetchapp =async()=>{
         await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
             const ndata=res.data.filter((item)=>{
-                if(item.user == data.profile){
+                if(item.id == data.profile){
                     return item
                 }
             })
             console.log("ndata",ndata)
+            setapp(ndata[0])
             const domains=JSON.parse(ndata[0].domains)
             console.log(domains)
             const newdata=domains.filter((item)=>{
@@ -563,21 +565,23 @@ export function BookingComponent({data}){
 
     const fetchprofile = async (id) => {
         await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
-          res.data.filter((item)=>{
-            if(item.id==id){
-              setphone(item.phone_number)
-            }
-          })
+          console.log(id)
+          const data = res.data.find(item => item.id === id);
+          if (data) {
+              setphone(data.phone_number);
+          }
         });
-      }
+  }
 
     useEffect(()=>{
         fetchapp()
     },[])
 
     useEffect(()=>{
-        fetchprofile(Number(domain.id))
-    },[domain])
+        if(app != {}){
+            fetchprofile(Number(app.user))
+        }
+    },[app])
     
     return(
         <div className="border-2 border-gray-400 rounded-full py-6 w-1/2 mx-auto flex flex-row items-center justify-between my-8">
