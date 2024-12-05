@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useLogin from '../AuthLogic/useLogin';
 import useAuthContext from '../AuthLogic/useAuthContext';
 import { useNavigate } from 'react-router';
-import { URL } from './global';
+import { URL } from '../../global';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');

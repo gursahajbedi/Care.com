@@ -85,7 +85,7 @@ export default function CommPage(){
     const {auth}=useAuthContext()
 
     const fetch_Community=async()=>{
-        axios.get``${ URL }/api/community/posts``)
+        axios.get(`${ URL }/api/community/posts`)
             .then((res)=>{
                 Setcommunity(res.data)
             })

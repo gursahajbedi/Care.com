@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import useAuthContext from "../AuthLogic/useAuthContext"
-import { URL } from './global';
+import { URL } from '../../global';
 
 export function Menu(){
     const {logout}= useLogout()
