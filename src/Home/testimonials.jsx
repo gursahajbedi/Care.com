@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { URL } from "../../global";
 import axios from 'axios'
 
 export default function Testimonials(prop) {
@@ -9,7 +10,7 @@ export default function Testimonials(prop) {
 
     const fetchProfile = async (id,setdata) => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/accounts/list/`);
+            const response = await axios.get(`${ URL }/api/accounts/list/`);
             const data = response.data.find(item => item.id === Number(id));
             if (data) {
                 console.log(data);
@@ -21,7 +22,7 @@ export default function Testimonials(prop) {
     };
 
     const fetchapp =async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
                 const data = res.data.find(item => item.id === prop.data.profile);
                 console.log(data)
                 setapp(data)
@@ -53,7 +54,7 @@ export default function Testimonials(prop) {
             <div className="mx-5 py-3 border rounded-3xl shadow-xl bg-white" style={{height:"450px"}}>
                 <div className="flex flex-col justify-center items-center h-full gap-y-3">
                     <div style={{height:"150px", width:"150px"}}>
-                        <img src={nannyprofile.profile_pic != null?`http://127.0.0.1:8000${nannyprofile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                        <img src={nannyprofile.profile_pic != null?`${ URL }${nannyprofile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                     </div>
                     <img src="/ratingfake.svg" className="mt-3"></img>
                     <div id="name" className="md:text-xl 2xl:text-2xl">

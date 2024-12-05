@@ -19,7 +19,7 @@ export default function useLogin(){
         // }).catch((err)=>console.log(err))
         // console.log("logged in")
 
-        await axios.post("http://127.0.0.1:8000/api/accounts/login/",{
+        await axios.post("/api/accounts/login/",{
             email:email,
             password:password
         }).then((res)=>{
@@ -39,7 +39,7 @@ export default function useLogin(){
         // }).catch((err)=>console.log(err))
         // console.log("logged in")
 
-        await axios.get("http://127.0.0.1:8000/api/accounts/list").then((res)=>{
+        await axios.get("/api/accounts/list").then((res)=>{
             const data=res.data.filter((item)=>{
                 if(item.is_staff === true){
                     return item

@@ -4,6 +4,7 @@ import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuthContext from "../AuthLogic/useAuthContext";
 import axios from "axios"
+import { URL } from "../../global";
 
 export default function Comment({data,id,pid,fetchpost}){
 
@@ -27,7 +28,7 @@ export default function Comment({data,id,pid,fetchpost}){
                 
             }
             console.log(pid)
-            await axios.post(`http://127.0.0.1:8000/api/community/posts/${pid}/comments/write/`,data,{
+            await axios.post(`${ URL }/api/community/posts/${pid}/comments/write/`,data,{
                 headers: {
                     'Authorization': `Bearer ${auth.user.access}`
                 }
@@ -56,7 +57,7 @@ export default function Comment({data,id,pid,fetchpost}){
 
     const fetchprofile = async (id) => {
         console.log(id)
-        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+        await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
           const data=res.data.filter((item)=>{
             if(item.id==Number(id)){
               return item
@@ -75,7 +76,7 @@ export default function Comment({data,id,pid,fetchpost}){
     const addlike=async()=>{
         console.log("adding")
         if(auth.user){
-            await axios.post(`http://127.0.0.1:8000/api/community/comments/${id}/like/`,{},{
+            await axios.post(`${ URL }/api/community/comments/${id}/like/`,{},{
             headers:{
                 Authorization:`Bearer ${auth.user.access}`
             }
@@ -101,7 +102,7 @@ export default function Comment({data,id,pid,fetchpost}){
 
     const adddislike=async()=>{
         if(auth.user){
-            await axios.post(`http://127.0.0.1:8000/api/community/comments/${id}/dislike/`,{},{
+            await axios.post(`${ URL }/api/community/comments/${id}/dislike/`,{},{
                 headers:{
                     Authorization:`Bearer ${auth.user.access}`
                 }
@@ -153,7 +154,7 @@ export default function Comment({data,id,pid,fetchpost}){
             />
                     <div className="flex flex-row items-center">
                         <div className="" style={{width:"70px",height:"70px"}}>
-                            <img src={profile.profile_pic != undefined?`http://127.0.0.1:8000${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                            <img src={profile.profile_pic != undefined?`${ URL }${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                         </div>
                         <div className="p-4 py-5 border-t-4 border-b-4 w-8/12 flex flex-col">
                             <div className="flex flex-row justify-between text-xl">

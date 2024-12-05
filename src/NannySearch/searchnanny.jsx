@@ -5,7 +5,8 @@ import Slider from '@mui/material/Slider';
 import Childcare from "../Myzone/childcare";
 import { Link, useLocation } from "react-router-dom";
 import { htmlToText } from "html-to-text";
-
+import { data } from "autoprefixer";
+import { URL } from "../../global";
 
 function Head(prop){
     return(
@@ -119,27 +120,29 @@ export function AddsList({setdata}){
 
 function NannyComponent(prop){
 
-    const[profile,setprofile]=useState({})
+    const [profile,setprofile]=useState({})
     const [rating,setrating]=useState([])
     const [total,settotal]=useState()
     const [app,setapp]=useState({})
+
     const textContent = htmlToText(prop.data.about, {
         wordwrap: false,
         preserveNewlines: true,
       });
 
-    const fetchprofile = async (id) => {
-          await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+    const fetchprofile = async (id) => {  
+          await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
             console.log(id)
             const data = res.data.find(item => item.id === id);
             if (data) {
                 setprofile(data);
+                prop.setLoading(false)
             }
           });
     }
 
     const fetchapp =async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             const ndata=res.data.filter((item)=>{
                 
                 if(item.id == prop.data.id){
@@ -148,12 +151,13 @@ function NannyComponent(prop){
             })
             console.log("appdata",ndata)
             setapp(ndata[0])
+            fetchprofile(ndata[0].user)
         })
     }
 
     const fetchrating = async () => {
         try {
-            const res = await axios.get("http://127.0.0.1:8000/api/bookings/getRatings/");
+            const res = await axios.get(`${ URL }/api/bookings/getRatings/`);
             if (res.data.length !== 0) {
                 
                 const data = res.data.filter((item) => item.profile === Number(prop.data.id) && item.domain_name === prop.data.type);
@@ -215,30 +219,32 @@ function NannyComponent(prop){
         return stars;
       };
 
-    useEffect(()=>{        
-        console.log("app")
-        if(app != {}){
-            fetchprofile(app.user)
-        }
-    },[app])
-
     useEffect(()=>{
         fetchapp()
-    },[])
+    },[prop.data.type])
 
     useEffect(()=>{
         fetchrating()
-        fetchtotal()
-        
     },[profile,prop.data.id,prop.data.type])
+
+    useEffect(()=>{
+        fetchtotal()
+    },[rating])
 
     return(
         <Link to={`/nanny/${prop.data.id}/${prop.data.type}`} state={{pincode:prop.data.pincode}}>
         <div className="flex-col w-full justify-between items-center">
             <div className="flex flex-row justify-between items-center">
+                {!prop.loading && (
                 <div className="w-3/12">
-                    <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="rounded-xl" style={{height:"150px",width:"100%",objectFit:"cover"}}></img>
+                    <img src={`${ URL }${profile.profile_pic}`} className="rounded-xl" style={{height:"150px",width:"100%",objectFit:"cover"}}></img>
                 </div>
+                )}
+                {prop.loading && (
+                <div className="w-3/12">
+                    <img src={`/auth/default-profile.jpg`} className="rounded-xl" style={{height:"150px",width:"100%",objectFit:"cover"}}></img>
+                </div>
+                )}
                 <div className=" w-7/12 flex flex-col ms-7">
                     <div className="flex flex-row items-end">
                         <div className="text-2xl">
@@ -292,6 +298,7 @@ function Filters(prop){
     const [pet,setpet]=useState([])
     const [addlang,setaddlang]=useState([])
     const [finallang,setfinallang]=useState([])
+    
 
     function valuetext(value) {
         return `₹${value}`;
@@ -505,6 +512,7 @@ export default function Searchnanny(){
     const [lang,setlang]=useState([])
     const [price,setprice]=useState([100,10000])
     const [xfilter,setxfilter]=useState([])
+    const [loading,setloading]=useState(false)
 
     window.addEventListener('beforeunload',()=>{
         if(!localStorage.getItem("user")){
@@ -513,7 +521,7 @@ export default function Searchnanny(){
     })
 
     const fetchdata=async()=>{
-        await axios.get("http://127.0.0.1:8000/api/app/list/").then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             if(res.data.length != 0){
                 const listy=[]
                 res.data.map((item)=>{
@@ -586,6 +594,7 @@ export default function Searchnanny(){
     useEffect(()=>{
         fetchdata();
         typefetching();
+        setloading(true)
     },[])
 
     useEffect(()=>{
@@ -594,10 +603,12 @@ export default function Searchnanny(){
         setpet([])
         setage([])
         setprice([100,10000])
+        setloading(true)
     },[typechoose,type,pincode])
 
     useEffect(()=>{
         filter();
+        setloading(true)
     },[price,age,lang])
 
     return(
@@ -613,7 +624,7 @@ export default function Searchnanny(){
                 {(price[0]===100 && price[1]===10000 && pet.length === 0 && age.length === 0 && lang.length === 0 )?(<div className="w-8/12">
                 {
                     filtered.map((item)=>{
-                        return(<NannyComponent key={item} data={item}/>)
+                        return(<NannyComponent key={item} data={item} setLoading={setloading} loading={loading}/>)
                     })
                 }
                 </div>)
@@ -621,7 +632,7 @@ export default function Searchnanny(){
                     { xfilter.length !=0 &&(<div>
                     {
                         xfilter.map((item)=>{
-                            return(<NannyComponent key={item} data={item}/>)
+                            return(<NannyComponent key={item} data={item} setLoading={setloading} loading={loading}/>)
                         })
                     }
                     </div>)}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import { URL } from "../../global";
 
 
 export default function Community(prop){
@@ -7,7 +8,7 @@ export default function Community(prop){
 
     const fetchProfile = async (id,setdata) => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/accounts/list/`);
+            const response = await axios.get(`${ URL }/api/accounts/list/`);
             const data = response.data.find(item => item.id === Number(id));
             if (data) {
                 console.log(data);
@@ -39,7 +40,7 @@ export default function Community(prop){
                         <div className="flex flex-row items-center justify-center me-10 gap-y-4">
                             
                             <div style={{height:"110px", width:"110px"}} className="mx-4">
-                                <img src={userprofile.profile_pic != null?`http://127.0.0.1:8000${userprofile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                                <img src={userprofile.profile_pic != null?`${ URL }${userprofile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                             </div>
                                 
                             <div className="flex flex-col items-center gap-x-2 mx-4">

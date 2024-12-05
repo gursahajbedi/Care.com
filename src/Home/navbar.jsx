@@ -3,6 +3,7 @@ import useAuthContext from "../AuthLogic/useAuthContext"
 import "./navbar.css"
 import { useEffect, useState } from "react"
 import axios from 'axios'
+import { URL } from "../../global"
 
 export default function Navbar(){
     const {auth}=useAuthContext()
@@ -10,7 +11,7 @@ export default function Navbar(){
     const[profile,setprofile]=useState({})
 
     const fetchprofile = async (id) => {
-          await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+          await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
             const data=res.data.filter((item)=>{
               if(item.id==id){
                 return item
@@ -49,7 +50,7 @@ export default function Navbar(){
                         {auth.user && (
                             <a href="/myzone/profile" >
                                 <div className="" style={{width:"100px",height:"100px"}}>
-                                    <img src={profile.profile_pic != null?`http://127.0.0.1:8000${profile.profile_pic}`:`/auth/default-profile.jpg`} className="rounded-full border-4 border-gray-500 shadow-xl" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                                    <img src={profile.profile_pic != null?`${ URL }${profile.profile_pic}`:`/auth/default-profile.jpg`} className="rounded-full border-4 border-gray-500 shadow-xl" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                                 </div>
                             </a>
                         )}

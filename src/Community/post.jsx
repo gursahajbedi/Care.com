@@ -6,6 +6,7 @@ import Comment from "./comment";
 import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuthContext from "../AuthLogic/useAuthContext";
+import { URL } from "../../global";
 
 
 export default function Post(){
@@ -32,7 +33,7 @@ export default function Post(){
                 content: addcomment,
             }
 
-            await axios.post(`http://127.0.0.1:8000/api/community/posts/${id}/comments/write/`,data,{
+            await axios.post(`${ URL }/api/community/posts/${id}/comments/write/`,data,{
                 headers: {
                     Authorization: `Bearer ${auth.user.access}`,
                 }
@@ -59,7 +60,7 @@ export default function Post(){
     }
 
     const fetchpost = async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/community/post/${id}`).then((res)=>{
+        await axios.get(`${ URL }/api/community/post/${id}`).then((res)=>{
             console.log("Post",res.data)
             setdata(res.data)
             fetchprofile(res.data.author)
@@ -67,7 +68,7 @@ export default function Post(){
     }
 
     const fetchprofile = async (id) => {
-        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+        await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
           const data=res.data.filter((item)=>{
             console.log("Profile",item)
             console.log(item.id === id, id, item.id)
@@ -91,7 +92,7 @@ export default function Post(){
 
     const addlike=async()=>{
         if(auth.user){
-            await axios.post(`http://127.0.0.1:8000/api/community/posts/${id}/like/`,{},{
+            await axios.post(`${ URL }/api/community/posts/${id}/like/`,{},{
                 headers:{
                     Authorization:`Bearer ${auth.user.access}`
                 }
@@ -116,7 +117,7 @@ export default function Post(){
 
     const adddislike=async()=>{
         if(auth.user){
-            await axios.post(`http://127.0.0.1:8000/api/community/posts/${id}/dislike/`,{},{
+            await axios.post(`${ URL }/api/community/posts/${id}/dislike/`,{},{
                 headers:{
                     Authorization:`Bearer ${auth.user.access}`
                 }
@@ -204,7 +205,7 @@ export default function Post(){
                     <div className="border-4 border-gray-400 rounded-3xl shadow-xl p-7">
                         <div className="flex flex-col justify-center items-center">
                             <div className="" style={{width:"100px",height:"100px"}}> 
-                                <img src={profile.profile_pic != undefined?`http://127.0.0.1:8000${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full"style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                                <img src={profile.profile_pic != undefined?`${ URL }${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full"style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                             </div>
                             <div className="text-2xl font-bold pt-3">
                                 {profile.name}

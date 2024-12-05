@@ -3,6 +3,7 @@ import "./home.css"
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import axios from "axios";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { URL } from "../../global"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -25,7 +26,7 @@ export default function Home({auth}){
     const[testimonial,setTestimonials]=useState([])
     
     const fetch_blogs=()=>{
-        axios.get("http://127.0.0.1:8000/api/blogs/list/").then(
+        axios.get(`${ URL }/api/blogs/list/`).then(
             (res)=>{
                 console.log(res.data)
                 setBlogs(res.data)
@@ -34,14 +35,14 @@ export default function Home({auth}){
     }
     
     const fetch_community=async()=>{
-        await axios.get("http://127.0.0.1:8000/api/community/posts/").then((res)=>{
+        await axios.get(`${ URL }/api/community/posts/`).then((res)=>{
             setCommunity(res.data)
         })
     }
     
     const fetch_testimonials = async () => {
         try {
-            const res = await axios.get("http://127.0.0.1:8000/api/bookings/getRatings/");
+            const res = await axios.get(`${ URL }/api/bookings/getRatings/`);
             if (res.data.length !== 0) {
                 const data=res.data.filter((item)=>{
                     if(item.rating === 5 || item.rating === "5"){
@@ -164,7 +165,7 @@ export default function Home({auth}){
                             <div className="flex flex-row 2xl:flex-nowrap md:flex-wrap gap-10 2xl:px-48 md:px-24">
                             <div className=" 2xl:w-5/12 md:w-12/12 2xl:my-8 md:my-0 ">
                                 <div className="flex flex-col justify-center items-center h-full w-full shadow-xl border border-gray-400 p-10 bg-white" style={{borderRadius:"70px"}}>
-                                <img src={`http://127.0.0.1:8000${Blogs[0].image}`} className="rounded-3xl" style={{height:"400px",width:"100%",borderRadius:"50px", objectFit:"cover"}}></img>
+                                <img src={`${ URL }${Blogs[0].image}`} className="rounded-3xl" style={{height:"400px",width:"100%",borderRadius:"50px", objectFit:"cover"}}></img>
                                     <div className="flex flex-row mx-auto justify-between w-full">
                                             {Blogs[0].post_type === 'general' || Blogs[0].post_type === 'General' && (
                                                 <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-red-500 rounded-full">
@@ -176,7 +177,7 @@ export default function Home({auth}){
                                                 Advice
                                                 </div>
                                             )}
-                                            {Blogs[0].post_type === 'Tips' || Blogs[0].post_type === 'tips' && (
+                                            {Blogs[0].post_type === 'tips' || Blogs[0].post_type === 'Tips' && (
                                                 <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-yellow-500 rounded-full">
                                                 Tips
                                                 </div>
@@ -195,11 +196,11 @@ export default function Home({auth}){
                             </div>
                             <div className="2xl:w-7/12 md:w-12/12 flex flex-col justify-around">
                                 <div className="flex flex-row justify-center items-top w-full shadow-xl border border-gray-400 p-8 bg-white" style={{borderRadius:"70px"}}>
-                                    <img src={`http://127.0.0.1:8000${Blogs[1].image}`} className="rounded-3xl" style={{height:"280px",width:"280px",borderRadius:"50px", objectFit:"cover"}}></img>
+                                    <img src={`${ URL }${Blogs[1].image}`} className="rounded-3xl" style={{height:"280px",width:"280px",borderRadius:"50px", objectFit:"cover"}}></img>
                                     <div className="mx-10">
                                         <div className="flex flex-row mx-auto justify-between w-full">
                                             
-                                            {Blogs[1].post_type === 'general' || Blogs[1].post_type === 'General' && (
+                                        {Blogs[1].post_type === 'general' || Blogs[1].post_type === 'General' && (
                                                 <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-red-500 rounded-full">
                                                 General
                                                 </div>
@@ -209,7 +210,7 @@ export default function Home({auth}){
                                                 Advice
                                                 </div>
                                             )}
-                                            {Blogs[1].post_type === 'Tips' || Blogs[1].post_type === 'tips' && (
+                                            {Blogs[1].post_type === 'tips' || Blogs[1].post_type === 'Tips' && (
                                                 <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-yellow-500 rounded-full">
                                                 Tips
                                                 </div>
@@ -227,11 +228,11 @@ export default function Home({auth}){
                                     </div>
                                 </div>
                                 <div className="flex flex-row justify-center items-top w-full shadow-xl border border-gray-400 p-8 bg-white" style={{borderRadius:"70px"}}>
-                                    <img src={`http://127.0.0.1:8000${Blogs[2].image}`} className="rounded-3xl" style={{height:"280px",width:"280px",borderRadius:"50px", objectFit:"cover"}}></img>
+                                    <img src={`${ URL }${Blogs[2].image}`} className="rounded-3xl" style={{height:"280px",width:"280px",borderRadius:"50px", objectFit:"cover"}}></img>
                                     <div className="mx-10">
                                         <div className="flex flex-row mx-auto justify-between w-full">
                                             
-                                            {Blogs[2].post_type === 'general' || Blogs[2].post_type === 'General' && (
+                                        {Blogs[2].post_type === 'general' || Blogs[2].post_type === 'General' && (
                                                 <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-red-500 rounded-full">
                                                 General
                                                 </div>
@@ -241,7 +242,7 @@ export default function Home({auth}){
                                                 Advice
                                                 </div>
                                             )}
-                                            {Blogs[2].post_type === 'Tips' || Blogs[2].post_type === 'tips' && (
+                                            {Blogs[2].post_type === 'tips' || Blogs[2].post_type === 'Tips' && (
                                                 <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-yellow-500 rounded-full">
                                                 Tips
                                                 </div>

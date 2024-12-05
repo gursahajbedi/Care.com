@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { CreditCard,GooglePay,PaymentForm } from 'react-square-web-payments-sdk';
 import useAuthContext from '../AuthLogic/useAuthContext';
+import { URL } from '../../global';
 
 const MyPaymentForm = () => {
     let {state}=useLocation()
@@ -31,7 +32,7 @@ const MyPaymentForm = () => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${auth.user.access}`;
 
   const fetchprofile = async (id) => {
-    await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+    await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
       const data=res.data.filter((item)=>{
         console.log(item.id,id)
         if(item.id==id){
@@ -47,7 +48,7 @@ const MyPaymentForm = () => {
   }
 
   const fetchprofileNanny = async (id) => {
-    await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+    await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
       const data=res.data.filter((item)=>{
         console.log(item.id,id)
         if(item.id==id){
@@ -62,7 +63,7 @@ const MyPaymentForm = () => {
 
   const fetchdataNanny=async()=>{
     try {
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
         const newdata=res.data.filter((item)=>{
             if(item.id == Number(data.profile)){
                 return item
@@ -172,7 +173,7 @@ const MyPaymentForm = () => {
         postalcode:postalcode,
         country:country
     }
-    await axios.post('http://127.0.0.1:8000/api/bookings/addBooking/',newdata).then((res)=>{
+    await axios.post(`${ URL }/api/bookings/addBooking/`,newdata).then((res)=>{
         console.log(res.data)
         sendEmail()
     })

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay,FreeMode} from 'swiper/modules';
 import useAuthContext from "../AuthLogic/useAuthContext";
+import { URL } from "../../global";
 
 
 export function BlogsComponent(prop){
@@ -15,7 +16,7 @@ export function BlogsComponent(prop){
     return(
         <div className="w-5/12 flex flex-col justify-around" onClick={navigation}>
             <div className="flex flex-row h-64 justify-center items-center w-full shadow-xl border border-gray-400 p-8 bg-white" style={{borderRadius:"70px"}}>
-                <img src={`http://127.0.0.1:8000${prop.data.image}`} className="rounded-3xl" style={{height:"200px",width:"200px",borderRadius:"50px", objectFit:"cover"}}></img>
+                <img src={`${ URL }${prop.data.image}`} className="rounded-3xl" style={{height:"200px",width:"200px",borderRadius:"50px", objectFit:"cover"}}></img>
                 <div className="mx-10">
                     <div className="flex flex-row mx-auto justify-between w-full">
                         {(prop.data.post_type === "General" || prop.data.post_type === "general") && <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-red-500 rounded-full">
@@ -72,7 +73,7 @@ export function Hero(prop){
         <Link to={`/blogs/post/${Number(prop.data.id)}`} state={JSON.stringify(prop.data)}>
         <div className="" style={{height:"630px"}}>
             <div className="flex flex-col justify-center items-center h-full w-full shadow-xl border border-gray-400 p-10 bg-white" style={{borderRadius:"70px"}}>
-                <img src={`http://127.0.0.1:8000${prop.data.image}`} className="rounded-3xl" style={{height:"370px",width:"100%",borderRadius:"50px", objectFit:"cover"}}></img>
+                <img src={`${ URL }${prop.data.image}`} className="rounded-3xl" style={{height:"370px",width:"100%",borderRadius:"50px", objectFit:"cover"}}></img>
                 <div className="flex flex-row mx-auto justify-between w-full">
                         {(prop.data.post_type === "General" || prop.data.post_type === "general") && <div className="mt-3 text-white px-5 py-2 2xl:text-xl md:text-lg bg-red-500 rounded-full">
                             {prop.data.post_type.charAt(0).toUpperCase() + prop.data.post_type.slice(1)}
@@ -117,7 +118,7 @@ export default function BlogsPage(){
 
 
     const fetchblogs=()=>{
-        axios.get("http://127.0.0.1:8000/api/blogs/list/").then(
+        axios.get(`${ URL }/api/blogs/list/`).then(
             (res)=>{
                 setBlogs(res.data)
             }

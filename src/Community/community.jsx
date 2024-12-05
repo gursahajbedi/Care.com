@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import { useEffect, useState } from "react";
+import { URL } from "../../global";
 
 export default function Community(prop){
     const [profile,setprofile]=useState({})
 
     const fetchprofile = async (id) => {
         console.log(id)
-        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+        await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
           const data=res.data.filter((item)=>{
             if(item.id==Number(id)){
               return item
@@ -43,7 +44,7 @@ export default function Community(prop){
                         </div>
                         <div className="flex flex-col align items-center justify-center me-7">
                             <div className="" style={{width:"70px",height:"70px"}}>
-                                <img src={profile.profile_pic != undefined?`http://127.0.0.1:8000${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                                <img src={profile.profile_pic != undefined?`${ URL }${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                             </div>
                             {prop.data.author_type === "Mother" && (<div className="w-28 bg-red-400 rounded-2xl 2xl:text-xl md:text-lg text-center text-white mt-2">
                                 {prop.data.author_type}

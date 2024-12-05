@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import useAuthContext from "../AuthLogic/useAuthContext"
+import { URL } from './global';
 
 export function Menu(){
     const {logout}= useLogout()
@@ -43,7 +44,7 @@ export function VerifyComponent({data,profiles,handleapprove,handlereject}){
     const[profile,setprofile]=useState({})
 
     const fetchprofile = async (id) => {
-          await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+          await axios.get(`${URL}/api/accounts/list/`).then((res) => {
             const data=res.data.filter((item)=>{
               if(item.id==id){
                 return item
@@ -135,13 +136,13 @@ export function VerifyComponent({data,profiles,handleapprove,handlereject}){
                         </div>
                         <div className="flex flex-col gap-y-6 items-center justify-center w-7/12">
                             <div style={{height:"250px",width:"500px"}}>
-                                <img src={`http://127.0.0.1:8000${data.identity_proof}`} style={{height:"100%", width:"100%", objectFit:"cover"}}></img>
+                                <img src={`${URL}${data.identity_proof}`} style={{height:"100%", width:"100%", objectFit:"cover"}}></img>
                             </div>
                             <div style={{height:"250px",width:"500px"}}>
-                              <img src={`http://127.0.0.1:8000${data.police_certificate}`} style={{height:"100%", width:"100%", objectFit:"cover"}}></img>
+                              <img src={`${URL}${data.police_certificate}`} style={{height:"100%", width:"100%", objectFit:"cover"}}></img>
                             </div>
                             <div style={{height:"250px",width:"500px"}}>
-                              <img src={`http://127.0.0.1:8000${data.driving_license_proof}`} style={{height:"100%", width:"100%", objectFit:"cover"}}></img>
+                              <img src={`${URL}${data.driving_license_proof}`} style={{height:"100%", width:"100%", objectFit:"cover"}}></img>
                             </div>
                         </div>
                         </div>
@@ -160,7 +161,7 @@ export default function AdminDashboard(){
     const [application,setapplication]=useState([])
     const [profiles, setProfiles] = useState({});
     const fetchapp =async()=>{
-      await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+      await axios.get(`${URL}/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 if(item.status === false){
                     return item
@@ -171,7 +172,7 @@ export default function AdminDashboard(){
     }
 
     const handleapprove=async(id)=>{
-        await axios.patch(`http://127.0.0.1:8000/api/app/verifications/${id}/`,{},{
+        await axios.patch(`${URL}/api/app/verifications/${id}/`,{},{
           headers: {
             'Authorization': `Bearer ${auth.user.access}`
         }
@@ -181,7 +182,7 @@ export default function AdminDashboard(){
     }
 
     const handlereject=async(id)=>{
-        await axios.delete(`http://127.0.0.1:8000/api/app/application/${id}/delete/`,{
+        await axios.delete(`${URL}/api/app/application/${id}/delete/`,{
           headers: {
             'Authorization': `Bearer ${auth.user.access}`
         }
@@ -265,7 +266,7 @@ function Items({ currentItems }) {
   
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/blogs/list/');
+        const response = await axios.get('${URL}/api/blogs/list/');
         setBlogs(response.data);
         fetchComponents(response.data);
       } catch (error) {
@@ -275,7 +276,7 @@ function Items({ currentItems }) {
   
     const deleteBlog = async (id) => {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/blogs/${id}/delete/`);
+        await axios.delete(`${URL}/api/blogs/${id}/delete/`);
         setBlogs(blogs.filter(blog => blog.id !== id));
         fetchComponents(blogs.filter(blog => blog.id !== id));
       } catch (error) {
@@ -348,7 +349,7 @@ function Items({ currentItems }) {
         formData.append('post_type', newBlog.post_type);
         formData.append('content', newBlog.content);
 
-        const response = await axios.post('http://127.0.0.1:8000/api/blogs/write/', formData,{
+        const response = await axios.post('${URL}/api/blogs/write/', formData,{
           headers:{
             'Content-Type': 'multipart/form-data'
           }

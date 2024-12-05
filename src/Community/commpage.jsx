@@ -9,13 +9,14 @@ import useAuthContext from "../AuthLogic/useAuthContext";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import "./community.css"
+import { URL } from "../../global";
 
 function Popular(prop){
     const [profile,setprofile]=useState({})
 
     const fetchprofile = async (id) => {
         console.log(id)
-        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+        await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
           const data=res.data.filter((item)=>{
             if(item.id==Number(id)){
               return item
@@ -36,7 +37,7 @@ function Popular(prop){
             <div className="h-full border-2 shadow-xl border-gray-400 rounded-2xl p-5">
                 <div className="flex flex-row justify-between items-center my-2">
                     <div className="" style={{width:"60px",height:"60px"}}>
-                                <img src={profile.profile_pic != undefined?`http://127.0.0.1:8000${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                                <img src={profile.profile_pic != undefined?`${ URL }${profile.profile_pic}`:`/community/communityprofile.svg`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                     </div>
                     <div className="flex flex-col justify-center items-start">
                         <div className="text-xl">
@@ -84,7 +85,7 @@ export default function CommPage(){
     const {auth}=useAuthContext()
 
     const fetch_Community=async()=>{
-        axios.get("http://127.0.0.1:8000/api/community/posts/")
+        axios.get``${ URL }/api/community/posts``)
             .then((res)=>{
                 Setcommunity(res.data)
             })
@@ -150,7 +151,7 @@ export default function CommPage(){
     const handleSubmit=async(e)=>{
         e.preventDefault()
         if(title && description){
-            axios.post("http://127.0.0.1:8000/api/community/posts/",{
+            axios.post(`${ URL }/api/community/posts/`,{
                 title:title,
                 desc:description
             },{

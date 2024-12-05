@@ -7,6 +7,7 @@ import dateFormat, { masks } from "dateformat";
 import './microsite.css'
 import { Rating } from 'react-simple-star-rating'
 import useAuthContext from "../AuthLogic/useAuthContext";
+import { URL } from "../../global";
 
 function ReviewPanel({ data, setstate, renderStars, setaddreview }) {
     const [profiles, setProfiles] = useState({});
@@ -15,7 +16,7 @@ function ReviewPanel({ data, setstate, renderStars, setaddreview }) {
     const fetchProfile = async (id) => {
         if (!profiles[id]) { // Check if the profile is already fetched
             try {
-                const res = await axios.get(`http://127.0.0.1:8000/api/accounts/list/`);
+                const res = await axios.get(`${ URL }/api/accounts/list/`);
                 console.log("hey")
                 const profileData = res.data.find(item => item.id === id);
                 if (profileData) {
@@ -52,7 +53,7 @@ function ReviewPanel({ data, setstate, renderStars, setaddreview }) {
                                         <div className="w-2/12 flex flex-col justify-center items-center">
                                             <div style={{ height: "100px", width:"100px"}}>
                                             {profile && (
-                                                <img src={`http://127.0.0.1:8000${profile.profile_pic}`} style={{ height: "100%", width: "100%", objectFit: "cover" }} className="rounded-full" alt={`${profile.name}'s profile`} />
+                                                <img src={`${ URL }${profile.profile_pic}`} style={{ height: "100%", width: "100%", objectFit: "cover" }} className="rounded-full" alt={`${profile.name}'s profile`} />
                                             )}
                                             </div>
                                         </div>
@@ -138,7 +139,7 @@ function Ratings({data,id,type}){
 
       const fetchrating = async () => {
         try {
-            const res = await axios.get("http://127.0.0.1:8000/api/bookings/getRatings/");
+            const res = await axios.get(`${ URL }/api/bookings/getRatings/`);
             if (res.data.length !== 0) {
                 console.log(res.data)
                 const data = res.data.filter((item) => item.profile === Number(id) && item.domain_name === type);
@@ -165,7 +166,7 @@ function Ratings({data,id,type}){
     }
 
     const fetchprofile = async (id) => {
-        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+        await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
           const data=res.data.filter((item)=>{
             if(item.id==id){
               return item
@@ -186,7 +187,7 @@ function Ratings({data,id,type}){
 
     const handlereviewsubmit=async()=>{
         console.log(auth.user.name,reviewcontent,stars)
-        await axios.post("http://127.0.0.1:8000/api/bookings/addRating/",{
+        await axios.post(`${ URL }/api/bookings/addRating/`,{
             "profile": id,
             "domain_name": type,
             "content": reviewcontent,
@@ -247,7 +248,7 @@ function Ratings({data,id,type}){
                     <div className="w-2/12 flex flex-col justify-center items-center">
                         <div style={{ height: "100px", width:"100px"}}>
                         {profile && (
-                            <img src={`http://127.0.0.1:8000${profile.profile_pic}`} style={{ height: "100%", width: "100%", objectFit: "cover" }} className="rounded-full" alt={`${profile.name}'s profile`} />
+                            <img src={`${ URL }${profile.profile_pic}`} style={{ height: "100%", width: "100%", objectFit: "cover" }} className="rounded-full" alt={`${profile.name}'s profile`} />
                         )}
                         </div>
                     </div>
@@ -358,7 +359,7 @@ export default function Microsite(){
 
     const fetchprofile = async (id,setdata) => {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/accounts/list/`);
+            const response = await axios.get(`${ URL }/api/accounts/list/`);
             const data = response.data.find(item => item.id === Number(id));
             if (data) {
                 console.log(data);
@@ -417,7 +418,7 @@ export default function Microsite(){
 
     const fetchdata=async()=>{
         try {
-            await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+            await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 if(item.id === Number(id)){
                     return item
@@ -459,7 +460,7 @@ export default function Microsite(){
                 <object className="absolute w-full mt-20 -z-40" data="/microsite/creative.svg" type="image/svg+xml"></object>
                 <div className="w-8/12 flex flex-row items-center gap-x-10">
                     <div style={{height:"260px",width:"350px"}}>
-                        <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
+                        <img src={`${ URL }${profile.profile_pic}`} className="rounded-full" style={{height:"100%",width:"100%",objectFit:"cover"}}></img>
                     </div>
                     <div className="flex flex-col text-4xl w-8/12">
                         <div className="flex flex-row text-nowrap gap-x-4 items-end">

@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./profile.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { URL } from "../../global.jsx";
 
 import ReactPaginate from 'react-paginate';
 
@@ -61,7 +62,7 @@ export function Profile() {
     const fetchProfile = async () => {
         setLoading(true)
         try {
-            const res = await axios.get("http://127.0.0.1:8000/api/accounts/list/");
+            const res = await axios.get(`${ URL }/api/accounts/list/`);
             const data = res.data.find(item => item.id === Number(auth.user.id));
             if (data) {
                 setProfile(data);
@@ -85,7 +86,7 @@ export function Profile() {
         formData.append('profile_pic', profilePic);
 
         try {
-            await axios.patch('http://127.0.0.1:8000/api/accounts/profile-update/', formData, {
+            await axios.patch(`${ URL }/api/accounts/profile-update/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -113,7 +114,7 @@ export function Profile() {
     const changeProfileData = async(e)=>{
         e.preventDefault()
         try {
-            await axios.patch('http://127.0.0.1:8000/api/accounts/profile-update/', {
+            await axios.patch(`${ URL }/api/accounts/profile-update/`, {
                 name:name,
                 phone_number:phone,
                 email:email
@@ -178,9 +179,9 @@ export function Profile() {
                 <div className="flex flex-col items-center mt-10">
                     <div className="flex flex-row justify-center items-center" onClick={() => {}} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                         {hover ? (
-                            <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="profile z-0 border-4 border-gray-500" style={{ height: "150px", width: "150px", borderRadius: "100%", objectFit:"cover" }} alt="Profile"></img>
+                            <img src={`${ URL }${profile.profile_pic}`} className="profile z-0 border-4 border-gray-500" style={{ height: "150px", width: "150px", borderRadius: "100%", objectFit:"cover" }} alt="Profile"></img>
                         ) : (
-                            <img src={`http://127.0.0.1:8000${profile.profile_pic}`} className="z-0 border-4 border-gray-500 " style={{ height: "150px", width: "150px", borderRadius: "100%",objectFit:"cover" }} alt="Profile"></img>
+                            <img src={`${ URL }${profile.profile_pic}`} className="z-0 border-4 border-gray-500 " style={{ height: "150px", width: "150px", borderRadius: "100%",objectFit:"cover" }} alt="Profile"></img>
                         )}
                         {hover && (
                             <img className="absolute camera z-10" src="/auth/camera.png" style={{ height: "50px" }} alt="Camera"></img>
@@ -199,7 +200,7 @@ export function Profile() {
                         </div>
                         <div className="mb-4">
                             <label htmlFor="phone" className="block text-gray-700 text-lg font-bold mb-2">Phone</label>
-                            <input type="text" pattern="[\d]{9}" maxLength={10} id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={phone} onChange={(e) => setphone(e.target.value)} />
+                            <input type="text" maxLength={10} id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={phone} onChange={(e) => setphone(e.target.value)} />
                         </div>
                         <button type="submit" className="bg-red-400 rounded-full px-6 py-3 mt-5 text-white hover:brightness-75 shadow-lg">Edit Credentails</button>
                     </form>
@@ -235,7 +236,7 @@ export function Verification(){
     const navigate=useNavigate()
 
     const fetchverify=async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             console.log(res.data)
             res.data.filter((item)=>{
                 if(item.user==Number(auth.user.id)){
@@ -285,7 +286,7 @@ export function Verification(){
             police_certificate: pcproof,
             driving_license_proof: dlproof,
         };
-        await axios.post(`http://127.0.0.1:8000/api/app/`,formData,{
+        await axios.post(`${ URL }/api/app/`,formData,{
             headers: {
                 'Content-Type': 'multipart/form-data',
             }, 
@@ -298,8 +299,7 @@ export function Verification(){
 
     const postverifyapproved=async(e)=>{
         e.preventDefault()
-        await axios.patch(`http://127.0.0.1:8000/api/app/application/patch/`,{
-            ...appdata,
+        await axios.patch(`${ URL }/api/app/application/patch/`,{
             "state": state,
             "user_type": type,
             "organisation_url": URL,
@@ -324,13 +324,13 @@ export function Verification(){
                         Verification
                         <hr className="w-64 h-2 rounded-full bg-red-400 "></hr>
                     </div>
-                    {status === false || !status &&(
+                    {!status &&(
                         <form className="flex flex-col items-center justify-center gap-y-2" onSubmit={(e)=>{postverify(e)}}>
                             <div className="text-center font-bold text-gray-500 border-s-4 my-6 border-e-4 rounded-full py-5 px-10">Please Note: <br/> Processing of the Verification may take upto 24 hours</div>
                             <input value={state} className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter State" type="text"  onChange={(e)=>{setState(e.target.value)}}/>
                             <select className="border-gray-400 border-2 w-96 px-4 text-xl" type="text" onChange={(e)=>setType(e.target.value)}>
                                 <option className="" selected value="">Select Type</option>
-                                <option className="" value="indivisual">Indivisual</option>
+                                <option className="" value="indivisual">Individual</option>
                                 <option className="" value="organisation">Organisation</option>
                             </select>
                             {(type === "organisation") &&(<input className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter Organisation URL" type="text"  onChange={(e)=>{setURL(e.target.value)}}/>)}
@@ -379,7 +379,7 @@ export function Verification(){
                             <button type="submit" className="bg-red-400 rounded-full px-4 py-2 text-xl text-white">Submit Verification</button>
                         </form>
                     )}
-                    {status === true &&(
+                    {status &&(
                         <form className="flex flex-col items-center justify-center gap-y-2" onSubmit={(e)=>{postverifyapproved(e)}}>
                             <div className="text-center font-bold text-gray-500 border-s-4 my-6 border-e-4 rounded-full py-5 px-10">Please Note: <br/> Verification Once Approved does'nt require Processing to Edit</div>
                             <input  className="w-96 border-gray-400 py-2 px-4 border-2 text-xl rounded-lg" placeholder="Enter State" type="text" defaultValue={state} onChange={(e)=>{setState(e.target.value)}}/>
@@ -414,7 +414,7 @@ export function Applications(){
     const [isapplication,setapplication]=useState(false)
 
     const fetchapplications=async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 if(item.user === Number(auth.user.id)){
                     return item
@@ -493,7 +493,7 @@ export function Applications(){
                                             </div>
                                         </div>
                                         <div className="text-xl text-red-400">
-                                            <span className="text-4xl material-symbols-outlined">delete</span>
+                                            
                                         </div>
                                     </div>
                                 )
@@ -543,7 +543,7 @@ export function BookingComponent({data}){
     const [phone,setphone]=useState("")
 
     const fetchapp =async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             const ndata=res.data.filter((item)=>{
                 if(item.id == data.profile){
                     return item
@@ -564,7 +564,7 @@ export function BookingComponent({data}){
     }
 
     const fetchprofile = async (id) => {
-        await axios.get(`http://127.0.0.1:8000/api/accounts/list/`).then((res) => {
+        await axios.get(`${ URL }/api/accounts/list/`).then((res) => {
           console.log(id)
           const data = res.data.find(item => item.id === id);
           if (data) {
@@ -662,7 +662,7 @@ export function MyBookings(){
     };
 
     const fetchbookings =async()=>{
-        await axios.get("http://127.0.0.1:8000/api/bookings/list/").then((res)=>{
+        await axios.get(`${ URL }/api/bookings/list/`).then((res)=>{
             console.log(res.data)
             const data=res.data.filter((item)=>{
                 if(item.user == Number(auth.user.id)){

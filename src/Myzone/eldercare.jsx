@@ -6,6 +6,7 @@ import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { URL } from "../../global";
 
 export function Timings(prop){
     const initialvalue={from:"",to:""}
@@ -260,7 +261,7 @@ export default function Eldercare(prop){
     }
 
     const getdata=async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 return item.user==Number(auth.user.id)
             })
@@ -315,7 +316,7 @@ export default function Eldercare(prop){
     const navigate = useNavigate()
 
     const patchapplication=async()=>{
-        await axios.patch(`http://127.0.0.1:8000/api/app/application/patch/`,
+        await axios.patch(`${ URL }/api/app/application/patch/`,
                 {
                     
                     domains:JSON.stringify([
@@ -356,7 +357,7 @@ export default function Eldercare(prop){
     }
 
     const navigation=async()=>{
-        await axios.get(`http://127.0.0.1:8000/api/app/list/`).then((res)=>{
+        await axios.get(`${ URL }/api/app/list/`).then((res)=>{
             const newdata=res.data.filter((item)=>{
                 return item.user==Number(auth.user.id)
             })

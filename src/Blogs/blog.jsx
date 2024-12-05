@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
+import { URL } from "../../global"; 
 
 export default function Blog() {
     let {id}=useParams()
@@ -9,7 +10,7 @@ export default function Blog() {
     const [similarBlogs, setSimilarBlogs] = useState([]);
 
     const fetchBlogs = () => {
-        axios.get("http://127.0.0.1:8000/api/blogs/list/").then((res) => {
+        axios.get(`${ URL }/api/blogs/list/`).then((res) => {
               const data=res.data.filter((item)=>{
               id=Number(id)
               if(item.id == id){
@@ -61,7 +62,7 @@ export default function Blog() {
               </div>
         
                 <img
-                    src={`http://127.0.0.1:8000${blog.image}`}
+                    src={`${ URL }${blog.image}`}
                     alt="Blog Post"
                     className="rounded-3xl shadow-lg"
                     style={{ height: "500px", width: "1000px", objectFit: "cover" }}
@@ -97,7 +98,7 @@ export default function Blog() {
                       <Link key={blog.id} to={`/blogs/post/${blog.id}`}>
                         <div className="bg-white rounded-lg shadow-md p-4">
                             <img
-                                src={`http://127.0.0.1:8000${blog.image}`}
+                                src={`${ URL }${blog.image}`}
                                 alt={blog.title}
                                 className="rounded-t-lg"
                                 style={{ height: "150px", width: "100%", objectFit: "cover" }}

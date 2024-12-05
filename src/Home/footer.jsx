@@ -1,4 +1,6 @@
 import "./footer.css"
+import { URL } from "../../global"
+
 export default function Footer(prop){
     return(
         <>

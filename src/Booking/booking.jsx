@@ -9,6 +9,7 @@ import axios from "axios";
 import useAuthContext from "../AuthLogic/useAuthContext";
 import "./booking.css"
 import { Link } from "react-router-dom";
+import { URL } from "../../global";
 
 
 
@@ -86,7 +87,7 @@ export default function Booking(){
     const [bookings,setbookings]=useState([])
 
     const fetchbookings=async()=>{
-        await axios.get('http://127.0.0.1:8000/api/bookings/manylist/').then((res)=>{
+        await axios.get(`${ URL }/api/bookings/manylist/`).then((res)=>{
             console.log(res.data)
             const data=res.data.filter((item)=>{            
                 if(item.domain_name == type && item.profile == id){
